@@ -57,6 +57,7 @@ a{
     color: var(--text);
     text-decoration: none;
     font-size: 1.1rem;
+    font-weight: 500;
     cursor: pointer;
 }
 
@@ -175,7 +176,7 @@ a{
 .text-container > h1{
     font-size: 3rem;
     font-weight: 400;
-    color: grey;
+    color: var(--light-text);
     font-family: 'Josefin Sans', sans-serif;
     
 }
@@ -192,7 +193,7 @@ a{
     font-size: 4rem;
     font-family: 'Josefin Sans';
     /* font-family: 'Montserrat', sans-serif; */
-    color: rgb(175, 175, 175);
+    color: rgb(211, 211, 211);
 }
 
 .text-container > h4{
@@ -745,31 +746,36 @@ footer >.container {
 
 .action-btn {
     margin-top: 1rem;
+    
     display: flex;
 
 
 }
 
 .btn {
-    font-size: 1.2rem;
-    margin:.5rem;
+    font-size: 1.5rem;
+    margin:1rem;
     margin-left: 0;
     padding: .3rem .8rem .3rem .8rem;
     border: .1rem solid white;
     border-radius: .3rem;
     cursor: pointer;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
     transition: .3s ease;
 
     
 }
 
+.footer-btn {
+    margin-left: 1rem;
+
+}
 
 
 #talk-btn {
     border: none;
     background: linear-gradient(90deg, #1e95d5,#81c1e3c2);
-    padding: .5rem 1rem .5rem 1rem;
+    padding: .4rem 1rem;
     /* transition: s ease; */
     /* padding: .4rem; */
 }
