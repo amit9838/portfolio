@@ -2,15 +2,15 @@ const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
 hamburger.addEventListener("click", () => {
-    console.log("clicked!")
+    // console.log("clicked!")
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 })
 
-// document.querySelector(".nav-link").forEach(n => n.addEventListener("click", () => {
-//     hamburger.classList.toggle("active");
-//     navMenu.classList.toggle("active");
-// }))
+document.querySelector(".nav-link").forEach(n => n.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+}))
 
 
 window.scroll ({
@@ -93,6 +93,15 @@ function toContacts() {
         })
     }
 }
+
+let msgForm = document.querySelector("#msg-form")
+function submitForm() {
+    let name = document.getElementById("name").value
+    let email = document.getElementById("email").value
+    let message = document.getElementById("message").value
+    // let subject = name;
+}
+
 
 window.addEventListener('scroll', scrollPos);
 function scrollPos() {

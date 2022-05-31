@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Portfolio</title>
     <link rel="stylesheet" href="style.css">
@@ -49,7 +50,9 @@
             <h2> <span>I'm</span> Amit Chaudhary</h2>
             <h4>Computer Software Engineer</h4>
             <div class="action-btn">
-                <div class="btn" id="resume-btn">Resume</div>
+                <a href="resume.pdf">
+                    <div class="btn" id="resume-btn">Resume</div>
+                </a>
                 <a href="mailto:amitchaudhary0539@gmail.com">
                     <div class="btn" id="talk-btn">Let's Talk</div>
                 </a>
@@ -127,7 +130,7 @@
                     <a href="https://github.com/amit9838/">
                         <div class="p-action">
                             <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                VIEW PROJECT <i class="fa-solid fa-play"></i>
                             </span>
                         </div>
                     </a>
@@ -165,7 +168,7 @@
                     <a href="https://github.com/amit9838/Music-Player">
                         <div class="p-action">
                             <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                VIEW PROJECT <i class="fa-solid fa-play"></i>
                             </span>
                         </div>
                     </a>
@@ -264,7 +267,7 @@
                     <a href="https://github.com/amit9838/Game-Race_in">
                         <div class="p-action">
                             <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                VIEW PROJECT <i class="fa-solid fa-play"></i>
                             </span>
                         </div>
                     </a>
@@ -298,7 +301,7 @@
                         <li>Smooth animations</li>
                         <li>Beautiful design</li>
                     </ul>
-                    <a href="#">
+                    <a href="" onclick="toHome()">
                         <div class="p-action">
                             <span>
                                 VISIT WEBSITE <i class="fa-solid fa-play"></i>
@@ -315,8 +318,8 @@
 
 <!-- Projects Mob ------------------------------------------------------------------------------------>
 
-        <!-- Project-1  -- Blog Website -->  
-        <div class="project-mob">
+         <!-- Project-1  -- Blog Website -->  
+         <div class="project-mob">
             <div class="p-left">
                 <div class="p-img-container" id="blog-website">
                     
@@ -372,10 +375,10 @@
                         <li>Search expanses</li>
                         <li>Export expanses in csv</li>
                     </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
+                    <a href="https://github.com/amit9838/">
                         <div class="p-action">
                             <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                VIEW PROJECT <i class="fa-solid fa-play"></i>
                             </span>
                         </div>
                     </a>
@@ -406,10 +409,10 @@
                         <li>Seek audio</li>
                         <li>Smooth animations</li>
                     </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
+                    <a href="https://github.com/amit9838/Music-Player">
                         <div class="p-action">
                             <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                VIEW PROJECT <i class="fa-solid fa-play"></i>
                             </span>
                         </div>
                     </a>
@@ -431,18 +434,17 @@
                 <div class="p-text-container">
                     <h1>Marca Notes</h1>
                     <p>
-                        A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for proper
-                        analysis. It isdeveloped using HTML, CSS, Bootstrap, JavaScript,  Django and Postgresl. Implemented RestAPI and authosisation at various levels. 
+                        Text notes sharing platform where where user can share notes in private room or make it public(default).
+                        It is developed using django, SQLite3, HTML, CSS, Bootstrap. 
                     </p>
                     <h4>Features</h4>
                     <ul type="bullet">
-                        <li>Add, edit, delete expanse</li>
-                        <li>Add, edit, delete income</li>
-                        <li>Analyse expanse with charts</li>
-                        <li>Search expanses</li>
-                        <li>Export expanses in csv</li>
+                        <li>Add, edit, delete notes</li>
+                        <li>download notes in different formats</li>
+                        <li>Copy note to clipboard</li>
+                        <li>Search note</li>
                     </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
+                    <a href="http://marca-todo.herokuapp.com/">
                         <div class="p-action">
                             <span>
                                 VISIT WEBSITE <i class="fa-solid fa-play"></i>
@@ -467,16 +469,16 @@
                 <div class="p-text-container">
                     <h1>Pollster</h1>
                     <p>
-                        Designed and developed Music Player using HTML,
-                        CSS and JavaScript
+                        A polling website where user can vote on available posts. Implemented chart for better viewing of results.
+                        It is developed using django, SQLite3, HTML, CSS, Bootstrap. 
                     </p>
                     <h4>Features</h4>
                     <ul type="bullet">
-                        <li>Set timer</li>
-                        <li>Seek audio</li>
-                        <li>Smooth animations</li>
+                        <li>Simple and easy to use</li>
+                        <li>Multiple polls can be hosted</li>
+                        <li>Results are plotted on chart</li>
                     </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
+                    <a href="http://marca-pollster.herokuapp.com/">
                         <div class="p-action">
                             <span>
                                 VISIT WEBSITE <i class="fa-solid fa-play"></i>
@@ -501,21 +503,19 @@
                 <div class="p-text-container">
                     <h1>Race In</h1>
                     <p>
-                        A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for proper
-                        analysis. It isdeveloped using HTML, CSS, Bootstrap, JavaScript,  Django and Postgresl. Implemented RestAPI and authosisation at various levels. 
+                        Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in blender, and also used few asset packs from 
+                        unity store, I used C#(basic) as part of script. 
                     </p>
                     <h4>Features</h4>
                     <ul type="bullet">
-                        <li>Add, edit, delete expanse</li>
-                        <li>Add, edit, delete income</li>
-                        <li>Analyse expanse with charts</li>
-                        <li>Search expanses</li>
-                        <li>Export expanses in csv</li>
+                        <li>3D</li>
+                        <li>Openworld gmae</li>
+                        <li>Two maps to choose from</li>
                     </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
+                    <a href="https://github.com/amit9838/Game-Race_in">
                         <div class="p-action">
                             <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                VIEW PROJECT <i class="fa-solid fa-play"></i>
                             </span>
                         </div>
                     </a>
@@ -537,16 +537,15 @@
                 <div class="p-text-container">
                     <h1>Portfolio</h1>
                     <p>
-                        Designed and developed Music Player using HTML,
-                        CSS and JavaScript
+                        Designed and developed this portfolio, in this project i've used HTML, CSS and JavaScript.
+
                     </p>
                     <h4>Features</h4>
                     <ul type="bullet">
-                        <li>Set timer</li>
-                        <li>Seek audio</li>
                         <li>Smooth animations</li>
+                        <li>Beautiful design</li>
                     </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
+                    <a href="" onclick="toHome()">
                         <div class="p-action">
                             <span>
                                 VISIT WEBSITE <i class="fa-solid fa-play"></i>
@@ -557,6 +556,7 @@
                 
             </div>
         </div>
+
 
 
 
@@ -650,6 +650,7 @@
         <h1>Send a message</h1>
     </div>
 
+    <form action="" id="msg-form">
     <div class="form-container">
         <div class="name-email" >
             <div class="input-field">
@@ -670,12 +671,13 @@
         <textarea id="message" name="message" rows="10" name="message">
         </textarea>
     </div>
-    <div class="action-btn">
+    <div class="action-btn" onclick="submitForm()">
         <a >
             <div class="btn" id="talk-btn">Send <i class="fa-solid fa-paper-plane"></i></div>
         </a>
     </div>
     </div>
+</form>
 </div>
 
 
@@ -694,7 +696,9 @@
             <a class="social-link" href="mailto:amitchaudhary0539@gmail.com"><i class="fa-brands fa-instagram"></i></a>
         </div>
         <div class="action-btn">
-            <div class="btn" id="resume-btn">Resume</div>
+            <a href="resume.pdf">
+                <div class="btn" id="resume-btn">Resume</div>
+            </a>
             <a href="mailto:amitchaudhary0539@gmail.com">
                 <div class="btn" id="talk-btn">Let's Talk</div>
             </a>
