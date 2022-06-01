@@ -414,10 +414,14 @@ a{
     margin-top: 1.5rem;
     bottom: 0;
     /* left: 0; */
-    width: 12rem;
+    width: 10rem;
     height: 2rem;
     padding: .4rem .5rem;
     background-color: var(--secondary);
+    /* color: linear-gradient(90deg, #1e95d5,#81c1e3c2); */
+
+    /* color: var(--accent); */
+    /* color: #1e95d5; */
     /* background-color: #6883a5; */
     display: flex;
     justify-content: center;
@@ -523,6 +527,8 @@ a{
     font-size: 1.2rem;
     font-weight: 500;
     /* color: var(--accent); */
+    /* color: #1e95d5; */
+
 }
 
 .title {
@@ -565,11 +571,14 @@ a{
 .skill-item{
     margin: .3rem .5rem;
     background-color: var(--background);
-    padding: .5rem 1rem;
-    font-size: 2rem;
+    padding: .4rem 1rem;
+    font-size: 1.8rem;
     border-radius: .4rem;
     font-weight: 500;
-    font-family:Arial, Helvetica, sans-serif;
+    /* font-family:Arial, Helvetica, sans-serif; */
+    font-family: 'Josefin Sans', sans-serif;
+    font-family: monospace;
+    color: var(--text);
 }
 
 .experience-item::after {
@@ -716,6 +725,8 @@ footer {
 footer >.container > h1 {
     font-weight: 400;
     margin-bottom: .5rem;
+    /* font-family: 'Josefin Sans', sans-serif; */
+    /* font-family: 'Montserrat', sans-serif; */
 }
 
 
@@ -753,10 +764,11 @@ footer >.container {
 }
 
 .btn {
-    font-size: 1.5rem;
+    font-weight: 600;
+    font-size: 1.2rem;
     margin:1rem;
     margin-left: 0;
-    padding: .3rem .8rem .3rem .8rem;
+    padding: .5rem 1rem;
     border: .1rem solid white;
     border-radius: .3rem;
     cursor: pointer;
@@ -768,14 +780,18 @@ footer >.container {
 
 .footer-btn {
     margin-left: 1rem;
-
+    
 }
 
 
 #talk-btn {
+    font-weight: 600;
     border: none;
     background: linear-gradient(90deg, #1e95d5,#81c1e3c2);
-    padding: .4rem 1rem;
+    /* padding: .4rem 1rem; */
+    padding: .6rem 1rem;
+    color: var(--background);
+
     /* transition: s ease; */
     /* padding: .4rem; */
 }
