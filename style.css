@@ -7,8 +7,10 @@
 :root {
     --background:#232931;
     --background-light:#2329317c;
-    --secondary:#393E46;
+    /* --secondary:#393E46; */
+    --secondary:#393e4682;
     --secondary-light:#393e4682;
+    /* --secondary-light:#393e463b; */
     --text:#EEEEEE;
     --light-text:#bbb;
     --accent: #4ECCA3;
@@ -66,7 +68,7 @@ a{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 24px;
+    padding: 0 .5rem;
     width: 80vw;
 }
 
@@ -124,31 +126,52 @@ a{
     .hamburger.active .bar:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
     }
+
+    .navbar {
+        width: 90vw;
+    }
+
     .nav-menu {
         /* z-index: 111; */
+        border-radius: 1rem;
         position: fixed;
         right: -100%;
         top: 15vh;
+        /* height: 100vh; */
+        opacity: 0;
         padding: 5rem 0 5rem 0;
-        gap: 20px;
+        gap: 2rem;
         flex-direction: column;
-        background-color:var(--background);
-        /* background-image: radial-gradient(#111727,#ffffff00); */
-        backdrop-filter: blur(.1rem);
+        background-color:#121b27c4;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
         width: 100%;
         text-align: center;
         transition: .3s;
     }
-
+    
     .nav-items {
         margin: 16px 0;
     }
     .nav-menu.active {
         right: 0;
+        opacity: 1;
     }
 
+    .nav-menu > .nav-item >.nav-link{
+        opacity: 0;
+        transform: translateX(10rem);
+        transition-delay: .3s;
+    }
+    
+    .nav-menu.active >.nav-item >.nav-link{
+        
+        transform: translateX(0rem);
+        opacity: 1;
+    }
     .nav-link {
         font-size: 2rem;
+        /* color: #1e95d5; */
     }
 } 
 
@@ -198,7 +221,7 @@ a{
 
 .text-container > h4{
     margin-top: .5rem;
-    font-weight:lighter;
+    font-weight:300;
     font-size: 1.5rem;
     /* font-family: 'Josefin Sans', sans-serif; */
     font-family:Arial, Helvetica, sans-serif;
@@ -453,7 +476,7 @@ a{
 
 
 .main-container{
-        margin: 0 5vw 0 5vw;
+        margin: 0 3vw 0 3vw;
         }
     .project {
         display: none;

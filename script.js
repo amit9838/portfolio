@@ -7,7 +7,12 @@ hamburger.addEventListener("click", () => {
     navMenu.classList.toggle("active");
 })
 
-document.querySelector(".nav-link").forEach(n => n.addEventListener("click", () => {
+let menuLinks = document.getElementsByClassName("nav-link");
+let arr;
+arr = Array.from(menuLinks);
+// console.log(arr);
+
+arr.forEach(n => n.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 }))
