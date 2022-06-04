@@ -476,7 +476,7 @@ a{
 
 
 .main-container{
-        margin: 0 3vw 0 3vw;
+        margin: 0 5vw 0 5vw;
         }
     .project {
         display: none;
@@ -491,6 +491,14 @@ a{
         background-color: var(--secondary);
         margin-bottom: 2rem;
         border-radius: 1rem;
+    }
+
+    .p-img-container{
+        margin: 1rem 1rem 0 1rem;
+        width: 30rem;
+        height: 15rem;
+        border-radius: 1rem;
+        border-radius: .5rem;
     }
 
     .p-text-container {
