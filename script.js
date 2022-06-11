@@ -99,14 +99,55 @@ function toContacts() {
     }
 }
 
+
+
+
 let msgForm = document.querySelector("#msg-form")
 function submitForm() {
-    let name = document.getElementById("name").value
-    let email = document.getElementById("email").value
-    let message = document.getElementById("message").value
+    let newName = document.getElementById("name")
+    let newEmail = document.getElementById("email")
+    let newMessage = document.getElementById("message")
+    let send_msg_btn = document.getElementById("send_msg_btn")
+    send_msg_btn.disabled = true;
+    
+    // console.log(name);
     // let subject = name;
+    if(newName.value>0 && newEmail.value>0 && newMessage.value>0){
+        const data = {source:'portfolio',  name: newName.value, email : newEmail.value, message:newMessage.value};
+        newName.value = "";
+        newEmail.value = "";
+        newMessage.value = "";
+        setTimeout(()=>{
+            sendMsg(data);
+            send_msg_btn.disabled = false;
+        },3000);        
+    }
+    
+    else{
+        console.log("All Fields are required!");
+    }
+
+
 }
 
+
+function sendMsg(data) {
+    fetch('https://marca-msgapi.herokuapp.com/messages', {
+        method: 'POST', // or 'PUT'
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', "Message sent successfully");
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+      
+}
 
 window.addEventListener('scroll', scrollPos);
 function scrollPos() {

@@ -671,7 +671,7 @@ a{
 /* message ************************/
 
 .message-container{
-    display: none;
+    display: block;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -680,11 +680,19 @@ a{
 
 .message-container > .section-title{
     /* display: flex; */
-    align-self: start;
+    /* align-self: start; */
 }
 
+#msg-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 .name-email{
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -696,14 +704,15 @@ a{
 
 .input-field > label{
     font-weight: 500;
-    font-size: 1.3rem;
+    font-size: 1.2rem;
     
 }
 
 
 .input-field > input{
-    color: var(--text);
+    color: var(--light-text);
     height: 2rem;
+    padding: 0 .5rem;
     font-size: 1.2rem;
     margin-top: .5rem;
     width: 20rem;
@@ -718,6 +727,7 @@ a{
     color: var(--text);
     font-size: 1.2rem;
     margin-top: .5rem;
+    padding: .5rem .5rem;
     border: none;
     border-radius: .2rem;
     background-color: var(--secondary-light);
