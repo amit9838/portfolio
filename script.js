@@ -128,11 +128,11 @@ send_msg_btn.addEventListener('click', function(e) {
     }        
 
     if(newEmail.value.length==0){
-        newName.focus();
+        newEmail.focus();
     }
 
     if(newMessage.value.length==0){
-        newName.focus();
+        newMessage.focus();
     }
 
     if(newName.value.length>0 && newEmail.value.length>0 && newMessage.value.length>0){
