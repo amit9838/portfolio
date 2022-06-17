@@ -857,6 +857,7 @@ a{
     align-items: center;
     font-weight: 400;
     font-size: 1.1rem;
+    transition: .3s ease;
     /* background-color: #4ECCA3; */
 }
 
