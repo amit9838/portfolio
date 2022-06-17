@@ -28,6 +28,57 @@ body{
     color: var(--text);
 }
 
+
+
+.action-btn {
+    margin-top: 1rem;
+    
+    display: flex;
+
+
+}
+
+.btn {
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin:1rem;
+    margin-left: 0;
+    padding: .5rem 1rem;
+    border: .1rem solid white;
+    border-radius: .3rem;
+    cursor: pointer;
+    /* margin-right: 2rem; */
+    transition: .3s ease;
+
+    
+}
+
+.footer-btn {
+    margin-left: 1rem;
+    
+}
+
+
+#talk-btn {
+    font-weight: 600;
+    border: none;
+    background: linear-gradient(90deg, #1e95d5,#81c1e3c2);
+    /* padding: .4rem 1rem; */
+    padding: .6rem 1rem;
+    color: var(--background);
+}
+
+#resume-btn:hover {
+    background-color: white;
+    color: #111727;
+}
+
+#talk-btn:hover {
+    /* background: linear-gradient(90deg, #6dcbfd,#ffffffc2); */
+    background-color:#fffffff1 ;  
+}
+
+
 /* Navbar */
 header {
     background: linear-gradient(#111727,#11172791,#00000000);
@@ -735,6 +786,94 @@ a{
 }
 
 
+#send-msg-btn {
+    /* visibility: hidden; */
+    position: relative;
+    font-weight: 600;
+    border: none;
+    background: linear-gradient(90deg, #1e95d5,#81c1e3c2);
+    /* padding: .4rem 1rem; */
+    padding: .6rem 1rem;
+}
+
+#send-msg-btn > span{
+    color: var(--background);
+    /* transition: .3s all; */
+}
+
+#send-msg-btn > span > i{
+    /* transition: .3s all; */
+}
+
+#send-msg-btn {
+   /* transition: .3s all; */
+}
+
+.btn-loading .btn-text{
+    visibility: hidden;
+    /* display: none; */
+}
+
+.btn-loading::after{
+    content: "";
+    position: absolute;
+    /* background-color: red; */
+    height: 1.3rem;
+    width: 1.3rem;
+    border: .4rem solid transparent; 
+    border-top-color:var(--background);
+    border-right-color:var(--background);
+    border-radius: 50%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    animation: button-loading-spinner 1s ease infinite;
+}
+
+@keyframes button-loading-spinner {
+    form {
+        transform: rotate(0turn);
+    }
+    to {
+        
+        transform: rotate(1turn);
+    }
+}
+
+
+.btn-sent .btn-text{
+    visibility: hidden;
+    /* display: none; */
+}
+
+
+.msg-sent-alert {
+    visibility: hidden;
+    display: flex;
+    justify-content: center;
+    color: var(--light-text);
+    align-items: center;
+    font-weight: 400;
+    font-size: 1.1rem;
+    /* background-color: #4ECCA3; */
+}
+
+
+
+#send-msg-btn:hover {
+    /* background: linear-gradient(90deg, #6dcbfd,#ffffffc2); */
+    background-color:#fffffff1 ;  
+}
+
+#send-msg-btn:hover span > i {
+    /* background: linear-gradient(90deg, #6dcbfd,#ffffffc2); */
+    /* transform: translate(.1rem , -.1rem); */
+    /* color: ; */
+}
+
+
 
 @media(max-width:480px){
     .name-email{
@@ -795,54 +934,3 @@ footer >.container {
     
 }
 
-
-.action-btn {
-    margin-top: 1rem;
-    
-    display: flex;
-
-
-}
-
-.btn {
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin:1rem;
-    margin-left: 0;
-    padding: .5rem 1rem;
-    border: .1rem solid white;
-    border-radius: .3rem;
-    cursor: pointer;
-    /* margin-right: 2rem; */
-    transition: .3s ease;
-
-    
-}
-
-.footer-btn {
-    margin-left: 1rem;
-    
-}
-
-
-#talk-btn {
-    font-weight: 600;
-    border: none;
-    background: linear-gradient(90deg, #1e95d5,#81c1e3c2);
-    /* padding: .4rem 1rem; */
-    padding: .6rem 1rem;
-    color: var(--background);
-
-    /* transition: s ease; */
-    /* padding: .4rem; */
-}
-
-#resume-btn:hover {
-    background-color: white;
-    color: #111727;
-}
-
-#talk-btn:hover {
-    /* background: linear-gradient(90deg, #6dcbfd,#ffffffc2); */
-    background-color:#fffffff1 ;  
-}

@@ -658,25 +658,26 @@
             <div class="input-field">
                 <label for="name">Name</label>
                 <br>
-                <input type="text"id="name" name="name">
+                <input type="text"id="name" name="name" required="">
             </div>
             
             <div class="input-field">
                 <label for="name" >Email</label>
             <br>
-            <input type="email" id="email" name="email">
+            <input type="email" id="email" name="email" required="">
         </div>
     </div>
     <div class="input-field">
         <label for="message">Message</label>
         <br>
-        <textarea id="message" name="message" rows="10" name="message">
+        <textarea id="message" name="message" rows="10" name="message" required="">
         </textarea>
     </div>
-    <div class="action-btn" id="send_msg_btn"  onclick="submitForm()" >
+    <div class="action-btn" id="send_msg_btn" >
         <a>
-            <div class="btn" id="talk-btn">Send <i class="fa-solid fa-paper-plane"></i></div>
+            <div class="btn" id="send-msg-btn"><span class="btn-text">Send  <i class="fa-solid fa-paper-plane"></i></span></div>
         </a>
+        <div class="msg-sent-alert" id="msg-sent-alert"><span>Message Sent!</span></div>
     </div>
     </div>
 </form>

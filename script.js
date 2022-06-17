@@ -49,7 +49,7 @@ function toExperience() {
 
     if(screen.width<480) {
         window.scroll({
-            top:6800,
+            top:6400,
             behavior:"smooth"
         })
     }
@@ -68,7 +68,7 @@ function toSkills() {
 
     if(screen.width<480) {
         window.scroll({
-            top:6300,
+            top:5900,
             behavior:"smooth"
         })
     }
@@ -100,35 +100,88 @@ function toContacts() {
 }
 
 
+let send_msg_btn = document.getElementById("send-msg-btn")
 
+let active = true;
+send_msg_btn.addEventListener('click', function() {
 
-let msgForm = document.querySelector("#msg-form")
-function submitForm() {
     let newName = document.getElementById("name")
     let newEmail = document.getElementById("email")
     let newMessage = document.getElementById("message")
-    let send_msg_btn = document.getElementById("send_msg_btn")
-    send_msg_btn.disabled = true;
+    // send_msg_btn.disabled = true;
     
     // console.log(name);
     // let subject = name;
-    if(newName.value>0 && newEmail.value>0 && newMessage.value>0){
+    // console.log(newName.value+" "+newEmail.value+ " "+newMessage.value)
+    if(newName.value.length==0){
+        newName.focus();
+    }        
+
+    if(newEmail.value.length==0){
+        newName.focus();
+        
+    }
+
+    if(newMessage.value.length==0){
+        newName.focus();
+        
+    }
+
+
+
+    if(newName.value.length>0 && newEmail.value.length>0 && newMessage.value.length>0){
         const data = {source:'portfolio',  name: newName.value, email : newEmail.value, message:newMessage.value};
-        newName.value = "";
-        newEmail.value = "";
-        newMessage.value = "";
+
+        
+        if(active){
+            // submitForm();
+            
+            sendMsg(data);     
+            // console.log("sending message")
+            active = false;
+            send_msg_btn.classList.toggle("btn-loading")
+            // console.log("Link Deactivated")
+        }
+        else {
+            // console.log("Waiting to send message.")
+        }
+        
+        let sent_alert = document.getElementById("msg-sent-alert")
+
+
+        
         setTimeout(()=>{
-            sendMsg(data);
-            send_msg_btn.disabled = false;
-        },3000);        
+                newName.value = "";
+                newEmail.value = "";
+                newMessage.value = "";
+            
+            active = true;
+            send_msg_btn.classList.toggle("btn-loading")
+            sent_alert.style.visibility = "visible";
+            // console.log("Link active")
+
+            setTimeout(()=>{
+                sent_alert.style.visibility = "hidden";
+            },3000);
+
+        },4000);
+
+
     }
     
     else{
         console.log("All Fields are required!");
     }
+    
+})
+
+let msgForm = document.querySelector("#msg-form")
 
 
-}
+// function submitForm() {
+
+
+// }
 
 
 function sendMsg(data) {
@@ -151,7 +204,7 @@ function sendMsg(data) {
 
 window.addEventListener('scroll', scrollPos);
 function scrollPos() {
-    // console.log(this.scrollY);
+    console.log(this.scrollY);
 }
 
 // console.log(screen.width);
