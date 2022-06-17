@@ -120,8 +120,8 @@ let newMessage = document.getElementById("message")
 let active = true;
 
 // Handling On click event to send message *******************************************
-send_msg_btn.addEventListener('click', function(e) {
-    e.preventDefault();
+send_msg_btn.addEventListener('click', function() {
+    // e.preventDefault();
     // console.log(newName.value+" "+newEmail.value+ " "+newMessage.value)
     if(newName.value.length==0){
         newName.focus();
