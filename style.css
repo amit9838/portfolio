@@ -654,11 +654,11 @@ a{
     margin: .3rem .5rem;
     color: var(--text);
     background-color: var(--background);
-/* 
+
     color: #ff3d7f;
     background-color: #49393c;
 
-    color: #FF7600;
+    color: #dd7b25;
     background-color: #4e3c2e;
 
     color: #4fc0e8;
@@ -685,15 +685,18 @@ a{
 
 
     color: #e0a1ff;
-    background-color: #403348;
+    background-color: #413548;
 
     color: #D8F8B7;
-    background-color: #4a5342; */
+    background-color: #4a5342;
+
+    color: #4dd734;
+    background-color: #354432;
 
     padding: .4rem 1rem;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     border-radius: .4rem;
-    font-weight: 500;
+    font-weight: 600;
     /* font-family:Arial, Helvetica, sans-serif; */
     /* font-family: 'Josefin Sans', sans-serif; */
     /* font-family: 'Montserrat', sans-serif; */

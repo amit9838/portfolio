@@ -200,7 +200,14 @@ function scrollPos() {
 
 let tags = document.getElementsByClassName("skill-item");
 
-let tag_col = [{col:"#ff3d7f", bg:"#49393c"}, {col:"#4fc0e8", bg:"#374456"}, {col:"#96BB7C", bg:"#384032"}, {col:"#FF7600", bg:"#4e3c2e"},{col:"#e0a1ff", bg:"#403348"}, {col:"#FFD371", bg:"#484338"}, {col:"#D8F8B7", bg:"#4a5342"}, {col:"#37E2D5", bg:"#314644"}];
+let tag_col = [{col:"#ff3d7f", bg:"#49393c"},
+                {col:"#4fc0e8", bg:"#374456"},
+                {col:"#4dd734", bg:"#354432"},
+                {col:"#FF7600", bg:"#4e3c2e"},
+                {col:"#e0a1ff", bg:"#413548"},
+                {col:"#FFD371", bg:"#484338"},
+                {col:"#D8F8B7", bg:"#4a5342"},
+                {col:"#37E2D5", bg:"#314644"}];
 let tags_arr = Array.from(tags);
 let cnt=0;
 tags_arr.forEach(function(n){
