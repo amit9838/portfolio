@@ -127,11 +127,11 @@ send_msg_btn.addEventListener('click', function() {
         newName.focus();
     }        
 
-    if(newEmail.value.length==0){
+    else if(newEmail.value.length==0){
         newEmail.focus();
     }
 
-    if(newMessage.value.length==0){
+    else if(newMessage.value.length==0){
         newMessage.focus();
     }
 
