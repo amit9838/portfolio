@@ -10,10 +10,10 @@ hamburger.addEventListener("click", () => {
 })
 
 let menuLinks = document.getElementsByClassName("nav-link");
-let arr;
-arr = Array.from(menuLinks);
+let menu_links;
+menu_links = Array.from(menuLinks);
 
-arr.forEach(n => n.addEventListener("click", () => {
+menu_links.forEach(n => n.addEventListener("click", () => {
     hamburger.classList.toggle("active");
     navMenu.classList.toggle("active");
 }))
@@ -159,7 +159,7 @@ let msgForm = document.querySelector("#msg-form")
 
 // Sending Message Asyncronously ****************************************
 function sendMsg(data) {
-    fetch('https://marca-msgapi.herokuapp.com/messages', {
+    fetch('http://127.0.0.1:8000/messages', {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
@@ -168,9 +168,7 @@ function sendMsg(data) {
       })
       .then(response => response.json())
       .then(data => {
-        
         // console.log('Success:', "Message sent successfully");
-
         setTimeout(()=>{
             newName.value = "";
             newEmail.value = "";
@@ -180,23 +178,17 @@ function sendMsg(data) {
         send_msg_btn.classList.toggle("btn-loading")
         msgAlert("Message Sent!")
         // console.log("Link active")
-
         },3000);
       })
       .catch((error) => {
         // console.error('Error:', error);
-        
         setTimeout(()=>{
-        
         active = true;
         send_msg_btn.classList.toggle("btn-loading")
         msgAlert("Message not sent! Try again.");
         // console.log("Link active")
-
         },3000);
-
       });
-      
 }
 
 // window.addEventListener('scroll', scrollPos);
@@ -205,3 +197,15 @@ function scrollPos() {
 }
 
 // console.log(screen.width);
+
+let tags = document.getElementsByClassName("skill-item");
+
+let tag_col = [{col:"#ff3d7f", bg:"#49393c"}, {col:"#4fc0e8", bg:"#374456"}, {col:"#96BB7C", bg:"#384032"}, {col:"#FF7600", bg:"#4e3c2e"},{col:"#e0a1ff", bg:"#403348"}, {col:"#FFD371", bg:"#484338"}, {col:"#D8F8B7", bg:"#4a5342"}, {col:"#37E2D5", bg:"#314644"}];
+let tags_arr = Array.from(tags);
+let cnt=0;
+tags_arr.forEach(function(n){
+    let random_idx = cnt%tag_col.length;
+    cnt+=1;
+    n.style.color = tag_col[random_idx].col;
+    n.style.background = tag_col[random_idx].bg;
+})

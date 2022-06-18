@@ -491,9 +491,9 @@ a{
     width: 10rem;
     height: 2rem;
     padding: .4rem .5rem;
-    background-color: var(--secondary);
+    /* background-color: var(--secondary); */
     /* color: linear-gradient(90deg, #1e95d5,#81c1e3c2); */
-
+    border:.1rem solid var(--light-text);
     /* color: var(--accent); */
     /* color: #1e95d5; */
     /* background-color: #6883a5; */
@@ -601,8 +601,12 @@ a{
 }
 
 
+
+
 .tag {
-    background-color: var(--background-light);
+    color: var(--accent);
+    background-color: #2f3d38;
+
     padding: .2rem .8rem;
     border-radius: .3rem;
     margin: 0rem .3rem 0 0;
@@ -652,15 +656,52 @@ a{
 
 .skill-item{
     margin: .3rem .5rem;
+    color: var(--text);
     background-color: var(--background);
+/* 
+    color: #ff3d7f;
+    background-color: #49393c;
+
+    color: #FF7600;
+    background-color: #4e3c2e;
+
+    color: #4fc0e8;
+    background-color: #2d3c41;
+
+    color: #ff8dc4;
+    background-color: #54414b;
+
+    color: #5d9cec;
+    background-color: #374456;
+
+    color: #37E2D5;
+    background-color: #314644;
+
+    color: #FFD371;
+    background-color: #484338;
+
+
+    color: #96BB7C;
+    background-color: #384032;
+
+    color: #FAD586;
+    background-color: #4a463a;
+
+
+    color: #e0a1ff;
+    background-color: #403348;
+
+    color: #D8F8B7;
+    background-color: #4a5342; */
+
     padding: .4rem 1rem;
     font-size: 1.8rem;
     border-radius: .4rem;
     font-weight: 500;
     /* font-family:Arial, Helvetica, sans-serif; */
-    font-family: 'Josefin Sans', sans-serif;
+    /* font-family: 'Josefin Sans', sans-serif; */
+    /* font-family: 'Montserrat', sans-serif; */
     font-family: monospace;
-    color: var(--text);
 }
 
 .experience-item::after {
@@ -754,8 +795,8 @@ a{
 }
 
 .input-field > label{
-    font-weight: 500;
-    font-size: 1.2rem;
+    font-weight: 300;
+    font-size: 1.1rem;
     
 }
 
@@ -766,7 +807,7 @@ a{
     padding: 0 .5rem;
     font-size: 1.2rem;
     margin-top: .5rem;
-    width: 20rem;
+    min-width: 18rem;
     max-width: 30rem;
     background-color: var(--secondary-light);
     border: none;
@@ -782,7 +823,8 @@ a{
     border: none;
     border-radius: .2rem;
     background-color: var(--secondary-light);
-    width: 50vw;
+    min-width: 40vw;
+    max-width: 95%;
 }
 
 
@@ -932,6 +974,9 @@ footer >.container {
 
 .social-link:hover{
     color: #1e95d5;
+    /* color:#3e2f34; */
     
 }
+
+
 
