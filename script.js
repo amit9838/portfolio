@@ -159,7 +159,7 @@ let msgForm = document.querySelector("#msg-form")
 
 // Sending Message Asyncronously ****************************************
 function sendMsg(data) {
-    fetch('http://127.0.0.1:8000/messages', {
+    fetch('https://marca-msgapi.herokuapp.com/messages', {
         method: 'POST', // or 'PUT'
         headers: {
           'Content-Type': 'application/json',
