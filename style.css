@@ -655,7 +655,7 @@ a{
     color: var(--text);
     background-color: var(--background);
 
-    color: #ff3d7f;
+    /* color: #ff3d7f;
     background-color: #49393c;
 
     color: #dd7b25;
@@ -691,12 +691,12 @@ a{
     background-color: #4a5342;
 
     color: #20d200;
-    background-color: #354432;
+    background-color: #354432; */
 
     padding: .4rem 1rem;
     font-size: 1.6rem;
     border-radius: .4rem;
-    font-weight: 600;
+    font-weight: bold;
     /* font-family:Arial, Helvetica, sans-serif; */
     /* font-family: 'Josefin Sans', sans-serif; */
     /* font-family: 'Montserrat', sans-serif; */
