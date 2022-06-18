@@ -491,9 +491,9 @@ a{
     width: 10rem;
     height: 2rem;
     padding: .4rem .5rem;
-    /* background-color: var(--secondary); */
+    background-color: var(--secondary);
     /* color: linear-gradient(90deg, #1e95d5,#81c1e3c2); */
-    border-top:.05rem solid rgb(60, 60, 60);
+    border-top:.05rem solid rgb(81, 81, 81);
     
     /* color: var(--accent); */
     /* color: #1e95d5; */
