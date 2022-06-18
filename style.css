@@ -493,7 +493,8 @@ a{
     padding: .4rem .5rem;
     /* background-color: var(--secondary); */
     /* color: linear-gradient(90deg, #1e95d5,#81c1e3c2); */
-    border:.1rem solid var(--light-text);
+    border-top:.05rem solid rgb(60, 60, 60);
+    
     /* color: var(--accent); */
     /* color: #1e95d5; */
     /* background-color: #6883a5; */
@@ -515,11 +516,6 @@ a{
     transform: translate(.5rem);
 }
 
-.p-action:hover{
-    box-shadow: .5rem .5rem 1rem solid black;
-    background-color: #41414170;
-
-}
 
 /* Projects mob */
 
