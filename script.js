@@ -20,7 +20,7 @@ menu_links.forEach(n => n.addEventListener("click", () => {
 
 
 
-// Srroll Smoothly *****************************
+// Scroll Smoothly to internal links *****************************
 window.scroll ({
     behavior : "smooth",
 })
@@ -207,7 +207,11 @@ let tag_col = [{col:"#ff3d7f", bg:"#49393c"},
                 {col:"#e0a1ff", bg:"#413548"},
                 {col:"#FFD371", bg:"#484338"},
                 {col:"#D8F8B7", bg:"#4a5342"},
-                {col:"#37E2D5", bg:"#314644"}];
+                {col:"#37E2D5", bg:"#314644"},
+                {col:"#5585FF", bg:"#2f5ac833"},
+                {col:"#8DE826", bg:"#8ee82627"},
+                {col:"#D82E3B", bg:"#be353e39"},
+                ];
 let tags_arr = Array.from(tags);
 let cnt=0;
 tags_arr.forEach(function(n){

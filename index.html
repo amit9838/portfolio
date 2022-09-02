@@ -1,46 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="https://smtpjs.com/v3/smtp.js"></script> -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Portfolio | Amit</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 
-    
+
     <header>
         <nav class="navbar">
             <div href="" class="nav-branding">portfolio.</div>
-                <ul class="nav-menu">
-                    <li class="nav-item">
-                        <div href="#" class="nav-link"  onclick="toHome()" >Home</div>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <div href="" class="nav-link" onclick="toProjects()">Projects</div>
-                    </li>
-                    <li class="nav-item">
-                        <div href="#skills" class="nav-link" onclick="toSkills()">Skills</div>
-                    </li>
-                    
-                    <li class="nav-item">
-                        <div href="#experience" class="nav-link" onclick="toExperience()">Experience</div>
-                    </li>
-                 
-                    <li class="nav-item">
-                        <div href="#contact" class="nav-link" onclick="toContacts()">Contact</div>
-                    </li>
-                </ul>
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <div href="#" class="nav-link" onclick="toHome()">Home</div>
+                </li>
+
+                <li class="nav-item">
+                    <div href="" class="nav-link" onclick="toProjects()">Projects</div>
+                </li>
+                <li class="nav-item">
+                    <div href="#skills" class="nav-link" onclick="toSkills()">Skills</div>
+                </li>
+
+                <li class="nav-item">
+                    <div href="#experience" class="nav-link" onclick="toExperience()">Experience</div>
+                </li>
+
+                <li class="nav-item">
+                    <div href="#contact" class="nav-link" onclick="toContacts()">Contact</div>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </nav>
     </header>
 
@@ -50,16 +54,14 @@
             <h2> <span>I'm</span> Amit Chaudhary</h2>
             <h4>Computer Software Engineer</h4>
             <div class="action-btn">
-                <a href="resume.pdf">
-                    <div class="btn" id="resume-btn">Resume</div>
-                </a>
+
                 <a href="mailto:amitchaudhary0539@gmail.com">
                     <div class="btn" id="talk-btn">Let's Talk</div>
                 </a>
             </div>
         </div>
 
-        <div class="scroll-anim-container"  onclick="toProjects()">
+        <div class="scroll-anim-container" onclick="toProjects()">
             <div class="scroll-anim">
                 <i class="fa-solid fa-chevron-down"></i>
             </div>
@@ -67,649 +69,678 @@
         </div>
     </section>
 
-<div class="main-container">
-    <div class="projects-container" id="projects">
-        <div class="section-title">
-            <h1>Projects</h1>
-        </div>
-
-<!-- Projects PC ---------------------------------------------------------------------------------->
-         <!-- Project-1  -- Blog Website -->  
-        <div class="project">
-            <div class="p-left">
-                <div class="p-img-container" id="blog-website">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Blog Website</h1>
-                    <p>
-                        Designed and developed a blogging website using django, SQLite3, html-css and JavaScript.
-                        Website offers a lot of features and it can work on various screen-sizes. I've also added authorisation at various levels
-                        so that user can edit the posts that belongs to them.
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Create User</li>
-                        <li>Reset passwords</li>
-                        <li>update profile</li>
-                        <li>create, update and delete Post</li>
-                        <li>See posts by user</li>
-                    </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-<!-- Project-2 -- Expanse Website -->
-        <div class="project">
-
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Expanse Website</h1>
-                    <p>
-                        A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for proper
-                        analysis. It isdeveloped using HTML, CSS, Bootstrap, JavaScript,  Django and Postgresl. Implemented RestAPI and authosisation at various levels. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Add, edit, delete expanse</li>
-                        <li>Add, edit, delete income</li>
-                        <li>Analyse expanse with charts</li>
-                        <li>Search expanses</li>
-                        <li>Export expanses in csv</li>
-                    </ul>
-                    <a href="https://github.com/amit9838/">
-                        <div class="p-action">
-                            <span>
-                                VIEW PROJECT <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-
-            <div class="p-left">
-                <div class="p-img-container"  id="expanse-website">
-                    
-                </div>
-            </div>
-        </div>
-
-<!-- Project-3 -- Music Player -->
-        <div class="project">
-            <div class="p-left">
-                <div class="p-img-container" id="music-player">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Music Player</h1>
-                    <p>
-                        Designed and developed Music Player using HTML,
-                        CSS and JavaScript
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Set timer</li>
-                        <li>Auto play next song</li>
-                        <li>Seek audio</li>
-                        <li>Smooth animations</li>
-                    </ul>
-                    <a href="https://amit9838.github.io/Music-Player/">
-                        <div class="p-action">
-                            <span>
-                                LISTEN NOW <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-
-
-        <!-- Project-4 -- Notes Website -->
-        <div class="project">
-
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Marca Notes</h1>
-                    <p>
-                        Text notes sharing platform where where user can share notes in private room or make it public(default).
-                        It is developed using django, SQLite3, HTML, CSS, Bootstrap. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Add, edit, delete notes</li>
-                        <li>download notes in different formats</li>
-                        <li>Copy note to clipboard</li>
-                        <li>Search note</li>
-                    </ul>
-                    <a href="http://marca-todo.herokuapp.com/">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-
-            <div class="p-left">
-                <div class="p-img-container"  id="notes-website">
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Project-5 -- Pollster -->
-        <div class="project">
-            <div class="p-left">
-                <div class="p-img-container" id="pollster">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Pollster</h1>
-                    <p>
-                        A polling website where user can vote on available posts. Implemented chart for better viewing of results.
-                        It is developed using django, SQLite3, HTML, CSS, Bootstrap. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Simple and easy to use</li>
-                        <li>Multiple polls can be hosted</li>
-                        <li>Results are plotted on chart</li>
-                    </ul>
-                    <a href="http://marca-pollster.herokuapp.com/">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-
-
-        <!-- Project-6 -- racing Game -->
-        <div class="project">
-
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Race In</h1>
-                    <p>
-                        Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in blender, and also used few asset packs from 
-                        unity store, I used C#(basic) as part of script. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>3D</li>
-                        <li>Openworld game</li>
-                        <li>Two maps to choose from</li>
-                    </ul>
-                    <a href="https://github.com/amit9838/Game-Race_in">
-                        <div class="p-action">
-                            <span>
-                                VIEW PROJECT <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-
-            <div class="p-left">
-                <div class="p-img-container"  id="racing-game">
-                    
-                </div>
-            </div>
-        </div>
-
-        <!-- Project-7 -- Portfolio-Website -->
-        <div class="project">
-            <div class="p-left">
-                <div class="p-img-container" id="portfolio-website">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Portfolio</h1>
-                    <p>
-                        Designed and developed this portfolio, in this project i've used HTML, CSS and JavaScript.
-
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Smooth animations</li>
-                        <li>Beautiful design</li>
-                    </ul>
-                    <a href="" onclick="toHome()">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-
-
-
-<!-- Projects Mob ------------------------------------------------------------------------------------>
-
-         <!-- Project-1  -- Blog Website -->  
-         <div class="project-mob">
-            <div class="p-left">
-                <div class="p-img-container" id="blog-website">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Blog Website</h1>
-                    <p>
-                        Designed and developed a blogging website using django, SQLite3, html-css and JavaScript.
-                        Website offers a lot of features and it can work on various screen-sizes. I've also added authorisation at various levels
-                        so that user can edit the posts that belongs to them.
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Create User</li>
-                        <li>Reset passwords</li>
-                        <li>update profile</li>
-                        <li>create, update and delete Post</li>
-                        <li>See posts by user</li>
-                    </ul>
-                    <a href="http://marca-blog.herokuapp.com/">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-<!-- project-mob-2 -- Expanse Website -->
-        <div class="project-mob">
-            <div class="p-left">
-                <div class="p-img-container"  id="expanse-website">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Expanse Website</h1>
-                    <p>
-                        A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for proper
-                        analysis. It isdeveloped using HTML, CSS, Bootstrap, JavaScript,  Django and Postgresl. Implemented RestAPI and authosisation at various levels. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Add, edit, delete expanse</li>
-                        <li>Add, edit, delete income</li>
-                        <li>Analyse expanse with charts</li>
-                        <li>Search expanses</li>
-                        <li>Export expanses in csv</li>
-                    </ul>
-                    <a href="https://github.com/amit9838/">
-                        <div class="p-action">
-                            <span>
-                                VIEW PROJECT <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-
-            
-        </div>
-
-<!-- project-mob-3 -- Music Player -->
-        <div class="project-mob">
-            <div class="p-left">
-                <div class="p-img-container" id="music-player">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Music Player</h1>
-                    <p>
-                        Designed and developed Music Player using HTML,
-                        CSS and JavaScript
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Set timer</li>
-                        <li>Auto play next song</li>
-                        <li>Seek audio</li>
-                        <li>Smooth animations</li>
-                    </ul>
-                    <a href="https://amit9838.github.io/Music-Player/">
-                        <div class="p-action">
-                            <span>
-                                LISTEN NOW <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-
-
-        <!-- project-mob-4 -- Notes Website -->
-        <div class="project-mob">
-            <div class="p-left">
-                <div class="p-img-container"  id="notes-website">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Marca Notes</h1>
-                    <p>
-                        Text notes sharing platform where where user can share notes in private room or make it public(default).
-                        It is developed using django, SQLite3, HTML, CSS, Bootstrap. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Add, edit, delete notes</li>
-                        <li>download notes in different formats</li>
-                        <li>Copy note to clipboard</li>
-                        <li>Search note</li>
-                    </ul>
-                    <a href="http://marca-todo.herokuapp.com/">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-
-
-        </div>
-
-        <!-- project-mob-5 -- Pollster -->
-        <div class="project-mob">
-            <div class="p-left">
-                <div class="p-img-container" id="pollster">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Pollster</h1>
-                    <p>
-                        A polling website where user can vote on available posts. Implemented chart for better viewing of results.
-                        It is developed using django, SQLite3, HTML, CSS, Bootstrap. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Simple and easy to use</li>
-                        <li>Multiple polls can be hosted</li>
-                        <li>Results are plotted on chart</li>
-                    </ul>
-                    <a href="http://marca-pollster.herokuapp.com/">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-
-
-        <!-- project-mob-6 -- racing Game -->
-        <div class="project-mob">
-            <div class="p-left">
-                <div class="p-img-container"  id="racing-game">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Race In</h1>
-                    <p>
-                        Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in blender, and also used few asset packs from 
-                        unity store, I used C#(basic) as part of script. 
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>3D</li>
-                        <li>Openworld game</li>
-                        <li>Two maps to choose from</li>
-                    </ul>
-                    <a href="https://github.com/amit9838/Game-Race_in">
-                        <div class="p-action">
-                            <span>
-                                VIEW PROJECT <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-
-
-        </div>
-
-        <!-- project-mob-7 -- Portfolio-Website -->
-        <div class="project-mob">
-            <div class="p-left">
-                <div class="p-img-container" id="portfolio-website">
-                    
-                </div>
-            </div>
-            <div class="p-right">
-                <div class="p-text-container">
-                    <h1>Portfolio</h1>
-                    <p>
-                        Designed and developed this portfolio, in this project i've used HTML, CSS and JavaScript.
-
-                    </p>
-                    <h4>Features</h4>
-                    <ul type="bullet">
-                        <li>Smooth animations</li>
-                        <li>Beautiful design</li>
-                    </ul>
-                    <a href="" onclick="toHome()">
-                        <div class="p-action">
-                            <span>
-                                VISIT WEBSITE <i class="fa-solid fa-play"></i>
-                            </span>
-                        </div>
-                    </a>
-                </div>
-                
-            </div>
-        </div>
-
-
-
-
-    </div>  
-
-    <!-- Education, Work Experience, Skills -->
-    <div class="education">
-        <div class="left">
-            <div class="education-container">
-                <div class="section-title">
-                    <h1>Education</h1>
-                </div>
-                <div class="education-item">
-                    <span class="tag">B.Tech</span>
-                    <span class="tag">2019-23</span>
-                    <div class="title">
-                        Ajay Kumar Garg Engineering College
-                    </div>
-                    <div class="info">
-                        Computer Science and Engineeering
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="skill-container" id="skills">
-                <div class="section-title">
-                    <h1>Skills</h1>
-                </div>
-                
-                <div class="skills-container">
-                    <div class="skill-item">C++</div>
-                    <div class="skill-item">Python</div>
-                    <div class="skill-item">Django</div>
-                    <div class="skill-item">REST-API</div>
-                    <div class="skill-item">HTML-CSS</div>
-                    <div class="skill-item">JavaScript</div>
-                    <div class="skill-item">SQL</div>
-                    <div class="skill-item">Blender 3D</div>
-                </div>
-            </div>
-      
-        </div>
-
-
-        <div class="right">
-            <div class="experience-container" id="experience">
+    <div class="main-container">
+        <div class="projects-container" id="projects">
             <div class="section-title">
-                <h1>Experience</h1>
+                <h1>Projects</h1>
             </div>
-            <div class="experience-item">
-                <span class="tag">Member</span>
-                <div class="title">
-                    BDCoE - AKGEC
+
+            <!-- Projects PC ---------------------------------------------------------------------------------->
+            <!-- Project-1  -- Blog Website -->
+            <div class="project">
+                <div class="p-left">
+                    <div class="p-img-container" id="blog-website">
+
+                    </div>
                 </div>
-                <div class="info">
-                    Big Data Center Of Excellence is a research and development
-                    society(AKGEC) of the college, in which
-                    only 10 students are selected every year and secured my position in the society.
-                    W've also organised multiple events like teaching and contests of 1st and 2nd year students.
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Blog Website</h1>
+                        <p>
+                            Designed and developed a blogging website using django, SQLite3, html-css and JavaScript.
+                            Website offers a lot of features and it can work on various screen-sizes. I've also added
+                            authorisation at various levels
+                            so that user can edit the posts that belongs to them.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Create User</li>
+                            <li>Reset passwords</li>
+                            <li>update profile</li>
+                            <li>create, update and delete Post</li>
+                            <li>See posts by user</li>
+                        </ul>
+                        <a href="http://marca-blog.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
-            <div class="experience-item">
-                <span class="tag">Beta-Tester</span>
-                <div class="title">
-                    Dream XR by <b>Interhaptics</b>
+
+            <!-- Project-2 -- Expanse Website -->
+            <div class="project">
+
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Expanse Website</h1>
+                        <p>
+                            A website where user can manage their earning and expenditure. Website offers different
+                            types of charts(chart js) for
+                            analysis. It is developed using HTML, CSS, Bootstrap, JavaScript, Django and Postgres SQL.
+                            Implemented RestAPI for async search, also added authorization at various levels.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Add, edit, delete expanse</li>
+                            <li>Add, edit, delete income</li>
+                            <li>Analyse expanse with charts</li>
+                            <li>Search expanses</li>
+                            <li>Export expanses in csv</li>
+                        </ul>
+                        <a href="https://marca-expanses.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VIEW PROJECT <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
-                <div class="info">
-                    Interhaptics bulits haptic compositor for unity.
-                    Haptic compositor enables a developer to develop haptic integrated software for devices like AR, VR headsets, smartphones etc.
-                    I was selected among 15 applicants out of 130+ applicants as a Beta tester to test haptic compositor.
+
+                <div class="p-left">
+                    <div class="p-img-container" id="expanse-website">
+
+                    </div>
                 </div>
             </div>
-            <div class="experience-item">
-                <span class="tag">Intern</span>
-                <div class="title">
-                    R.U.D.R.A Cyber-Physical Security.
+
+            <!-- Project-3 -- Music Player -->
+            <div class="project">
+                <div class="p-left">
+                    <div class="p-img-container" id="music-player">
+
+                    </div>
                 </div>
-                <div class="info">
-                    R.U.D.R.A Cyber-Physical Security develop tools for security in ships and marine vehicles.
-                    I was a part web development department to design and integrate, 3D
-                    Models on the website using three js.
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Music Player</h1>
+                        <p>
+                            Designed and developed Music Player using HTML,
+                            CSS and JavaScript
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Set timer</li>
+                            <li>Auto play next song</li>
+                            <li>Seek audio</li>
+                            <li>Smooth animations</li>
+                        </ul>
+                        <a href="https://amit9838.github.io/Music-Player/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    LISTEN NOW <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
                 </div>
             </div>
+
+
+
+            <!-- Project-4 -- Notes Website -->
+            <div class="project">
+
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Marca Notes</h1>
+                        <p>
+                            Text notes sharing platform where where user can share notes in private room or make it
+                            public(default).
+                            It is developed using django, SQLite3, HTML, CSS, Bootstrap.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Add, edit, delete notes</li>
+                            <li>download notes in different formats</li>
+                            <li>Copy note to clipboard</li>
+                            <li>Search note</li>
+                        </ul>
+                        <a href="http://marca-todo.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="p-left">
+                    <div class="p-img-container" id="notes-website">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project-5 -- Pollster -->
+            <div class="project">
+                <div class="p-left">
+                    <div class="p-img-container" id="pollster">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Pollster</h1>
+                        <p>
+                            A polling website where user can vote on available posts. Implemented chart for better
+                            viewing of results.
+                            It is developed using django, SQLite3, HTML, CSS, Bootstrap.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Simple and easy to use</li>
+                            <li>Multiple polls can be hosted</li>
+                            <li>Results are plotted on chart</li>
+                        </ul>
+                        <a href="http://marca-pollster.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- Project-6 -- racing Game -->
+            <div class="project">
+
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Race In</h1>
+                        <p>
+                            Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in
+                            blender, and also used few asset packs from
+                            unity store, I used C#(basic) as part of script.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>3D</li>
+                            <li>Openworld game</li>
+                            <li>Two maps to choose from</li>
+                        </ul>
+                        <a href="https://github.com/amit9838/Game-Race_in" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VIEW PROJECT <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+                <div class="p-left">
+                    <div class="p-img-container" id="racing-game">
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project-7 -- Portfolio-Website -->
+            <div class="project">
+                <div class="p-left">
+                    <div class="p-img-container" id="portfolio-website">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Portfolio</h1>
+                        <p>
+                            Designed and developed this portfolio, in this project i've used HTML, CSS and JavaScript.
+
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Smooth animations</li>
+                            <li>Beautiful design</li>
+                        </ul>
+                        <a href="" onclick="toHome()">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+            <!-- Projects Mob ------------------------------------------------------------------------------------>
+
+            <!-- Project-1  -- Blog Website -->
+            <div class="project-mob">
+                <div class="p-left">
+                    <div class="p-img-container" id="blog-website">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Blog Website</h1>
+                        <p>
+                            Designed and developed a blogging website using django, SQLite3, html-css and JavaScript.
+                            Website offers a lot of features and it can work on various screen-sizes. I've also added
+                            authorisation at various levels
+                            so that user can edit the posts that belongs to them.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Create User</li>
+                            <li>Reset passwords</li>
+                            <li>update profile</li>
+                            <li>create, update and delete Post</li>
+                            <li>See posts by user</li>
+                        </ul>
+                        <a href="http://marca-blog.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- project-mob-2 -- Expanse Website -->
+            <div class="project-mob">
+                <div class="p-left">
+                    <div class="p-img-container" id="expanse-website">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Expanse Website</h1>
+                        <p>
+                            A website where user can manage their earning and expenditure. Website offers different
+                            types of charts(chart js) for
+                            analysis. It is developed using HTML, CSS, Bootstrap, JavaScript, Django and Postgres SQL.
+                            Implemented RestAPI for async search, also added authorization at various levels.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Add, edit, delete expanse</li>
+                            <li>Add, edit, delete income</li>
+                            <li>Analyse expanse with charts</li>
+                            <li>Search expanses</li>
+                            <li>Export expanses in csv</li>
+                        </ul>
+                        <a href="https://marca-expanses.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VIEW PROJECT <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- project-mob-3 -- Music Player -->
+            <div class="project-mob">
+                <div class="p-left">
+                    <div class="p-img-container" id="music-player">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Music Player</h1>
+                        <p>
+                            Designed and developed Music Player using HTML,
+                            CSS and JavaScript
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Set timer</li>
+                            <li>Auto play next song</li>
+                            <li>Seek audio</li>
+                            <li>Smooth animations</li>
+                        </ul>
+                        <a href="https://amit9838.github.io/Music-Player/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    LISTEN NOW <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- project-mob-4 -- Notes Website -->
+            <div class="project-mob">
+                <div class="p-left">
+                    <div class="p-img-container" id="notes-website">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Marca Notes</h1>
+                        <p>
+                            Text notes sharing platform where where user can share notes in private room or make it
+                            public(default).
+                            It is developed using django, SQLite3, HTML, CSS, Bootstrap.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Add, edit, delete notes</li>
+                            <li>download notes in different formats</li>
+                            <li>Copy note to clipboard</li>
+                            <li>Search note</li>
+                        </ul>
+                        <a href="http://marca-todo.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- project-mob-5 -- Pollster -->
+            <div class="project-mob">
+                <div class="p-left">
+                    <div class="p-img-container" id="pollster">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Pollster</h1>
+                        <p>
+                            A polling website where user can vote on available posts. Implemented chart for better
+                            viewing of results.
+                            It is developed using django, SQLite3, HTML, CSS, Bootstrap.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Simple and easy to use</li>
+                            <li>Multiple polls can be hosted</li>
+                            <li>Results are plotted on chart</li>
+                        </ul>
+                        <a href="http://marca-pollster.herokuapp.com/" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- project-mob-6 -- racing Game -->
+            <div class="project-mob">
+                <div class="p-left">
+                    <div class="p-img-container" id="racing-game">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Race In</h1>
+                        <p>
+                            Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in
+                            blender, and also used few asset packs from
+                            unity store, I used C#(basic) as part of script.
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>3D</li>
+                            <li>Openworld game</li>
+                            <li>Two maps to choose from</li>
+                        </ul>
+                        <a href="https://github.com/amit9838/Game-Race_in" target="_blank">
+                            <div class="p-action">
+                                <span>
+                                    VIEW PROJECT <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- project-mob-7 -- Portfolio-Website -->
+            <div class="project-mob">
+                <div class="p-left">
+                    <div class="p-img-container" id="portfolio-website">
+
+                    </div>
+                </div>
+                <div class="p-right">
+                    <div class="p-text-container">
+                        <h1>Portfolio</h1>
+                        <p>
+                            Designed and developed this portfolio, in this project i've used HTML, CSS and JavaScript.
+
+                        </p>
+                        <h4>Features</h4>
+                        <ul type="bullet">
+                            <li>Smooth animations</li>
+                            <li>Beautiful design</li>
+                        </ul>
+                        <a href="" onclick="toHome()">
+                            <div class="p-action">
+                                <span>
+                                    VISIT WEBSITE <i class="fa-solid fa-play"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!-- Education, Work Experience, Skills -->
+        <div class="education">
+            <div class="left">
+                <div class="education-container">
+                    <div class="section-title">
+                        <h1>Education</h1>
+                    </div>
+                    <div class="education-item">
+                        <span class="tag">B.Tech</span>
+                        <span class="tag">2019-23</span>
+                        <div class="title">
+                            Ajay Kumar Garg Engineering College
+                        </div>
+                        <div class="info">
+                            Computer Science and Engineeering
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="skill-container" id="skills">
+                    <div class="section-title">
+                        <h1>Skills</h1>
+                    </div>
+
+                    <div class="skills-container">
+                        <div class="skill-item">C++</div>
+                        <div class="skill-item">Python</div>
+                        <div class="skill-item">Django</div>
+                        <div class="skill-item">REST-API</div>
+                        <div class="skill-item">HTML-CSS</div>
+                        <div class="skill-item">JavaScript</div>
+                        <div class="skill-item">SQL</div>
+                        <div class="skill-item">Blender 3D</div>
+                        <div class="skill-item">Data Structure</div>
+                        <div class="skill-item">Algorithms</div>
+                        <div class="skill-item">Git</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="right">
+                <div class="experience-container" id="experience">
+                    <div class="section-title">
+                        <h1>Experience</h1>
+                    </div>
+                    <div class="experience-item">
+                        <span class="tag">Member</span>
+                        <div class="title">
+                            BDCoE - AKGEC
+                        </div>
+                        <div class="info">
+                            Big Data Center Of Excellence is a research and development
+                            society(AKGEC) of the college, in which
+                            only 10 students are selected every year and secured my position in the society.
+                            W've also organised multiple events like teaching and contests of 1st and 2nd year students.
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <span class="tag">Beta-Tester</span>
+                        <div class="title">
+                            Dream XR by <b>Interhaptics</b>
+                        </div>
+                        <div class="info">
+                            Interhaptics bulits haptic compositor for unity.
+                            Haptic compositor enables a developer to develop haptic integrated software for devices like
+                            AR, VR headsets, smartphones etc.
+                            I was selected among 15 applicants out of 130+ applicants as a Beta tester to test haptic
+                            compositor.
+                        </div>
+                    </div>
+                    <div class="experience-item">
+                        <span class="tag">Intern</span>
+                        <div class="title">
+                            R.U.D.R.A Cyber-Physical Security.
+                        </div>
+                        <div class="info">
+                            R.U.D.R.A Cyber-Physical Security develop tools for security in ships and marine vehicles.
+                            I was a part web development department to design and integrate, 3D
+                            Models on the website using three js.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
 
+        <div class="section-title">
+            <h1>Drop a message</h1>
+        </div>
+        <div class="message-container">
+            <div class="msg-left">
+                <div class="msg-image-container">
 
-<div class="message-container">
-    <div class="section-title">
-        <h1>Send a message</h1>
-    </div>
-
-    <form action="" id="msg-form">
-    <div class="form-container">
-        <div class="name-email" >
-            <div class="input-field">
-                <label for="name">Name</label>
-                <br>
-                <input type="text"id="name" name="name" required="">
+                </div>
             </div>
-            
-            <div class="input-field">
-                <label for="name" >Email</label>
-            <br>
-            <input type="email" id="email" name="email" required="">
+
+
+            <div class="msg-right">
+                <form action="" id="msg-form">
+                    <div class="form-container">
+                        <div class="name-email">
+                            <div class="input-field">
+                                <label for="name">Name</label>
+                                <br>
+                                <input type="text" id="name" name="name" required="">
+                            </div>
+
+                            <div class="input-field">
+                                <label for="name">Email</label>
+                                <br>
+                                <input type="email" id="email" name="email" required="">
+                            </div>
+                        </div>
+                        <div class="input-field">
+                            <label for="message">Message</label>
+                            <br>
+                            <textarea id="message" name="message" rows="7" name="message" required="" value="">
+                            </textarea>
+                        </div>
+                        <div class="action-btn" id="send_msg_btn_container">
+                            <a>
+                                <div class="btn" id="send-msg-btn"><span class="btn-text">Send <i
+                                            class="fa-solid fa-paper-plane"></i></span></div>
+                            </a>
+                            <div class="msg-sent-alert" id="msg-sent-alert"></div>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    </div>
-    <div class="input-field">
-        <label for="message">Message</label>
-        <br>
-        <textarea id="message" name="message" rows="10" name="message" required="" value ="">
-        </textarea>
-    </div>
-    <div class="action-btn" id="send_msg_btn" >
-        <a>
-            <div class="btn" id="send-msg-btn"><span class="btn-text">Send  <i class="fa-solid fa-paper-plane"></i></span></div>
-        </a>
-        <div class="msg-sent-alert" id="msg-sent-alert"></div>
-    </div>
-    </div>
-</form>
-</div>
 
 
 
-</div>
+    </div>
 
-<footer>
-    <div class="container">
-        <h1>
-            Feel free to connect
-        </h1>
-        <div class="social-links" id="contact">
-            <a class="social-link" href="https://linkedin.com/in/amit-chaudhary-2b8b22199"><i class="fa-brands fa-linkedin"></i></a>
-            <a class="social-link" href="https://github.com/amit9838"><i class="fa-brands fa-github-square"></i></a>
-            <a class="social-link" href="mailto:amitchaudhary0539@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-            <a class="social-link" href="https://www.instagram.com/cg_arena/"><i class="fa-brands fa-instagram"></i></a>
+    <footer>
+        <div class="container">
+            <div class="footer-social">
+                <h1>
+                    Connect with me
+                </h1>
+                <div class="social-links" id="contact">
+                    <a class="social-link" href="https://linkedin.com/in/amit-chaudhary-2b8b22199" target="_blank"><i
+                            class="fa-brands fa-linkedin"></i></a>
+                    <a class="social-link" href="https://github.com/amit9838" target="_blank"><i
+                            class="fa-brands fa-github-square"></i></a>
+                    <a class="social-link" href="mailto:amitchaudhary0539@gmail.com" target="_blank"><i
+                            class="fa-solid fa-envelope"></i></a>
+                    <a class="social-link" href="https://www.instagram.com/cg_arena/" target="_blank"><i
+                            class="fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+            <div class="action-btn">
+                <a href="mailto:amitchaudhary0539@gmail.com" target="_blank">
+                    <div class="btn footer-btn" id="talk-btn">Let's Talk</div>
+                </a>
+            </div>
         </div>
-        <div class="action-btn">
-            <a href="resume.pdf">
-                <div class="btn footer-btn" id="resume-btn">Resume</div>
-            </a>
-            <a href="mailto:amitchaudhary0539@gmail.com">
-                <div class="btn footer-btn" id="talk-btn">Let's Talk</div>
-            </a>
-        </div>
-    </div>
-</footer>
+    </footer>
 
     <script src="script.js"></script>
 </body>
+
 </html>
