@@ -28,14 +28,20 @@ body{
     color: var(--text);
 }
 
+h2{
+    transition: all ease-out .1s;
+}
+
+
+.action-btn-hero {
+    margin-top: .2rem;
+    display: flex;
+}
 
 
 .action-btn {
     margin-top: 1rem;
-    
     display: flex;
-
-
 }
 
 .btn {
@@ -228,8 +234,6 @@ a{
 
 
 
-
-
 /* Hero section */
 .hero {
     height: 100vh;
@@ -259,14 +263,11 @@ a{
     margin-top: .3rem;
     font-size: 3.5rem;
     line-height: 3rem;
-    font-family: 'Josefin Sans', sans-serif;
-    /* font-family: 'Montserrat', sans-serif; */
 }
 .text-container > h2 > span {
     font-weight: bolder;
     font-size: 4rem;
     font-family: 'Josefin Sans';
-    /* font-family: 'Montserrat', sans-serif; */
     color: rgb(211, 211, 211);
 }
 
@@ -281,6 +282,45 @@ a{
     
 }
 
+
+.link-container {
+    position: relative;
+    background-color: #ddd;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-top: .7rem;
+    margin-right: 1rem;
+}
+
+.social-link-header {
+    /* position: absolute; */
+    display: flex;
+    justify-content: center;
+    color: #152330;
+    align-items: center;
+    height: 100%;
+    font-size: 1.7rem;
+
+}
+
+.blink {
+    animation-name: fade_hide;
+    animation-duration: .5s;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+}
+
+@keyframes fade_hide{
+    form{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }   
+}
 
 .scroll-anim-container{
     position: absolute;
@@ -299,7 +339,6 @@ a{
     animation-direction: alternate;
     animation-timing-function: ease-in-out;
 }
-
 
 
 @keyframes to_up{

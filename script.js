@@ -220,3 +220,67 @@ tags_arr.forEach(function(n){
     n.style.color = tag_col[random_idx].col;
     n.style.background = tag_col[random_idx].bg;
 })
+const item=document.getElementById('amit')
+const item_cursor=document.getElementById('amit-cursor')
+const text=item.innerText;
+item.innerText="";
+let i=0;
+let arr=text.split('')
+
+let temp="";
+const time=setInterval(()=>{
+    item.innerHTML=temp+arr[i]
+    temp+=arr[i];
+    i++;
+if(i>=arr.length){
+    clearInterval(time)
+    item_cursor.style.display = "none";
+}
+},120)
+
+let roles = document.getElementById("roles")
+let blink_cursor = document.getElementById("blink_cursor")
+let roles_arr=["Computer Software Engineer ", "Backend Developer "]
+let ind=0;
+
+
+function timerUp(str,ind){
+    blink_cursor.classList.remove('blink')
+    let temp2="";
+    let ind2=0;
+    const time2=setInterval(()=>{
+        roles.innerHTML=temp2+str[ind2]
+        temp2+=str[ind2];
+        ind2++;
+    if(ind2>=str.length){
+        clearInterval(time2)
+        blink_cursor.classList.add('blink')
+        setTimeout(()=>{
+            blink_cursor.classList.remove('blink')
+            timerDown(str,ind);
+        },2000)
+    }
+},120)
+}
+function timerDown(str,ind){
+    let temp2=str.join('');
+    let ind2=str.length-1;
+    const time2=setInterval(()=>{
+        roles.innerHTML=temp2
+        temp2=temp2.substring(0,ind2)
+        ind2--;
+        if(ind2<-1){
+            clearInterval(time2)
+        if(ind+1<roles_arr.length){
+            let tempArr=roles_arr[ind+1].split('')
+            timerUp(tempArr,ind+1)
+        }else{
+            let tempArr=roles_arr[0].split('')
+            timerUp(tempArr,0)
+        }
+    }
+    },55)
+}
+let tempArr=roles_arr[0].split('')
+blink_cursor.classList.add('blink')
+setTimeout(()=>timerUp(tempArr,0),2600)
