@@ -19,6 +19,72 @@ menu_links.forEach(n => n.addEventListener("click", () => {
 }))
 
 
+async function render_card(data) {
+    let p_container = document.getElementById("p_container");
+    console.log(p_container)
+    let cards = ""
+    data.forEach(item=> {
+    let card = "";
+    let tech_stack = "";
+    let features = "";
+    let links = "";
+
+    item.tech_stack.forEach((tech) => {
+    tech_stack +=  `
+            <div class="tech_stack">
+                <span class="tech_stack-text">${tech}</span>
+            </div>
+    `})
+
+    item.features.forEach((feat) =>{
+    features +=  `<li>${feat}</li>`})
+        // console.log(features)
+    item.links.forEach((link) =>{
+    links +=  `<div class="p-btn">
+                    <a class="p-btn-link" href="${link.link}">${link.icon} ${link.name}</a>
+                </div>`})
+  
+    card += `
+            <div class="p-card">
+            <div class="p-title-bg" style = "background:${item.background}">
+                <h3 class="p-title">${item.title}</h3>
+            </div>
+
+            <div class="content">
+            <div class="tech_stack-container">
+                ${tech_stack}
+            </div>
+            <div class="p-description">
+                ${item.description}
+            </div>
+            <div class="p-features">
+                <h5>FEATURES</h5>
+                <ul type="bullet">
+                    ${features}
+                </ul>
+            </div>
+            </div>
+            <div class="p-action-btn">
+                ${links}
+            </div>
+        </div> `
+    cards +=card;
+    })
+    p_container.innerHTML = cards;
+}
+
+// Fetch data from json file
+async function fetch_data(){
+    const response = await fetch('./data.json');
+    data = await response.json()
+    return data;
+}
+
+fetch_data().then((data)=> {
+    render_card(data);
+}
+);
+
 
 // Scroll Smoothly to internal links *****************************
 window.scroll ({
@@ -284,3 +350,5 @@ function timerDown(str,ind){
 let tempArr=roles_arr[0].split('')
 blink_cursor.classList.add('blink')
 setTimeout(()=>timerUp(tempArr,0),2600)
+
+
