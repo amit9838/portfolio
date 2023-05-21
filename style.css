@@ -492,7 +492,7 @@ a{
 
 .p-btn-link:link{
     text-decoration: none;
-    color: #eee;
+    color: black;
 }
 
 
@@ -501,6 +501,9 @@ a{
 /* Projects mob */
 
 @media(max-width:480px){
+    .main-container{
+        margin: 0 3vw 0 3vw;
+    }
     #amit{
         font-size: 3.6rem;
     }
