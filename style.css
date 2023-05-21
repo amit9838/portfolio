@@ -482,7 +482,7 @@ a{
 .p-btn {
     padding: .4rem .8rem; border-radius: .3rem;
     background-color: rgb(32, 41, 46);
-    color: black;
+    color: #ddd;
     margin: 0 .2rem;
     transition: .3s all;
 }
@@ -492,7 +492,7 @@ a{
 
 .p-btn-link:link{
     text-decoration: none;
-    color: white;
+    color: #ddd;
 }
 
 
