@@ -47,6 +47,9 @@ async function render_card(data) {
     card += `
             <div class="p-card">
             <div class="p-title-bg" style = "background:${item.background}">
+            <div class="bg-icon">
+                ${item.icon?item.icon:''}
+            </div>
                 <h3 class="p-title">${item.title}</h3>
             </div>
 

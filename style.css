@@ -369,14 +369,11 @@ a{
 }
 
 .text-container > h4{
-
     font-size: 1.3rem;
 }
 
 .text-container > h2{
-
     line-height: 3.5rem;
-
 }
 
 }
@@ -425,8 +422,18 @@ a{
     padding-bottom: 3.2rem;
 }
 
+.bg-icon {
+    font-size: 5rem;
+    color: rgba(235, 235, 235, 0.596);
+    position: relative;
+    top: -6rem;
+    left: 1rem;
+    rotate: -20deg;
+}
+
 .p-title-bg{
     position: relative;
+    background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
     width: 96%;
     height: 9rem;
     border-radius: .5rem;
@@ -456,7 +463,7 @@ a{
     width: fit-content;
     padding: .2rem .8rem;
     margin: .1rem .2rem;
-    background-color:rgba(85, 85, 85, 0.473);
+    background-color:var(--background);
     border-radius: 5rem;
 }
 
@@ -480,14 +487,15 @@ a{
 }
 
 .p-btn {
-    padding: .4rem .8rem; border-radius: .3rem;
-    background-color: rgb(32, 41, 46);
+    padding: .3rem .8rem; border-radius: .3rem;
+    background-color: var(--background);
     color: black;
     margin: 0 .2rem;
+    border: 1px solid var(--accent);
     transition: .3s all;
 }
 .p-btn:hover {
-    background-color: rgb(42, 53, 58);
+    background-color: rgb(48, 57, 61);
 }
 
 .p-btn-link:link{
