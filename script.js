@@ -76,6 +76,27 @@ async function render_card(data) {
     p_container.innerHTML = cards;
 }
 
+function render_exp(exp) {
+    let container = document.getElementById("experience")
+    let experiences = `<div class="section-title">
+                        <h1>Experience</h1>
+                        </div>`;
+    exp.forEach(exp=> {
+        experiences += `
+                <div class="experience-item">
+                    <span class="tag">${exp.role}</span>
+                    <div class="title">
+                        ${exp.organization}
+                    </div>
+                    <div class="info">
+                        ${exp.description}
+                    </div>
+                </div>
+        `
+    })
+    container.innerHTML = experiences;
+}
+
 // Fetch data from json file
 async function fetch_data(){
     const response = await fetch('./data.json');
@@ -84,7 +105,8 @@ async function fetch_data(){
 }
 
 fetch_data().then((data)=> {
-    render_card(data);
+    render_card(data.projects);
+    render_exp(data.experience);
 }
 );
 

@@ -1,112 +1,142 @@
-[
-  {
-    "background": "linear-gradient(90deg, #4b6cb7 0%, #182848 100%);",
-    "icon":"<i class='bi bi-chat-square-text'></i>",
-    "title": "Blog Website",
-    "description": "Designed and developed a blogging website using django, SQLite3, html-css and JavaScript. Website offers a lot of features and it can work on various screen-sizes. I've also added authorisation at various levels so that user can edit the posts that belongs to them.",
-    "features": [
-      "Create User",
-      "Reset passwords",
-      "update profile",
-      "create, update and delete Post",
-      "See posts by user"
-    ],
-    "tech_stack": [
-      "django",
-      "html",
-      "css",
-      "javascript"
-    ],
-    "links": [
-      {
-        "name": "github",
-        "link": "https://github.com/amit9838/marca_blog",
-        "icon":"<i class='fa-brands fa-github'></i>"
-      }
-    ]
-  },
-  {
-    "background": "linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);",
-    "icon":"<i class='bi bi-bar-chart-line'></i>",
-    "title": "Expanse Website",
-    "description": " A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for analysis. It is developed using HTML, CSS, Bootstrap, JavaScript, Django and Postgres SQL. Implemented RestAPI for async search, also added authorization at various levels. ",
-    "features": [
-      "Add, edit, delete expanse",
-      "Add, edit, delete income",
-      "Analyse expanse with charts",
-      "Search expanses",
-      "Export expanses in csv"
-    ],
-    "tech_stack": [
-      "django",
-      "html",
-      "css",
-      "javascript",
-      "chartjs"
-    ],
-    "links": [
-      {
-        "name": "github",
-        "link": "https://github.com/amit9838/Marca-Expenses",
-        "icon":"<i class='fa-brands fa-github'></i>"
-        
-      },
-      {
-        "name": "website",
-        "link": "https://marca-expanses.herokuapp.com/",
-        "icon":"<i class='fa-solid fa-globe'></i>"
-      }
-    ]
-  },
-  {
-    "background": "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);",
-    "icon":"<i class='bi bi-disc'></i>",
-    "title": "Music Player",
-    "description": "Designed and developed Music Player using HTML, CSS and JavaScript ",
-    "features": [
-      "Set timer",
-      "Auto play next song",
-      "Seek audio"
-    ],
-    "tech_stack": [
-      "html",
-      "css",
-      "javascript"
-    ],
-    "links": [
-      {
-        "name": "github",
-        "link": "https://github.com/amit9838/Music-Player",
-        "icon":"<i class='fa-brands fa-github'></i>"
-      },
-      {
-        "name": "website",
-        "link": "https://amit9838.github.io/Music-Player/",
-        "icon":"<i class='fa-solid fa-globe'></i>"
-
-      }
-    ]
-  },
-  {
-    "background": "linear-gradient(90deg, #9ebd13 0%, #008552 100%);",
-    "icon":"<i class='bi bi-controller'></i>",
-    "title": "Race In",
-    "description": "Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in blender, and also used few asset packs from unity store, I used C#(basic) as part of script. ",
-    "features": [
-    "3D",
-    "Openworld game",
-    "Two maps to choose from"
-    ],
-    "tech_stack": [
-    "Unity",
-    "Blender 3d"
-    ],
-    "links": [
-      {
-        "name": "github",
-        "link": "https://github.com/amit9838/Game-Race_in",
-        "icon":"<i class='fa-brands fa-github'></i>"
-      }
-    ]
-  }
-]
+{
+  "projects":[
+    {
+      "background": "linear-gradient(90deg, #4b6cb7 0%, #182848 100%);",
+      "icon": "<i class='bi bi-chat-square-text'></i>",
+      "title": "Blog Website",
+      "description": "Designed and developed a blogging website using django, SQLite3, html-css and JavaScript. Website offers a lot of features and it can work on various screen-sizes. I've also added authorisation at various levels so that user can edit the posts that belongs to them.",
+      "features": [
+        "Create User",
+        "Reset passwords",
+        "update profile",
+        "create, update and delete Post",
+        "See posts by user"
+      ],
+      "tech_stack": [
+        "django",
+        "html",
+        "css",
+        "javascript"
+      ],
+      "links": [
+        {
+          "name": "github",
+          "link": "https://github.com/amit9838/marca_blog",
+          "icon": "<i class='fa-brands fa-github'></i>"
+        }
+      ]
+    },
+    {
+      "background": "linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);",
+      "icon": "<i class='bi bi-bar-chart-line'></i>",
+      "title": "Expanse Website",
+      "description": " A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for analysis. It is developed using HTML, CSS, Bootstrap, JavaScript, Django and Postgres SQL. Implemented RestAPI for async search, also added authorization at various levels. ",
+      "features": [
+        "Add, edit, delete expanse",
+        "Add, edit, delete income",
+        "Analyse expanse with charts",
+        "Search expanses",
+        "Export expanses in csv"
+      ],
+      "tech_stack": [
+        "django",
+        "html",
+        "css",
+        "javascript",
+        "chartjs"
+      ],
+      "links": [
+        {
+          "name": "github",
+          "link": "https://github.com/amit9838/Marca-Expenses",
+          "icon": "<i class='fa-brands fa-github'></i>"
+        },
+        {
+          "name": "website",
+          "link": "https://marca-expanses.herokuapp.com/",
+          "icon": "<i class='fa-solid fa-globe'></i>"
+        }
+      ]
+    },
+    {
+      "background": "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);",
+      "icon": "<i class='bi bi-disc'></i>",
+      "title": "Music Player",
+      "description": "Designed and developed Music Player using HTML, CSS and JavaScript ",
+      "features": [
+        "Set timer",
+        "Auto play next song",
+        "Seek audio"
+      ],
+      "tech_stack": [
+        "html",
+        "css",
+        "javascript"
+      ],
+      "links": [
+        {
+          "name": "github",
+          "link": "https://github.com/amit9838/Music-Player",
+          "icon": "<i class='fa-brands fa-github'></i>"
+        },
+        {
+          "name": "website",
+          "link": "https://amit9838.github.io/Music-Player/",
+          "icon": "<i class='fa-solid fa-globe'></i>"
+        }
+      ]
+    },
+    {
+      "background": "linear-gradient(90deg, #9ebd13 0%, #008552 100%);",
+      "icon": "<i class='bi bi-controller'></i>",
+      "title": "Race In",
+      "description": "Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in blender, and also used few asset packs from unity store, I used C#(basic) as part of script. ",
+      "features": [
+        "3D",
+        "Openworld game",
+        "Two maps to choose from"
+      ],
+      "tech_stack": [
+        "Unity",
+        "Blender 3d"
+      ],
+      "links": [
+        {
+          "name": "github",
+          "link": "https://github.com/amit9838/Game-Race_in",
+          "icon": "<i class='fa-brands fa-github'></i>"
+        }
+      ]
+    }
+  ],
+  "skills": [
+    "C++",
+    "Python",
+    "Django",
+    "Node",
+    "React",
+    "Rest Framework",
+    "JavaScript",
+    "SQL",
+    "Blender",
+    "Data Structure",
+    "Algorithms",
+    "Git"
+  ],
+  "experience": [
+    {
+      "organization": "BDCOE-AKGEC",
+      "role": "Web-Developer",
+      "start": "",
+      "end": "",
+      "description": "Big Data Center Of Excellence is a research and development society(AKGEC) of the college, in which only 10 students are selected every year and secured my position in the society. W've also organised multiple events like teaching and contests of 1st and 2nd year students."
+    },
+    {
+      "organization": "R.U.D.R.A Cyber Security.",
+      "role": "3D Artist",
+      "start": "",
+      "end": "",
+      "description": "R.U.D.R.A Cyber-Physical Security develop tools for security in ships and marine vehicles. I was a part web development department to design and integrate, 3D Models on the website using three js. "
+    }
+  ]
+}

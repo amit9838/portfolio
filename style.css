@@ -515,9 +515,14 @@ a{
     #amit{
         font-size: 3.6rem;
     }
+
+    .bg-icon {
+        top: -4.5rem;
+        left: 1rem;
+    }
+
     .p-title-bg{
         height: 8rem;
-
     }
     .p-title {
         font-size: 1.8rem;
@@ -527,15 +532,18 @@ a{
 
 .education {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 .education > .left {
-    width: 50%;
+    min-width: 16rem;
+    max-width: 30rem;
 }
 
 .education > .right {
-    margin-left: 10rem;
-    width: 50%;
+    min-width: 16rem;
+    max-width: 30rem;
 }
 
 .experience-container, .skill-container, .education-container {
@@ -544,8 +552,6 @@ a{
     border-radius: 1rem;
     margin-bottom: 2rem;
 }
-
-
 
 
 .tag {
@@ -588,8 +594,6 @@ a{
     margin-bottom: 3rem;
     /* background-color: var(--secondary); */
 }
-
-
 
 
 
@@ -722,13 +726,12 @@ a{
 }
 .name-email{
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    justify-content: center;
 }
 
 
 .input-field {
-    
     margin: 1rem 0rem;
 }
 
@@ -744,8 +747,10 @@ a{
     padding: 0 .5rem;
     font-size: 1.2rem;
     margin-top: .5rem;
-    min-width: 18rem;
-    max-width: 30rem;
+    /* margin-left: .5rem; */
+    margin-right: .5rem;
+    min-width:60%;
+    max-width: 80%;
     background-color: var(--secondary-light);
     border: none;
     border-radius: .2rem;
@@ -759,7 +764,7 @@ a{
     border: none;
     border-radius: .2rem;
     background-color: var(--secondary-light);
-    min-width: 40vw;
+    min-width: 80%;
     max-width: 95%;
 }
 
