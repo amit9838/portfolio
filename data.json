@@ -1,7 +1,37 @@
 {
-  "projects":[
+  "projects": [
     {
-      "background": "linear-gradient(90deg, #4b6cb7 0%, #182848 100%);",
+      "background": "linear-gradient(to right, #ffa17f, #00223e);",
+      "icon": "<i class='bi bi-motherboard'></i>",
+      "title": "Complaints Manager",
+      "description": "A multi-user service website capable of handling various jobs like-Complete track of complaints from registration to closing, it also manages authorization at various levels depending on the type of user. It also have a store section to manage components. Website also have personalized dashboard for different users.",
+      "features": [
+        "3 user roles (Admin, Enployee, Engineer)",
+        "Track complaints in realtime (also available to customer)",
+        "Isolated and personilized dashboards for each user.",
+        "Automatic complaints grouping based on status of the complaint.",
+        "See posts by user"
+      ],
+      "tech_stack": [
+        "django",
+        "html",
+        "css",
+        "javascript",
+        "chartjs",
+        "DRF",
+        "reportlab",
+        "sqlite3"
+      ],
+      "links": [
+        {
+          "name": "github",
+          "link": "https://github.com/amit9838/complaints-manager",
+          "icon": "<i class='fa-brands fa-github'></i>"
+        }
+      ]
+    },
+    {
+      "background": "linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);",
       "icon": "<i class='bi bi-chat-square-text'></i>",
       "title": "Blog Website",
       "description": "Designed and developed a blogging website using django, SQLite3, html-css and JavaScript. Website offers a lot of features and it can work on various screen-sizes. I've also added authorisation at various levels so that user can edit the posts that belongs to them.",
@@ -27,8 +57,8 @@
       ]
     },
     {
-      "background": "linear-gradient(90deg, #00d2ff 0%, #3a47d5 100%);",
-      "icon": "<i class='bi bi-bar-chart-line'></i>",
+      "background": "linear-gradient(90deg, #1CB5E0 0%, #000851 100%);",
+      "icon": "<i class='bi bi-wallet'></i>",
       "title": "Expanse Website",
       "description": " A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for analysis. It is developed using HTML, CSS, Bootstrap, JavaScript, Django and Postgres SQL. Implemented RestAPI for async search, also added authorization at various levels. ",
       "features": [
@@ -59,34 +89,6 @@
       ]
     },
     {
-      "background": "linear-gradient(90deg, #FC466B 0%, #3F5EFB 100%);",
-      "icon": "<i class='bi bi-disc'></i>",
-      "title": "Music Player",
-      "description": "Designed and developed Music Player using HTML, CSS and JavaScript ",
-      "features": [
-        "Set timer",
-        "Auto play next song",
-        "Seek audio"
-      ],
-      "tech_stack": [
-        "html",
-        "css",
-        "javascript"
-      ],
-      "links": [
-        {
-          "name": "github",
-          "link": "https://github.com/amit9838/Music-Player",
-          "icon": "<i class='fa-brands fa-github'></i>"
-        },
-        {
-          "name": "website",
-          "link": "https://amit9838.github.io/Music-Player/",
-          "icon": "<i class='fa-solid fa-globe'></i>"
-        }
-      ]
-    },
-    {
       "background": "linear-gradient(90deg, #9ebd13 0%, #008552 100%);",
       "icon": "<i class='bi bi-controller'></i>",
       "title": "Race In",
@@ -109,34 +111,26 @@
       ]
     }
   ],
-  "skills": [
-    "C++",
-    "Python",
-    "Django",
-    "Node",
-    "React",
-    "Rest Framework",
-    "JavaScript",
-    "SQL",
-    "Blender",
-    "Data Structure",
-    "Algorithms",
-    "Git"
-  ],
   "experience": [
     {
       "organization": "BDCOE-AKGEC",
       "role": "Web-Developer",
+      "date": "03/20-05/23",
       "start": "",
       "end": "",
       "description": "Big Data Center Of Excellence is a research and development society(AKGEC) of the college, in which only 10 students are selected every year and secured my position in the society. W've also organised multiple events like teaching and contests of 1st and 2nd year students."
     },
     {
-      "organization": "R.U.D.R.A Cyber Security.",
-      "role": "3D Artist",
-      "start": "",
-      "end": "",
-      "description": "R.U.D.R.A Cyber-Physical Security develop tools for security in ships and marine vehicles. I was a part web development department to design and integrate, 3D Models on the website using three js. "
+      "organization": "Edver Techonologies Pvt. Ltd.",
+      "role": "Backend Developer",
+      "date": "03/23-05/23",
+      "description": "Developed Django-based backend systems and utilized Jupyter Kernel Manager to facilitate Python code compilationfor a data analysis website. Designed RESTful APIs and collaborated with the front-end team to ensure seamless data exchange and a great user experience. Implemented a session restore feature to enable users to resume their work on the website from where they left off. Developed a feature to generate and download executed code (applied operations like- filter,sort,merge etc.), allowing users to reproduce the same output and operations later."
+    },
+    {
+      "organization": "Froyo Techonologies",
+      "role": "Full Stack Developer",
+      "date": "07/22-08/22",
+      "description": "Developed REST api using node.js and express.js for blog website with user management system. Secured the endpoints with the use of JWTs, and used express-validator to validate requests. Developed a website using react that gives food recipes and cooking steps with other informations like calories."
     }
   ]
 }

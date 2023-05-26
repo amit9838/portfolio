@@ -62,7 +62,7 @@ async function render_card(data) {
             </div>
             <div class="p-features">
                 <h5>FEATURES</h5>
-                <ul type="bullet">
+                <ul class="features" type="bullet">
                     ${features}
                 </ul>
             </div>
@@ -85,6 +85,7 @@ function render_exp(exp) {
         experiences += `
                 <div class="experience-item">
                     <span class="tag">${exp.role}</span>
+                    <span class="tag">${exp.date}</span>
                     <div class="title">
                         ${exp.organization}
                     </div>
