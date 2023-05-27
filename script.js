@@ -84,8 +84,10 @@ function render_exp(exp) {
     exp.forEach(exp=> {
         experiences += `
                 <div class="experience-item">
-                    <span class="tag">${exp.role}</span>
-                    <span class="tag">${exp.date}</span>
+                    <div class = "tags">
+                        <div class="tag">${exp.role}</div>
+                        <div class="tag">${exp.date}</div>
+                    </div>
                     <div class="title">
                         ${exp.organization}
                     </div>

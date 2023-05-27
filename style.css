@@ -197,6 +197,7 @@ a{
     .nav-menu {
         /* z-index: 111; */
         border-radius: 1rem;
+        margin-right: 2%;
         position: fixed;
         right: -100%;
         top: 15vh;
@@ -205,10 +206,11 @@ a{
         padding: 5rem 0 5rem 0;
         gap: 2rem;
         flex-direction: column;
-        background-color:#121b27c4;
-        -webkit-backdrop-filter: blur(8px);
-        backdrop-filter: blur(8px);
-        width: 100%;
+        background-color:#151c259c;
+        border: 1px solid rgba(174, 190, 212, 0.178);
+        -webkit-backdrop-filter: blur(7px);
+        backdrop-filter: blur(7px);
+        width: 96%;
         text-align: center;
         transition: .3s;
     }
@@ -221,23 +223,35 @@ a{
         opacity: 1;
     }
 
-    .nav-menu > .nav-item >.nav-link{
+    .nav-menu > .nav-item>.nav-link{
         opacity: 0;
         transform: translateX(10rem);
+    }
+    .nav-menu > .nav-item:nth-child(1) >.nav-link{
         transition-delay: .3s;
     }
-    
-    .nav-menu.active >.nav-item >.nav-link{
-        
+    .nav-menu > .nav-item:nth-child(2) >.nav-link{
+        transition-delay: .4s;
+    }
+    .nav-menu > .nav-item:nth-child(3) >.nav-link{
+        transition-delay: .5s;
+    }
+    .nav-menu > .nav-item:nth-child(4) >.nav-link{
+        transition-delay: .6s;
+    }
+    .nav-menu > .nav-item:nth-child(5) >.nav-link{
+        transition-delay: .7s;
+    }
+    .nav-menu.active >.nav-item >.nav-link {
         transform: translateX(0rem);
         opacity: 1;
     }
+
     .nav-link {
         font-size: 2rem;
         /* color: #1e95d5; */
     }
 } 
-
 
 
 /* Hero section */
@@ -403,20 +417,7 @@ a{
 
 }
 
-.bgs{
-    overflow: hidden;
-}
 
-.bg1{
-    position: absolute;
-    top: 45vh;
-    left: -20rem;
-    rotate: 125deg;
-    background:  url("img/bg.svg") no-repeat center/cover;
-    width: 80%;
-    height: 80%;
-    z-index: -2;
-}
 
 
 /* projects pc */
@@ -575,15 +576,19 @@ a{
     margin-bottom: 2rem;
 }
 
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 .tag {
     color: var(--accent);
     background-color: #2f3d38;
-
-    padding: .2rem .8rem;
+    width: fit-content;
+    padding: .2rem .5rem;
     border-radius: .3rem;
-    margin: 0rem .3rem 0 0;
-    font-size: 1.2rem;
+    margin: .5rem .3rem 0 0;
+    font-size: 1rem;
     font-weight: 500;
     /* color: var(--accent); */
     /* color: #1e95d5; */
