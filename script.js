@@ -285,10 +285,10 @@ function sendMsg(data) {
       });
 }
 
-window.addEventListener('scroll', scrollPos);
-function scrollPos() {
-    console.log(this.scrollY);
-}
+// window.addEventListener('scroll', scrollPos);
+// function scrollPos() {
+//     console.log(this.scrollY);
+// }
 
 // console.log(screen.width);
 

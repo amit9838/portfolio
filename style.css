@@ -151,7 +151,7 @@ a{
 
 .nav-link {
     
-    transition: .3s ease;
+    transition: .5s ease;
 }
 
 .nav-link:hover {
@@ -196,10 +196,10 @@ a{
 
     .nav-menu {
         /* z-index: 111; */
-        /* border-radius: .7rem; */
-        border-top-left-radius: .7rem;
-        border-bottom-left-radius: .7rem;
-        /* margin-right: 5%; */
+        border-radius:1rem;
+        /* border-top-left-radius: .7rem; */
+        /* border-bottom-left-radius: .7rem; */
+        margin-right: 5%;
         position: fixed;
         right: -100%;
         top: 15vh;
@@ -208,12 +208,12 @@ a{
         padding: 5rem 0 5rem 0;
         gap: 2rem;
         flex-direction: column;
-        background-color:#1a2129;
-        border: 1px solid rgba(108, 121, 141, 0.185);
+        background-color:#222e3aaf;
+        border: 1px solid rgba(138, 150, 168, 0.233);
         /* border-right: 0; */
-        /* -webkit-backdrop-filter: blur(8px); */
-        /* backdrop-filter: blur(8px); */
-        width: 40%;
+        -webkit-backdrop-filter: blur(8px);
+        backdrop-filter: blur(8px);
+        width: 90%;
         text-align: center;
         transition: .5s;
     }
@@ -228,7 +228,11 @@ a{
 
     .nav-menu > .nav-item>.nav-link{
         opacity: 0;
-        transform: translateY(-1rem);
+        transform: translateX(5rem);
+    }
+    .nav-menu.active >.nav-item >.nav-link {
+        transform: translateX(0rem);
+        opacity: 1;
     }
     .nav-menu > .nav-item:nth-child(1) >.nav-link{
         transition-delay: .4s;
@@ -245,10 +249,7 @@ a{
     .nav-menu > .nav-item:nth-child(5) >.nav-link{
         transition-delay: .6s;
     }
-    .nav-menu.active >.nav-item >.nav-link {
-        transform: translateX(0rem);
-        opacity: 1;
-    }
+ 
 
     .nav-link {
         font-size: 1.4rem;
