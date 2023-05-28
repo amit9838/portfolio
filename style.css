@@ -212,7 +212,7 @@ a{
         backdrop-filter: blur(8px);
         width: 96%;
         text-align: center;
-        transition: .3s;
+        transition: .5s;
     }
     
     .nav-items {
@@ -225,22 +225,22 @@ a{
 
     .nav-menu > .nav-item>.nav-link{
         opacity: 0;
-        transform: translateX(8rem);
+        transform: translateX(3rem);
     }
     .nav-menu > .nav-item:nth-child(1) >.nav-link{
-        transition-delay: .3s;
+        transition-delay: .4s;
     }
     .nav-menu > .nav-item:nth-child(2) >.nav-link{
-        transition-delay: .36s;
+        transition-delay: .45s;
     }
     .nav-menu > .nav-item:nth-child(3) >.nav-link{
-        transition-delay: .42s;
+        transition-delay: .5s;
     }
     .nav-menu > .nav-item:nth-child(4) >.nav-link{
-        transition-delay: .48s;
+        transition-delay: .55s;
     }
     .nav-menu > .nav-item:nth-child(5) >.nav-link{
-        transition-delay: .54s;
+        transition-delay: .6s;
     }
     .nav-menu.active >.nav-item >.nav-link {
         transform: translateX(0rem);
