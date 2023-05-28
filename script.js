@@ -136,7 +136,7 @@ function toProjects(){
     else {
 
         window.scroll({
-            top:840,
+            top:600,
             behavior:"smooth"
         })
     }
@@ -146,14 +146,14 @@ function toExperience() {
 
     if(screen.width<480) {
         window.scroll({
-            top:6400,
+            top:4050,
             behavior:"smooth"
         })
     }
     else {
 
         window.scroll({
-            top:4200,
+            top:1800,
             behavior:"smooth"
         })
     }
@@ -164,14 +164,14 @@ function toSkills() {
 
     if(screen.width<480) {
         window.scroll({
-            top:5900,
+            top:3500,
             behavior:"smooth"
         })
     }
     else {
 
         window.scroll({
-            top:4600,
+            top:2100,
             behavior:"smooth"
         })
     }
@@ -181,14 +181,14 @@ function toContacts() {
 
     if(screen.width<480) {
         window.scroll({
-            top:7950,
+            top:5000,
             behavior:"smooth"
         })
     }
     else {
 
         window.scroll({
-            top:5400,
+            top:2900,
             behavior:"smooth"
         })
     }
@@ -285,9 +285,9 @@ function sendMsg(data) {
       });
 }
 
-// window.addEventListener('scroll', scrollPos);
+window.addEventListener('scroll', scrollPos);
 function scrollPos() {
-    // console.log(this.scrollY);
+    console.log(this.scrollY);
 }
 
 // console.log(screen.width);
