@@ -1,7 +1,7 @@
 {
   "projects": [
     {
-      "background": "linear-gradient(to right,#00223e,#ffa17f);",
+      "background": "radial-gradient( circle farthest-corner at 10% 20%,  rgba(0,152,155,1) 0.1%, rgba(0,94,120,1) 94.2% );",
       "icon": "<i class='bi bi-motherboard'></i>",
       "title": "Complaints Manager",
       "description": "A multi-user service website capable of handling various jobs like-Complete track of complaints from registration to closing, it also manages authorization at various levels depending on the type of user. It also have a store section to manage components. Website also have personalized dashboard for different users.",
@@ -31,7 +31,7 @@
       ]
     },
     {
-      "background": "linear-gradient(180deg, rgba(12,60,238,1) 0%, rgba(0,101,255,1) 35%, rgba(0,212,255,1) 100%);",
+      "background": "radial-gradient( circle farthest-corner at 12.3% 19.3%,  rgba(85,88,218,1) 0%, rgba(95,209,249,1) 100.2% );",
       "icon": "<i class='bi bi-cloud-lightning-rain-fill'></i>",
       "title": "Weather",
       "description": "Designed and developed native weather applicaiton for linux using Python, Gtk,and adwaita,app is publish on flathub and got over 3.5k+ downloads winthin 2 weeks and counting",
@@ -42,7 +42,7 @@
         "Option to use Personal API Key"
       ],
       "tech_stack": [
-        "pthhon",
+        "python",
         "Gtk",
         "Libadwaita",
         "Meson-build"
@@ -61,7 +61,7 @@
       ]
     },
     {
-      "background": "linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);",
+      "background": "radial-gradient( circle 1086px at 1.1% 96.2%,  rgba(1,44,66,1) 0%, rgba(163,221,253,1) 53.6% );",
       "icon": "<i class='bi bi-chat-square-text'></i>",
       "title": "Blog Website",
       "description": "Designed and developed a blogging website using django, SQLite3, html-css and JavaScript. Website offers a lot of features and it can work on various screen-sizes. I've also added authorisation at various levels so that user can edit the posts that belongs to them.",
@@ -87,7 +87,7 @@
       ]
     },
     {
-      "background": "linear-gradient(90deg, #000851 0%, #1CB5E0 100%);",
+      "background": "radial-gradient( circle farthest-corner at 10% 20%,  rgba(162,102,246,1) 0%, rgba(203,159,249,1) 90% );",
       "icon": "<i class='bi bi-wallet'></i>",
       "title": "Expanse Website",
       "description": " A website where user can manage their earning and expenditure. Website offers different types of charts(chart js) for analysis. It is developed using HTML, CSS, Bootstrap, JavaScript, Django and Postgres SQL. Implemented RestAPI for async search, also added authorization at various levels. ",
