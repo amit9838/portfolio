@@ -520,7 +520,8 @@ a{
     transition: .3s all;
 }
 .p-btn:hover {
-    background-color: rgb(48, 57, 61);
+    background-color: rgb(41, 48, 51);
+    border: 1px solid var(--accent);
 }
 
 .p-btn-link:link{

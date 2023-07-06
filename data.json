@@ -31,6 +31,36 @@
       ]
     },
     {
+      "background": "linear-gradient(180deg, rgba(12,60,238,1) 0%, rgba(0,101,255,1) 35%, rgba(0,212,255,1) 100%);",
+      "icon": "<i class='bi bi-cloud-lightning-rain-fill'></i>",
+      "title": "Weather",
+      "description": "Designed and developed native weather applicaiton for linux using Python, Gtk,and adwaita,app is publish on flathub and got over 3.5k+ downloads winthin 2 weeks and counting",
+      "features": [
+        "Dynamically changing gradient-based background based on current weather condition",
+        "today, tomorrow and 5-day forcasts",
+        "See conditions in metric or imperial systems",
+        "Option to use Personal API Key"
+      ],
+      "tech_stack": [
+        "pthhon",
+        "Gtk",
+        "Libadwaita",
+        "Meson-build"
+      ],
+      "links": [
+        {
+          "name": "github",
+          "link": "https://github.com/amit9838/weather",
+          "icon": "<i class='fa-brands fa-github'></i>"
+        },
+        {
+          "name": "store",
+          "link": "https://flathub.org/apps/io.github.amit9838.weather",
+          "icon": "<i class='bi bi-bag-fill'></i>"
+        }
+      ]
+    },
+    {
       "background": "linear-gradient(90deg, #3F2B96 0%, #A8C0FF 100%);",
       "icon": "<i class='bi bi-chat-square-text'></i>",
       "title": "Blog Website",
@@ -87,29 +117,8 @@
           "icon": "<i class='fa-solid fa-globe'></i>"
         }
       ]
-    },
-    {
-      "background": "linear-gradient(90deg, #008552 0%,  #9ebd13  100%);",
-      "icon": "<i class='bi bi-controller'></i>",
-      "title": "Race In",
-      "description": "Openworld timelapse based 3D Racing game made in unity. I've designed the game assets in blender, and also used few asset packs from unity store, I used C#(basic) as part of script. ",
-      "features": [
-        "3D",
-        "Openworld game",
-        "Two maps to choose from"
-      ],
-      "tech_stack": [
-        "Unity",
-        "Blender 3d"
-      ],
-      "links": [
-        {
-          "name": "github",
-          "link": "https://github.com/amit9838/Game-Race_in",
-          "icon": "<i class='fa-brands fa-github'></i>"
-        }
-      ]
     }
+    
   ],
   "experience": [
     {
@@ -121,7 +130,7 @@
       "description": "Big Data Center Of Excellence is a research and development society(AKGEC) of the college, in which only 10 students are selected every year and secured my position in the society. W've also organised multiple events like teaching and contests of 1st and 2nd year students."
     },
     {
-      "organization": "Edver Techonologies Pvt. Ltd.",
+      "organization": "Edver Techonologies Pvt. Ltd.(Airsheet)",
       "role": "Backend Developer",
       "date": "03/23-05/23",
       "description": "Developed Django-based backend systems and utilized Jupyter Kernel Manager to facilitate Python code compilationfor a data analysis website. Designed RESTful APIs and collaborated with the front-end team to ensure seamless data exchange and a great user experience. Implemented a session restore feature to enable users to resume their work on the website from where they left off. Developed a feature to generate and download executed code (applied operations like- filter,sort,merge etc.), allowing users to reproduce the same output and operations later."
