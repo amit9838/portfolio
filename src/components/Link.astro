@@ -1,0 +1,34 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+import { tv, type VariantProps } from 'tailwind-variants';
+import { url } from '../lib/url';
+
+const link = tv({
+  base: 'transition-colors hover:text-accent-ink',
+  variants: {
+    variant: {
+      /** Underlined in the accent colour — the template's default link. */
+      accent:
+        'font-medium text-strong underline decoration-accent decoration-[1.5px] underline-offset-[0.35em]',
+      /** Quiet underline, e.g. footer credit. */
+      plain: 'text-body underline underline-offset-[5px]',
+      /** No decoration — for nav items, logo, icon links and Button. */
+      bare: 'no-underline',
+    },
+  },
+  defaultVariants: { variant: 'accent' },
+});
+
+type Props = Omit<HTMLAttributes<'a'>, 'href'> & VariantProps<typeof link> & { href: string };
+
+const { href, variant, class: className, ...rest } = Astro.props;
+
+// Links to other websites always open in a new tab; internal pages and mailto: don't.
+const opensNewTab = /^https?:\/\//i.test(href);
+const newTab = opensNewTab ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+---
+
+<a href={url(href)} class={link({ variant, class: className })} {...newTab} {...rest}>
+  <slot />
+  {opensNewTab && <span class="sr-only"> (opens in a new tab)</span>}
+</a>

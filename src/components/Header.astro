@@ -1,0 +1,129 @@
+---
+import { Icon } from 'astro-icon/components';
+import { nav } from '../lib/site';
+import { routeOf } from '../lib/url';
+import Link from './Link.astro';
+import SocialLinks from './SocialLinks.astro';
+import ThemeToggle from './ThemeToggle.astro';
+
+interface Props {
+  logoText: string;
+  name: string;
+  socials: { name: string; url: string; icon: string; inHeader: boolean }[];
+}
+const { logoText, name, socials } = Astro.props;
+
+const current = routeOf(Astro.url.pathname);
+const headerSocials = socials.filter((s) => s.inHeader);
+---
+
+<!--
+  Desktop (md+): logo · nav · icons in one row.
+  Phones/tablets: logo + a menu button that opens a drawer with the nav, socials and theme toggle.
+-->
+<header class="flex items-center justify-between gap-8 border-b border-line px-6 py-4 sm:px-10 md:border-b-0 md:py-6">
+  <Link
+    href="/"
+    variant="bare"
+    aria-label={`${name}, home`}
+    class="text-[28px] font-bold tracking-[-0.5px] text-strong md:text-[34px]"
+  >
+    <span class="mr-0.5 text-accent italic">//</span>
+    {logoText}
+  </Link>
+
+  <div class="hidden items-center gap-8 md:flex">
+    <nav aria-label="Main" class="flex items-center gap-x-8">
+      {nav.map((item) => (
+        <Link
+          href={item.href}
+          variant="bare"
+          aria-current={current === item.href ? 'page' : undefined}
+          class:list={[
+            'flex min-h-11 items-center text-base font-semibold tracking-[0.4px] uppercase',
+            current === item.href ? 'text-accent-ink' : 'text-strong',
+          ]}
+        >
+          {item.label}
+        </Link>
+      ))}
+    </nav>
+    <div class="-mr-3 flex items-center gap-0.5">
+      <SocialLinks socials={socials} layout="icons" />
+      <ThemeToggle />
+    </div>
+  </div>
+
+  <button
+    type="button"
+    data-drawer-open
+    aria-label="Open menu"
+    aria-haspopup="dialog"
+    aria-controls="site-drawer"
+    class="-mr-3 flex size-11 cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-strong transition-colors hover:text-accent-ink md:hidden"
+  >
+    <Icon name="lucide:menu" size={22} aria-hidden="true" />
+  </button>
+</header>
+
+<dialog
+  id="site-drawer"
+  aria-label="Menu"
+  class="fixed inset-y-0 right-0 left-auto m-0 h-dvh max-h-none w-[min(320px,85vw)] max-w-none translate-x-0 border-0 border-l border-line bg-page p-0 text-strong transition-transform duration-200 ease-out backdrop:bg-page/70 backdrop:backdrop-blur-sm starting:open:translate-x-full md:hidden"
+>
+  <div class="flex h-full flex-col px-6 py-4">
+    <div class="flex items-center justify-between">
+      <span class="text-sm font-semibold tracking-[1px] text-muted uppercase">Menu</span>
+      <form method="dialog">
+        <button
+          type="submit"
+          aria-label="Close menu"
+          class="-mr-3 flex size-11 cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-strong transition-colors hover:text-accent-ink"
+        >
+          <Icon name="lucide:x" size={24} aria-hidden="true" />
+        </button>
+      </form>
+    </div>
+
+    <nav aria-label="Main" class="mt-6 flex flex-col border-b border-line pb-6">
+      {nav.map((item) => (
+        <Link
+          href={item.href}
+          variant="bare"
+          aria-current={current === item.href ? 'page' : undefined}
+          class:list={[
+            'flex min-h-12 items-center text-lg font-semibold tracking-[0.4px] uppercase',
+            current === item.href ? 'text-accent-ink' : 'text-strong',
+          ]}
+        >
+          {item.label}
+        </Link>
+      ))}
+    </nav>
+
+    <div class="mt-6">
+      <SocialLinks socials={headerSocials} layout="labelled" />
+    </div>
+
+    <div class="mt-auto flex items-center justify-between border-t border-line pt-4">
+      <span class="text-base text-body">Theme</span>
+      <ThemeToggle />
+    </div>
+  </div>
+</dialog>
+
+<script>
+  const drawer = document.getElementById('site-drawer') as HTMLDialogElement | null;
+  const opener = document.querySelector<HTMLButtonElement>('[data-drawer-open]');
+  if (drawer && opener) {
+    opener.addEventListener('click', () => drawer.showModal());
+    // Close on backdrop click (outside the panel).
+    drawer.addEventListener('click', (e) => {
+      if (e.target === drawer) drawer.close();
+    });
+    // Close if the viewport grows to desktop while open.
+    matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+      if (e.matches && drawer.open) drawer.close();
+    });
+  }
+</script>

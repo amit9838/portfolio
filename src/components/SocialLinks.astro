@@ -1,0 +1,45 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tv, type VariantProps } from 'tailwind-variants';
+import Link from './Link.astro';
+
+const social = tv({
+  slots: {
+    list: 'm-0 flex list-none flex-wrap items-center p-0',
+    link: 'flex items-center text-body',
+  },
+  variants: {
+    layout: {
+      /** Header: icon-only, 44px targets, header socials only. */
+      icons: { list: 'gap-0.5', link: 'size-11 justify-center text-strong' },
+      /** "Find me on": icon + name, all socials. */
+      labelled: { list: 'gap-x-8 gap-y-2 text-xl', link: 'min-h-11 gap-3' },
+    },
+  },
+  defaultVariants: { layout: 'labelled' },
+});
+
+interface Props extends VariantProps<typeof social> {
+  socials: { name: string; url: string; icon: string; inHeader: boolean }[];
+}
+
+const { socials, layout = 'labelled' } = Astro.props;
+const s = social({ layout });
+const shown = layout === 'icons' ? socials.filter((x) => x.inHeader) : socials;
+---
+
+<ul class={s.list()}>
+  {shown.map((x) => (
+    <li>
+      <Link
+        href={x.url}
+        variant="bare"
+        class={s.link()}
+        aria-label={layout === 'icons' ? `${x.name} (opens in a new tab)` : undefined}
+      >
+        <Icon name={x.icon} size={layout === 'icons' ? 22 : 21} aria-hidden="true" />
+        {layout === 'labelled' && x.name}
+      </Link>
+    </li>
+  ))}
+</ul>

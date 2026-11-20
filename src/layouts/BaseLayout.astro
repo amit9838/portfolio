@@ -1,0 +1,63 @@
+---
+import { tv, type VariantProps } from 'tailwind-variants';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import PageSuggestions from '../components/PageSuggestions.astro';
+import Seo from '../components/Seo.astro';
+import { getProfile } from '../lib/content';
+import '../styles/global.css';
+
+const main = tv({
+  base: 'mx-auto box-border w-full max-w-column flex-1 px-6',
+  variants: {
+    spacing: {
+      /** Resume, Projects. */
+      page: 'pt-6 pb-24 sm:pt-10',
+      /** Home. */
+      roomy: 'pt-8 pb-24 sm:pt-14',
+      /** Contact, 404. */
+      hero: 'pt-10 pb-24 sm:pt-16',
+    },
+  },
+  defaultVariants: { spacing: 'page' },
+});
+
+interface Props extends VariantProps<typeof main> {
+  title: string;
+  description: string;
+  /** Keep the page out of search results (e.g. 404). */
+  noindex?: boolean;
+}
+
+const { title, description, spacing, noindex } = Astro.props;
+const { name, logoText, socials } = await getProfile();
+---
+
+<!doctype html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo title={title} description={description} siteName={name} noindex={noindex} />
+    <meta name="generator" content={Astro.generator} />
+    <slot name="head" />
+    <script is:inline>
+      // Set the theme before first paint to avoid a flash.
+      (() => {
+        const saved = localStorage.getItem('theme');
+        const prefersLight = matchMedia('(prefers-color-scheme: light)').matches;
+        document.documentElement.dataset.theme = saved ?? (prefersLight ? 'light' : 'dark');
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="flex min-h-screen flex-col">
+      <Header logoText={logoText} name={name} socials={socials} />
+      <main class={main({ spacing })}>
+        <slot />
+        <PageSuggestions />
+      </main>
+      <Footer name={name} />
+    </div>
+  </body>
+</html>

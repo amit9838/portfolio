@@ -1,0 +1,50 @@
+---
+import Link from '../components/Link.astro';
+import PageIntro from '../components/PageIntro.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found"
+  description="The page you’re looking for doesn’t exist."
+  spacing="hero"
+  noindex
+>
+  <PageIntro title="Page Not Found" size="hero">
+    Sorry, the page you’re looking for doesn’t exist. Try the <Link href="/">home page</Link>.
+  </PageIntro>
+
+  <!-- Our own illustration (from the canvas): a sun behind clouds between two 4s. -->
+  <svg aria-hidden="true" viewBox="0 0 680 420" class="mt-14 block h-auto w-full max-w-[680px]">
+    <ellipse cx="340" cy="392" rx="320" ry="22" class="fill-line"></ellipse>
+    <path
+      d="M60 300 C 40 200, 140 150, 240 130 C 340 110, 420 60, 540 90 C 640 115, 660 230, 610 320 C 580 370, 140 380, 60 300 Z"
+      class="fill-surface"
+    ></path>
+    <text x="40" y="380" font-size="240" font-weight="700" class="fill-accent font-sans">
+      4
+    </text>
+    <text x="470" y="380" font-size="240" font-weight="700" class="fill-accent font-sans">
+      4
+    </text>
+    <circle cx="340" cy="290" r="92" class="fill-page"></circle>
+    <circle cx="340" cy="290" r="70" class="fill-halo"></circle>
+    <circle cx="340" cy="290" r="46" class="fill-accent"></circle>
+    <g class="fill-faint">
+      <circle cx="380" cy="320" r="34"></circle>
+      <circle cx="420" cy="330" r="26"></circle>
+      <rect x="346" y="326" width="110" height="34" rx="17"></rect>
+    </g>
+    <g class="fill-line-strong">
+      <circle cx="150" cy="96" r="22"></circle>
+      <rect x="118" y="96" width="84" height="26" rx="13"></rect>
+      <circle cx="560" cy="44" r="18"></circle>
+      <rect x="534" y="44" width="70" height="22" rx="11"></rect>
+    </g>
+    <g class="stroke-accent" stroke-width="5" stroke-linecap="round">
+      <path d="M300 150 l-6 18"></path>
+      <path d="M330 140 l-6 18"></path>
+      <path d="M360 150 l-6 18"></path>
+    </g>
+  </svg>
+</BaseLayout>

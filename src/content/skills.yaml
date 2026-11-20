@@ -1,0 +1,66 @@
+languages:
+  order: 1
+  title: Languages
+  items:
+    - 'Python'
+    - 'Go'
+    - 'JavaScript / TypeScript'
+    - 'C'
+    - 'C++'
+    - 'SQL'
+backend:
+  order: 2
+  title: Backend
+  items:
+    - 'FastAPI'
+    - 'Django'
+    - 'Go net/http'
+    - 'Goroutines & channels'
+frontend:
+  order: 2.5
+  title: Frontend
+  items:
+    - 'React'
+    - 'Tailwind CSS'
+    - 'Zustand'
+    - 'Vite'
+    - 'Astro'
+infra:
+  order: 3
+  title: Infra & Cloud
+  items:
+    - 'GCP'
+    - 'AWS'
+    - 'Docker'
+    - 'CI/CD'
+    - 'Linux'
+    - 'Shell'
+data:
+  order: 4
+  title: Data
+  items:
+    - 'PostgreSQL'
+    - 'MongoDB'
+    - 'Redis'
+    - 'Firebase'
+    - 'Vector search'
+concepts:
+  order: 5
+  title: Concepts
+  items:
+    - 'Distributed systems'
+    - 'Microservices'
+    - 'System design'
+    - 'Caching'
+    - 'SOLID'
+    - 'DSA'
+tooling:
+  order: 6
+  title: Tooling
+  items:
+    - 'Git'
+    - 'Sentry'
+    - 'Postman'
+    - 'Elasticsearch'
+    - 'Grafana'
+    - 'Jaeger'

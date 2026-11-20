@@ -1,0 +1,7 @@
+dist/
+.astro/
+node_modules/
+package-lock.json
+docs/design-ref/
+PLAN.md
+.vscode/

@@ -1,0 +1,45 @@
+---
+import { tv, type VariantProps } from 'tailwind-variants';
+import Wave from './Wave.astro';
+
+const intro = tv({
+  slots: {
+    heading: 'm-0 font-serif leading-[1.1] font-semibold',
+    lead: 'm-0 mt-5 text-body',
+  },
+  variants: {
+    size: {
+      /** Resume, Projects. */
+      page: {
+        heading: 'text-[clamp(34px,5vw+16px,44px)] tracking-[-0.5px]',
+        lead: 'text-lg sm:text-xl',
+      },
+      /** Contact, 404 — larger, shorter pages. */
+      hero: {
+        heading: 'text-[clamp(34px,5vw+16px,44px)] tracking-[-0.5px]',
+        lead: 'text-lg sm:text-xl',
+      },
+    },
+  },
+  defaultVariants: { size: 'page' },
+});
+
+interface Props extends VariantProps<typeof intro> {
+  title: string;
+  /** Plain-text lead. For a lead with links, pass it as the default slot instead. */
+  lead?: string;
+}
+
+const { title, lead, size } = Astro.props;
+const s = intro({ size });
+const hasLead = Boolean(lead) || Astro.slots.has('default');
+---
+
+<h1 class={s.heading()}>{title}</h1>
+{hasLead && (
+  <p class={s.lead()}>
+    {lead}
+    <slot />
+  </p>
+)}
+<Wave class="mt-8" />

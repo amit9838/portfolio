@@ -1,0 +1,21 @@
+---
+interface Props {
+  class?: string;
+}
+const { class: className } = Astro.props;
+---
+
+<svg
+  aria-hidden="true"
+  width="150"
+  height="20"
+  viewBox="0 0 150 20"
+  fill="none"
+  class:list={['block stroke-accent', className]}
+>
+  <path
+    d="M3 10 Q9 2 15 10 T27 10 T39 10 T51 10 T63 10 T75 10 T87 10 T99 10 T111 10 T123 10 T135 10 T147 10"
+    stroke-width="3.5"
+    stroke-linecap="round"
+  ></path>
+</svg>

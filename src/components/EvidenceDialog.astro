@@ -1,0 +1,90 @@
+---
+import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+
+/** A claim with a button that opens its supporting screenshot in a native <dialog>. */
+interface Props {
+  /** Unique per page; used to link the button to its dialog. */
+  id: string;
+  text: string;
+  button: string;
+  image: ImageMetadata;
+  alt: string;
+  caption: string;
+  class?: string;
+}
+
+const { id, text, button, image, alt, caption, class: className } = Astro.props;
+const dialogId = `evidence-${id}`;
+---
+
+<div
+  class:list={[
+    'flex flex-wrap items-center gap-x-3 gap-y-2 rounded-card border border-line bg-page px-4 py-3',
+    className,
+  ]}
+>
+  <Icon name="simple-icons:google" size={16} class="shrink-0 text-accent-ink" aria-hidden="true" />
+  <p class="m-0 flex-1 basis-60 text-[15px] text-body">{text}</p>
+  <button
+    type="button"
+    data-dialog-open={dialogId}
+    aria-haspopup="dialog"
+    class="flex min-h-11 cursor-pointer items-center gap-1.5 border-0 bg-transparent p-0 text-[15px] font-medium text-strong underline decoration-accent decoration-[1.5px] underline-offset-[0.35em] transition-colors hover:text-accent-ink"
+  >
+    <Icon name="lucide:image" size={16} aria-hidden="true" />
+    {button}
+  </button>
+</div>
+
+<dialog
+  id={dialogId}
+  aria-label={caption}
+  class="m-auto w-[min(1200px,94vw)] max-w-none rounded-card border border-line bg-surface p-0 text-strong backdrop:bg-page/85 backdrop:backdrop-blur-sm"
+>
+  <div class="flex items-start justify-between gap-4 px-5 pt-4 pb-3">
+    <p class="m-0 text-sm text-muted">
+      {caption}
+      <a
+        href={image.src}
+        target="_blank"
+        rel="noopener"
+        class="ml-1 font-medium whitespace-nowrap text-strong underline decoration-accent underline-offset-4 hover:text-accent-ink"
+      >
+        Open full size
+      </a>
+    </p>
+    <form method="dialog">
+      <button
+        type="submit"
+        aria-label="Close screenshot"
+        class="-mt-2 -mr-2 flex size-11 cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-strong transition-colors hover:text-accent-ink"
+      >
+        <Icon name="lucide:x" size={22} aria-hidden="true" />
+      </button>
+    </form>
+  </div>
+  <Image
+    src={image}
+    alt={alt}
+    widths={[800, 1200, 1800]}
+    sizes="(min-width: 1280px) 1200px, 94vw"
+    class="block h-auto w-full"
+  />
+</dialog>
+
+<script>
+  for (const btn of document.querySelectorAll<HTMLButtonElement>('[data-dialog-open]')) {
+    const dialog = document.getElementById(btn.dataset.dialogOpen!) as HTMLDialogElement | null;
+    if (!dialog) continue;
+    btn.addEventListener('click', () => dialog.showModal());
+    // Close when clicking the backdrop (outside the dialog box).
+    dialog.addEventListener('click', (e) => {
+      const r = dialog.getBoundingClientRect();
+      const inside =
+        e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (!inside) dialog.close();
+    });
+  }
+</script>

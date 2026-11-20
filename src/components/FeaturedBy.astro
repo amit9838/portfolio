@@ -1,0 +1,59 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tv } from 'tailwind-variants';
+import Link from './Link.astro';
+
+type Brand = 'youtube' | 'omgubuntu' | 'linuxlinks';
+
+interface Props {
+  items: { name: string; url: string; brand?: Brand | undefined }[];
+  /** Text before the outlet names. */
+  label?: string;
+  /** End with ", and more." (the list isn't exhaustive). */
+  andMore?: boolean;
+  class?: string;
+}
+
+const { items, label = 'Featured by', andMore = false, class: className } = Astro.props;
+const last = items.length - 1;
+/** Separator before item i: "a, b and c." or "a, b, c, and more." */
+const separator = (i: number) => (i === 0 ? '' : !andMore && i === last ? ' and ' : ', ');
+
+// Brand colour on the underline and icon only: as text these colours fail contrast in light mode.
+const brand = tv({
+  slots: { link: '', icon: 'mr-1 inline-block shrink-0 align-[-2px]' },
+  variants: {
+    brand: {
+      youtube: { link: 'decoration-brand-youtube', icon: 'text-brand-youtube' },
+      omgubuntu: { link: 'decoration-brand-omgubuntu', icon: 'text-brand-omgubuntu' },
+      linuxlinks: { link: 'decoration-brand-linuxlinks', icon: 'text-brand-linuxlinks' },
+    },
+  },
+});
+const icons: Record<Brand, string> = {
+  youtube: 'simple-icons:youtube',
+  omgubuntu: 'lucide:newspaper',
+  linuxlinks: 'lucide:newspaper',
+};
+---
+
+<p class:list={['m-0 text-base font-light text-body', className]}>
+  {label}{' '}
+  {items.map((item, i) => {
+    const s = brand({ brand: item.brand });
+    return (
+      <>
+        {separator(i)}
+        <span class="whitespace-nowrap">
+          {item.brand && (
+            <Icon name={icons[item.brand]} size={15} class={s.icon()} aria-hidden="true" />
+          )}
+          <Link href={item.url} class={s.link()}>
+            {item.name}
+          </Link>
+          {i === last && (andMore ? ', and more.' : '.')}
+        </span>
+      </>
+    );
+  })}
+</p>

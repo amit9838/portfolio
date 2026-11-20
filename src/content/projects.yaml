@@ -1,0 +1,75 @@
+# stars/forks/downloads are fallbacks; the build refreshes them from GitHub (`repo`) and Flathub (`flathub`).
+mousam:
+  name: Mousam
+  icon: ../assets/projects/mousam.svg
+  tier: flagship
+  order: 1
+  desc: A native Linux weather app with AQI, hourly and 7-day graphs, a compact mode and 21 languages.
+  stack: [Python, GTK4, Libadwaita]
+  repo: amit9838/mousam
+  stars: 499
+  forks: 72
+  flathub: io.github.amit9838.mousam
+  downloads: 128573
+  distroRepos: 18
+  quote:
+    text: Mousam is more than a match for meteorological software made by the likes of Apple, Microsoft and Google.
+    source: OMG! Ubuntu
+    url: https://www.omgubuntu.co.uk/2024/10/mousam-modern-weather-app-for-linux
+  featuredBy:
+    - { name: DistroTube, url: 'https://www.youtube.com/watch?v=-IQ75MwPS0M', brand: youtube }
+    - name: OMG! Ubuntu
+      url: https://www.omgubuntu.co.uk/2024/10/mousam-modern-weather-app-for-linux
+      brand: omgubuntu
+    - name: LinuxLinks
+      url: https://www.linuxlinks.com/mousam-weather-python/
+      brand: linuxlinks
+  evidence:
+    text: Google’s AI Overview names Mousam the “best overall desktop” weather app on Linux.
+    button: See screenshot
+    image: ../assets/mousam-google-ai-overview.png
+    alt: 'Google search for “best weather app on linux”. The AI Overview says Mousam is widely considered one of the best modern weather apps on Linux and lists it first as “Best overall desktop app”, ahead of GNOME Weather and Meteo.'
+    caption: Google search for “best weather app on linux”, November 2026. AI-generated results can vary by person and over time.
+  links:
+    - { label: GitHub, url: 'https://github.com/amit9838/mousam' }
+    - { label: Flathub, url: 'https://flathub.org/apps/io.github.amit9838.mousam' }
+    - { label: Snap Store, url: 'https://snapcraft.io/mousam' }
+    - { label: Website, url: 'https://amit9838.github.io/mousam/' }
+brewlens:
+  name: BrewLens
+  tier: compact
+  order: 7
+  desc: A visual app store for Homebrew with search, trending apps, checksums, and Brewfile import and export.
+  stack: [TypeScript]
+  repo: amit9838/brewlens
+  stars: 41
+  links:
+    - { label: GitHub, url: 'https://github.com/amit9838/brewlens' }
+    - { label: Website, url: 'https://amit9838.github.io/brewlens/' }
+focal:
+  name: Focal
+  tier: compact
+  order: 4
+  desc: A browser photo editor built around plugins, with the engine kept separate from the tools.
+  stack: [React, TypeScript, Zustand]
+  repo: amit9838/focal
+  links:
+    - { label: GitHub, url: 'https://github.com/amit9838/focal' }
+mail-dispatcher:
+  name: Mail Dispatcher
+  tier: compact
+  order: 6
+  desc: Bulk email sender where a producer feeds a pool of worker goroutines.
+  stack: [Go standard library]
+  links:
+    - { label: GitHub, url: 'https://github.com/amit9838/mail-dispatcher' }
+complaints-manager:
+  name: Complaints Manager
+  tier: flagship
+  order: 2
+  desc: A service-desk web app with admin, employee and engineer roles. Staff assign engineers, customers track complaints live, and a complaint closes only after OTP or email verification. Includes a parts store with sales analytics and a dashboard per role.
+  stack: [Django, DRF, SQLite, Chart.js, ReportLab]
+  repo: amit9838/complaints-manager
+  stars: 5
+  links:
+    - { label: GitHub, url: 'https://github.com/amit9838/complaints-manager' }

@@ -1,0 +1,36 @@
+---
+import PageIntro from '../components/PageIntro.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProfile, getProjects } from '../lib/content';
+
+const [profile, { flagship, compact }] = await Promise.all([getProfile(), getProjects()]);
+---
+
+<BaseLayout
+  title={`Projects – ${profile.name}`}
+  description={`Open-source projects by ${profile.name}, including ${flagship.map((p) => p.name).join(' and ')}.`}
+>
+  <PageIntro
+    title="Projects"
+    lead="Things I’ve built outside work: a Linux app with thousands of users, browser apps in React and TypeScript, and smaller Go and Django tools."
+  />
+
+  <div class="mt-14 flex flex-col gap-6">
+    {flagship.map((p) => (
+      <ProjectCard project={p} variant="flagship" />
+    ))}
+  </div>
+
+  {compact.length > 0 && (
+    <>
+      <SectionHeading title="More projects" size="md" class="mt-16" />
+      <ul class="m-0 mt-4 list-none p-0">
+        {compact.map((p) => (
+          <ProjectCard project={p} variant="compact" />
+        ))}
+      </ul>
+    </>
+  )}
+</BaseLayout>

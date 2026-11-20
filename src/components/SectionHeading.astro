@@ -1,0 +1,43 @@
+---
+import { tv, type VariantProps } from 'tailwind-variants';
+
+const heading = tv({
+  slots: {
+    title: 'm-0 font-serif font-semibold',
+    lead: 'm-0 mt-3 text-lg text-body',
+  },
+  variants: {
+    size: {
+      /** Home sections. */
+      sm: { title: 'text-[28px] sm:text-[22px]' },
+      /** Projects sub-sections. */
+      md: { title: 'text-[26px]' },
+      /** Resume sections. */
+      lg: { title: 'text-[30px]' },
+    },
+  },
+  defaultVariants: { size: 'lg' },
+});
+
+interface Props extends VariantProps<typeof heading> {
+  title: string;
+  /** Plain-text lead. For a lead with links, use the default slot. */
+  lead?: string;
+  /** Spacing above, e.g. `mt-16`. */
+  class?: string;
+}
+
+const { title, lead, size, class: className } = Astro.props;
+const s = heading({ size });
+const hasLead = Boolean(lead) || Astro.slots.has('default');
+---
+
+<div class={className}>
+  <h2 class={s.title()}>{title}</h2>
+  {hasLead && (
+    <p class={s.lead()}>
+      {lead}
+      <slot />
+    </p>
+  )}
+</div>

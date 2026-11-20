@@ -1,0 +1,76 @@
+name: Verify and deploy
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deploy at a time; don't cancel a deploy that's already running.
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  # Lets the build fetch live GitHub star counts without hitting the anonymous rate limit.
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Lint (design tokens, contrast)
+        run: npm run lint
+      - name: Type-check and build
+        run: npm run build
+      - name: No phone numbers or PDFs in the build
+        run: npm run test:private
+      - name: Install headless Chromium
+        run: npx playwright install --with-deps --only-shell chromium
+      - name: End-to-end tests
+        run: npm run test:e2e
+      - name: Check links
+        # External sites can be briefly down; report it without blocking the deploy.
+        continue-on-error: true
+        run: npm run test:links
+      - name: Upload test report
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: playwright-report
+          path: test-results/
+          retention-days: 7
+
+  build:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: verify
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - name: Build with Astro and upload the Pages artifact
+        uses: withastro/action@v6
+        with:
+          node-version: 24
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

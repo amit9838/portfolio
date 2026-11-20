@@ -1,0 +1,43 @@
+{
+  "name": "portfolio",
+  "type": "module",
+  "version": "2.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro check && astro build",
+    "preview": "node scripts/serve-dist.mjs 4321",
+    "check": "astro check",
+    "format": "prettier --write .",
+    "lint": "npm run lint:tokens && npm run lint:contrast",
+    "lint:tokens": "node scripts/lint-tokens.mjs",
+    "lint:contrast": "node scripts/lint-contrast.mjs",
+    "images": "node scripts/generate-images.mjs",
+    "test": "npm run test:private && npm run test:e2e && npm run test:links",
+    "test:private": "node scripts/check-private.mjs",
+    "test:e2e": "playwright test",
+    "test:links": "node scripts/check-links.mjs",
+    "verify": "npm run lint && npm run build && npm test"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.7.6",
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@fontsource-variable/source-serif-4": "^5.3.1",
+    "@iconify-json/lucide": "^1.2.157",
+    "@iconify-json/simple-icons": "^1.2.103",
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^7.4.13",
+    "astro-icon": "^1.2.0",
+    "tailwind-variants": "^4.0.2",
+    "tailwindcss": "^4.3.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@playwright/test": "^1.65.1",
+    "linkinator": "^8.1.0",
+    "prettier": "^3.10.1",
+    "prettier-plugin-astro": "^1.1.2",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "typescript": "^6.0.3"
+  }
+}

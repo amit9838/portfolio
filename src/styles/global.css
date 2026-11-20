@@ -1,0 +1,94 @@
+@import 'tailwindcss';
+@import '@fontsource-variable/figtree';
+@import '@fontsource-variable/source-serif-4';
+@import '@fontsource-variable/source-serif-4/wght-italic.css';
+
+/*
+ * Design tokens — the ONLY place colours are defined (enforced by `npm run lint:tokens`).
+ * Tailwind's default palette is removed so components can only use these.
+ * Dark values come from the Dribbble template; light values are derived (text ≥ 4.5:1 on page).
+ */
+@theme {
+  --color-*: initial;
+  /*
+   * Only two typefaces, nothing else (no system or monospace stacks):
+   * Figtree for UI/body, Source Serif 4 for headings. Generic keywords are the only fallback.
+   */
+  --font-*: initial;
+  --font-sans: 'Figtree Variable', sans-serif;
+  --font-serif: 'Source Serif 4 Variable', serif;
+  --default-font-family: var(--font-sans);
+  --default-mono-font-family: var(--font-sans);
+
+  --color-page: #081021; /* page + footer background */
+  --color-surface: #0e182e; /* cards */
+  --color-line: #1e293b; /* rules, card borders, timeline */
+  --color-line-strong: #334155; /* outline buttons */
+  --color-strong: #f1f5f9; /* headings, primary text */
+  --color-soft: #e2e8f0; /* company line, skill names */
+  --color-body: #cbd5e1; /* body copy, nav, footer */
+  --color-muted: #94a3b8; /* dates, metadata */
+  --color-faint: #64748b; /* decorative separators only */
+  --color-accent: #fca311; /* decoration: wave, dots, underlines, logo, primary button */
+  --color-accent-ink: #fca311; /* accent used AS text */
+  --color-on-accent: #081021; /* text on accent background */
+  --color-halo: #3b2a0e; /* current-job dot halo, 404 sun ring */
+  --color-heart: #ef4444;
+
+  /* Third-party brand colours, used only for decoration (icons, underlines). */
+  --color-brand-youtube: #ff0000;
+  --color-brand-omgubuntu: #ff9700;
+  --color-brand-linuxlinks: #1585b5;
+
+  /* Paragraph line height: 1.5 everywhere (overrides Tailwind's per-size defaults). */
+  --default-line-height: 1.5;
+  --text-xs--line-height: 1.5;
+  --text-sm--line-height: 1.5;
+  --text-base--line-height: 1.5;
+  --text-lg--line-height: 1.5;
+  --text-xl--line-height: 1.5;
+  --text-2xl--line-height: 1.5;
+
+  --container-column: 728px;
+  --radius-card: 12px;
+}
+
+:root[data-theme='light'] {
+  --color-page: #f8fafc;
+  --color-surface: #ffffff;
+  --color-line: #e2e8f0;
+  --color-line-strong: #cbd5e1;
+  --color-strong: #0f172a;
+  --color-soft: #1e293b;
+  --color-body: #334155;
+  --color-muted: #475569;
+  --color-faint: #94a3b8;
+  --color-accent-ink: #b45309;
+  --color-halo: #fdecc8;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: var(--color-page);
+  }
+  html[data-theme='light'] {
+    color-scheme: light;
+  }
+  body {
+    margin: 0;
+    background-color: var(--color-page);
+    color: var(--color-strong);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  ::selection {
+    background-color: var(--color-accent);
+    color: var(--color-on-accent);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+}

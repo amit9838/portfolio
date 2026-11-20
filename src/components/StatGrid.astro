@@ -1,0 +1,20 @@
+---
+import Card from './Card.astro';
+
+interface Props {
+  items: { value: string; label: string; source?: string | undefined }[];
+}
+const { items } = Astro.props;
+---
+
+<ul class="m-0 grid list-none grid-cols-2 gap-3 max-sm:[&>li:last-child:nth-child(odd)]:col-span-2 sm:grid-cols-3 sm:gap-4 p-0">
+  {items.map((s) => (
+    <Card as="li" padding="sm" class="flex flex-col max-sm:px-4 max-sm:py-4">
+      <p class="m-0 text-[28px] leading-[1.1] font-bold text-accent-ink sm:text-[34px]">
+        {s.value}
+      </p>
+      <p class="m-0 mt-2 text-[15px] font-light text-body sm:text-base">{s.label}</p>
+      {s.source && <p class="m-0 mt-auto pt-3 text-sm font-medium text-muted">{s.source}</p>}
+    </Card>
+  ))}
+</ul>

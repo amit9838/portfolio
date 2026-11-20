@@ -1,0 +1,35 @@
+# group: work (shows `source`) or oss (one project's live numbers).
+logins:
+  {
+    group: work,
+    order: 1,
+    value: 50K+,
+    label: daily logins on an auth service I built,
+    source: Kumba AI,
+  }
+videos:
+  {
+    group: work,
+    order: 2,
+    value: 500+,
+    label: videos a day from my generation pipeline,
+    source: Kumba AI,
+  }
+caching:
+  {
+    group: work,
+    order: 3,
+    value: ~40%,
+    label: faster API responses with Redis caching,
+    source: CivicDataLab,
+  }
+downloads: { group: oss, order: 4, project: mousam, metric: downloads, label: Flathub downloads }
+distros:
+  {
+    group: oss,
+    order: 5,
+    project: mousam,
+    metric: distroRepos,
+    label: Linux distro repos package it,
+  }
+stars: { group: oss, order: 6, project: mousam, metric: stars, label: GitHub stars }

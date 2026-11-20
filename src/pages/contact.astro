@@ -1,0 +1,43 @@
+---
+import Link from '../components/Link.astro';
+import PageIntro from '../components/PageIntro.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import SocialLinks from '../components/SocialLinks.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProfile } from '../lib/content';
+
+const profile = await getProfile();
+const linkedin = profile.socials.find((s) => s.name === 'LinkedIn');
+---
+
+<BaseLayout
+  title={`Contact – ${profile.name}`}
+  description={`Get in touch with ${profile.name} about software engineering roles or projects.`}
+  spacing="hero"
+>
+  <PageIntro
+    title="Get in touch"
+    lead="Have a role or an interesting project in mind? Let’s talk!"
+    size="hero"
+  />
+
+  <div class="mt-10 text-lg text-body sm:mt-14 sm:text-xl">
+    <p class="m-0">
+      You can reach me anytime at <Link href={`mailto:${profile.email}`}>{profile.email}</Link>
+    </p>
+    {linkedin && (
+      <p class="m-0">
+        You can also <Link href={linkedin.url}>message me on LinkedIn</Link>
+      </p>
+    )}
+    <p class="m-0 mt-4">
+      I’m based in {profile.city} ({profile.timezone})
+      {profile.openToRemote && ' and open to remote work'}.
+    </p>
+  </div>
+
+  <SectionHeading title="Find me on" size="sm" class="mt-14" />
+  <div class="mt-4">
+    <SocialLinks socials={profile.socials} />
+  </div>
+</BaseLayout>

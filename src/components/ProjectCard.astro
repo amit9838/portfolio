@@ -1,0 +1,133 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import { tv } from 'tailwind-variants';
+import { compactCount, repoStats } from '../lib/format';
+import Card from './Card.astro';
+import EvidenceDialog from './EvidenceDialog.astro';
+import FeaturedBy from './FeaturedBy.astro';
+import Link from './Link.astro';
+
+type Project = CollectionEntry<'projects'>['data'];
+
+const card = tv({
+  slots: {
+    title: 'm-0 font-serif',
+    desc: 'm-0 font-light text-body',
+    links: 'flex flex-wrap',
+    link: 'flex min-h-11 items-center',
+  },
+  variants: {
+    variant: {
+      flagship: {
+        title: 'text-[30px] font-semibold',
+        desc: 'mt-3.5 text-lg',
+        links: 'mt-5 gap-x-6 gap-y-1',
+        link: 'text-base',
+      },
+      compact: {
+        title: 'text-lg font-semibold',
+        desc: 'mt-1.5 text-base',
+        link: 'text-[15px]',
+      },
+    },
+  },
+});
+
+interface Props {
+  project: Project;
+  variant: 'flagship' | 'compact';
+}
+
+const { project: p, variant } = Astro.props;
+const s = card({ variant });
+const stats = repoStats(p.stars, p.forks);
+const reach = [
+  p.downloads && {
+    icon: 'lucide:download',
+    text: `${compactCount(p.downloads)} downloads on Flathub`,
+  },
+  p.distroRepos && { icon: 'lucide:package', text: `Packaged in ${p.distroRepos}+ distro repos` },
+].filter((r): r is { icon: string; text: string } => Boolean(r));
+---
+
+{variant === 'flagship' && (
+  <Card as="article" padding="lg">
+    <div class="flex flex-wrap items-center justify-between gap-x-4 gap-y-2">
+      <div class="flex items-center gap-4">
+        {p.icon && <Image src={p.icon} alt="" width={56} height={56} class="size-14 shrink-0" />}
+        <h2 class={s.title()}>{p.name}</h2>
+      </div>
+      {stats && (
+        <p class="m-0 flex items-center gap-1.5 text-base text-body">
+          <Icon
+            is:inline
+            name="lucide:star"
+            size={16}
+            class="text-accent [&_path]:fill-current"
+            aria-hidden="true"
+          />
+          {stats}
+        </p>
+      )}
+    </div>
+    <p class={s.desc()}>{p.desc}</p>
+    {reach.length > 0 && (
+      <ul class="m-0 mt-3 flex list-none flex-wrap gap-x-6 gap-y-1 p-0 text-[15px] font-medium text-accent-ink">
+        {reach.map((r) => (
+          <li class="flex items-center gap-2">
+            <Icon name={r.icon} size={16} class="shrink-0" aria-hidden="true" />
+            {r.text}
+          </li>
+        ))}
+      </ul>
+    )}
+    <ul class="m-0 mt-5 flex list-none flex-wrap gap-2 p-0">
+      {p.stack.map((t) => (
+        <li class="rounded-full border border-line bg-page px-3 py-1 text-sm text-body">{t}</li>
+      ))}
+    </ul>
+    {p.quote && (
+      <figure class="m-0 mt-6 border-l-0">
+        <blockquote class="m-0 font-serif text-lg text-strong italic">“{p.quote.text}”</blockquote>
+        <figcaption class="mt-2 text-sm text-muted">
+          —{' '}
+          <Link href={p.quote.url} variant="plain" class="text-muted">
+            {p.quote.source}
+          </Link>
+        </figcaption>
+      </figure>
+    )}
+    {p.featuredBy && <FeaturedBy items={p.featuredBy} andMore class="mt-4 text-[15px]" />}
+    {p.evidence && (
+      <EvidenceDialog id={p.name.toLowerCase().replace(/\W+/g, '-')} {...p.evidence} class="mt-5" />
+    )}
+    <div class={s.links()}>
+      {p.links.map((l) => (
+        <Link href={l.url} class={s.link()}>
+          {l.label}
+        </Link>
+      ))}
+    </div>
+  </Card>
+)}
+
+{variant === 'compact' && (
+  <li class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1.5 border-b border-line py-[18px]">
+    <div class="min-w-0 flex-[1_1_420px]">
+      <h3 class={s.title()}>{p.name}</h3>
+      <p class={s.desc()}>{p.desc}</p>
+      <p class="m-0 mt-1.5 text-sm text-muted">
+        {[...p.stack, p.stars ? `★${p.stars}` : ''].filter(Boolean).join(' · ')}
+      </p>
+    </div>
+    <div class="flex gap-x-5">
+      {p.links.map((l) => (
+        <Link href={l.url} class={s.link()}>
+          {l.label}
+        </Link>
+      ))}
+    </div>
+  </li>
+)}
