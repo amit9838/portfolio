@@ -1,0 +1,46 @@
+---
+import { Icon } from 'astro-icon/components';
+import { tv, type VariantProps } from 'tailwind-variants';
+import Link from './Link.astro';
+
+const button = tv({
+  base: 'inline-flex min-h-[46px] items-center justify-center gap-2.5 text-base transition-colors',
+  variants: {
+    variant: {
+      primary: 'bg-accent font-semibold text-on-accent hover:text-on-accent hover:brightness-110',
+      outline:
+        'border border-line-strong bg-surface font-medium text-strong hover:border-accent hover:text-accent-ink',
+    },
+    shape: {
+      /** Rounded rectangle with text. */
+      default: 'rounded-[10px] px-5',
+      /** Fully rounded, with text. */
+      pill: 'rounded-full px-5',
+      /** Icon only: pass `label` for screen readers. */
+      circle: 'size-[46px] shrink-0 rounded-full p-0',
+    },
+  },
+  defaultVariants: { variant: 'primary', shape: 'default' },
+});
+
+interface Props extends VariantProps<typeof button> {
+  href: string;
+  /** Iconify name, e.g. `lucide:mail`. */
+  icon?: string;
+  /** Accessible name; required for icon-only (`circle`) buttons. */
+  label?: string;
+  class?: string;
+}
+
+const { href, icon, label, variant, shape, class: className } = Astro.props;
+---
+
+<Link
+  href={href}
+  variant="bare"
+  aria-label={label}
+  class={button({ variant, shape, class: className })}
+>
+  {icon && <Icon name={icon} size={shape === 'circle' ? 20 : 18} aria-hidden="true" />}
+  <slot />
+</Link>

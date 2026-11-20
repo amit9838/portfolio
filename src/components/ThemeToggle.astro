@@ -1,0 +1,34 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+
+<button
+  type="button"
+  data-theme-toggle
+  aria-label="Toggle colour theme"
+  class="flex size-11 cursor-pointer items-center justify-center border-0 bg-transparent p-0 text-strong transition-colors hover:text-accent-ink"
+>
+  <Icon
+    is:inline
+    name="lucide:contrast"
+    size={23}
+    class="[&_path]:fill-current"
+    aria-hidden="true"
+  />
+</button>
+
+<script>
+  // The initial theme is set before paint by the inline script in BaseLayout.
+  const root = document.documentElement;
+  const label = () => `Switch to ${root.dataset.theme === 'light' ? 'dark' : 'light'} theme`;
+
+  for (const btn of document.querySelectorAll<HTMLButtonElement>('[data-theme-toggle]')) {
+    btn.setAttribute('aria-label', label());
+    btn.addEventListener('click', () => {
+      const next = root.dataset.theme === 'light' ? 'dark' : 'light';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+      btn.setAttribute('aria-label', label());
+    });
+  }
+</script>

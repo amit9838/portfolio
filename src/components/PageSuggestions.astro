@@ -1,0 +1,21 @@
+---
+import { suggestionsFor } from '../lib/site';
+import { routeOf } from '../lib/url';
+import Link from './Link.astro';
+
+const items = suggestionsFor(routeOf(Astro.url.pathname));
+---
+
+<nav aria-label="Keep exploring" class="mt-20 border-t border-line pt-6">
+  <p class="m-0 text-base font-light text-muted">
+    Keep exploring:{' '}
+    {items.map((page, i) => (
+      <>
+        {i > 0 && <span aria-hidden="true"> · </span>}
+        <Link href={page.href} variant="plain" class="text-body">
+          {page.label}
+        </Link>
+      </>
+    ))}
+  </p>
+</nav>

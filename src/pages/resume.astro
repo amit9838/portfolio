@@ -1,0 +1,68 @@
+---
+import Card from '../components/Card.astro';
+import PageIntro from '../components/PageIntro.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import SkillGroups from '../components/SkillGroups.astro';
+import Timeline from '../components/Timeline.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import {
+  getAchievements,
+  getEducation,
+  getExperience,
+  getProfile,
+  getSkillGroups,
+} from '../lib/content';
+
+const [profile, skills, jobs, education, achievements] = await Promise.all([
+  getProfile(),
+  getSkillGroups(),
+  getExperience(),
+  getEducation(),
+  getAchievements(),
+]);
+---
+
+<BaseLayout
+  title={`Resume – ${profile.name}`}
+  description={`Skills, work history and education of ${profile.name}, ${profile.title.toLowerCase()}.`}
+>
+  <PageIntro
+    title="My Resume / CV"
+    lead="I’m a software engineer with ~3 years of experience, mostly on the backend: microservices, cloud-native APIs and AI-driven platforms. I also build frontends with React and TypeScript. Here you’ll find my stack, my work history and my education."
+  />
+
+  <SectionHeading
+    title="Skills"
+    lead="The languages, frameworks and tools I work with. It isn’t a complete list, and I’m always learning something new."
+    class="mt-16"
+  />
+  <div class="mt-7">
+    <SkillGroups groups={skills} />
+  </div>
+
+  <SectionHeading title="Work History" lead="A summary of my experience so far." class="mt-18" />
+  <div class="mt-10">
+    <Timeline items={jobs} />
+  </div>
+
+  <SectionHeading title="Education" class="mt-18" />
+  <div class="mt-6 flex flex-col gap-4">
+    {education.map((e) => (
+      <Card bordered={false}>
+        <h3 class="m-0 font-serif text-xl font-semibold">{e.degree}</h3>
+        <p class="m-0 mt-2 text-[17px] font-light text-body">{e.school}</p>
+        <p class="m-0 mt-2 text-[15px] text-muted">
+          {e.start} – {e.end}
+          {e.gpa && ` · GPA ${e.gpa}`}
+        </p>
+      </Card>
+    ))}
+  </div>
+
+  <SectionHeading title="Achievements" class="mt-18" />
+  <ul class="m-0 mt-5 list-disc pl-[22px] text-lg font-light text-body">
+    {achievements.map((a) => (
+      <li>{a.text}</li>
+    ))}
+  </ul>
+</BaseLayout>

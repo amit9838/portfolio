@@ -1,0 +1,90 @@
+---
+import { Icon } from 'astro-icon/components';
+import Button from '../components/Button.astro';
+import FeaturedBy from '../components/FeaturedBy.astro';
+import SectionHeading from '../components/SectionHeading.astro';
+import StatGrid from '../components/StatGrid.astro';
+import Wave from '../components/Wave.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProfile, getProjects, getStatGroups } from '../lib/content';
+
+const profile = await getProfile();
+const statGroups = await getStatGroups();
+const covered = (await getProjects()).flagship.find((p) => p.featuredBy?.length);
+
+// Structured data so search engines know who this site is about.
+const person = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.title,
+  description: profile.tagline,
+  url: new URL(import.meta.env.BASE_URL, Astro.site).href,
+  address: { '@type': 'PostalAddress', addressLocality: profile.city },
+  sameAs: profile.socials.map((s) => s.url),
+};
+const social = (name: string) => profile.socials.find((s) => s.name === name);
+const github = social('GitHub');
+const linkedin = social('LinkedIn');
+---
+
+<BaseLayout
+  title={`${profile.name} – ${profile.title}`}
+  description={`${profile.name}, ${profile.title.toLowerCase()} in ${profile.city}. ${profile.tagline}`}
+  spacing="roomy"
+>
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(person)} />
+  <!-- Title as a small label above the name. -->
+  <p class="m-0 mb-3 text-[15px] font-semibold tracking-[1.5px] text-muted uppercase sm:text-base sm:tracking-[2px]">
+    {profile.title}
+  </p>
+  <h1 class="m-0 font-serif text-[clamp(37px,5vw+18px,50px)] leading-[1.1] font-semibold tracking-[-0.5px]">
+    Hey, I’m <br class="sm:hidden" />
+    <span class="text-accent-ink">{profile.name}</span>!
+  </h1>
+  <p class="m-0 mt-4 text-lg text-body sm:text-xl">{profile.tagline}</p>
+  <p class="m-0 mt-2.5 flex items-center gap-1.5 text-sm text-muted sm:text-[15px]">
+    <Icon name="lucide:map-pin" size={15} class="shrink-0" aria-hidden="true" />
+    {profile.city}
+    {profile.openToRemote && ' · Open to remote'}
+  </p>
+
+  <!-- One row on every screen: Email pill, then GitHub and LinkedIn as icon-only circles. -->
+  <div class="mt-8 flex items-center gap-3">
+    <Button href={`mailto:${profile.email}`} icon="lucide:mail" variant="outline" shape="pill">
+      Email me
+    </Button>
+    {[github, linkedin].map(
+      (s) =>
+        s && (
+          <Button
+            href={s.url}
+            icon={s.icon}
+            variant="outline"
+            shape="circle"
+            label={`${s.name} (opens in a new tab)`}
+          />
+        ),
+    )}
+  </div>
+
+  <Wave class="mt-8" />
+
+  <SectionHeading title="By the numbers" size="sm" class="mt-12" />
+  {statGroups.map((g, i) => (
+    <section class={i === 0 ? 'mt-6' : 'mt-8'}>
+      <h3 class="m-0 text-xs font-semibold tracking-[1px] text-muted uppercase">{g.title}</h3>
+      <div class="mt-3">
+        <StatGrid items={g.items} />
+      </div>
+    </section>
+  ))}
+  {covered?.featuredBy && (
+    <FeaturedBy
+      items={covered.featuredBy}
+      label={`${covered.name} has been featured by`}
+      andMore
+      class="mt-5"
+    />
+  )}
+</BaseLayout>

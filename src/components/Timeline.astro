@@ -1,0 +1,52 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { dateRange } from '../lib/format';
+import Link from './Link.astro';
+
+interface Props {
+  /** Newest first. The first item gets the halo. */
+  items: CollectionEntry<'experience'>['data'][];
+}
+const { items } = Astro.props;
+---
+
+<ol class="m-0 ml-1.5 flex list-none flex-col gap-14 border-l-2 border-line py-0 pr-0 pl-10">
+  {items.map((j, i) => (
+    <li class="relative">
+      <span
+        aria-hidden="true"
+        class:list={[
+          'absolute top-0.5 -left-[51px] flex size-5 items-center justify-center rounded-full',
+          i === 0 ? 'bg-halo' : 'bg-transparent',
+        ]}
+      >
+        <span class="size-2.5 rounded-full bg-accent" />
+      </span>
+      <h3 class="m-0 font-serif text-[22px] font-semibold">{j.role}</h3>
+      <p class="m-0 mt-2.5 flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[17px] text-soft">
+        {j.url ? (
+          <Link href={j.url} class="font-normal text-soft">
+            {j.company}
+          </Link>
+        ) : (
+          <span class="underline decoration-accent underline-offset-[6px]">{j.company}</span>
+        )}
+        <span aria-hidden="true" class="text-faint">
+          •
+        </span>
+        <span>{j.place}</span>
+        <span aria-hidden="true" class="text-faint">
+          •
+        </span>
+        <span>{j.type}</span>
+      </p>
+      <p class="m-0 mt-2 text-[15px] text-muted">{dateRange(j.start, j.end)}</p>
+      <p class="m-0 mt-3.5 text-base font-light text-muted italic">{j.about}</p>
+      <ul class="m-0 mt-3.5 list-disc pl-[22px] text-[17px] font-light text-body">
+        {j.points.map((p) => (
+          <li class="mb-1">{p}</li>
+        ))}
+      </ul>
+    </li>
+  ))}
+</ol>

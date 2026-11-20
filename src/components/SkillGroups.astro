@@ -1,0 +1,26 @@
+---
+interface Props {
+  groups: { title: string; items: string[] }[];
+}
+const { groups } = Astro.props;
+---
+
+<!-- Compact: group name in a left column on wider screens, stacked above its tags on phones. -->
+<dl class="m-0 flex flex-col gap-3.5">
+  {groups.map((g) => (
+    <div class="sm:grid sm:grid-cols-[120px_1fr] sm:items-start sm:gap-4">
+      <dt class="m-0 text-xs font-semibold tracking-[1px] text-muted uppercase sm:pt-1.5">
+        {g.title}
+      </dt>
+      <dd class="m-0 mt-1.5 sm:mt-0">
+        <ul class="m-0 flex list-none flex-wrap gap-1.5 p-0">
+          {g.items.map((name) => (
+            <li class="rounded-full border border-line bg-surface px-2.5 py-1 text-sm leading-tight text-soft">
+              {name}
+            </li>
+          ))}
+        </ul>
+      </dd>
+    </div>
+  ))}
+</dl>

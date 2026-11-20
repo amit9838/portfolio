@@ -1,0 +1,28 @@
+---
+import type { HTMLTag } from 'astro/types';
+import { tv, type VariantProps } from 'tailwind-variants';
+
+const card = tv({
+  base: 'rounded-card bg-surface',
+  variants: {
+    padding: {
+      sm: 'px-6 py-[22px]',
+      md: 'p-6',
+      lg: 'p-8',
+    },
+    bordered: { true: 'border border-line' },
+  },
+  defaultVariants: { padding: 'md', bordered: true },
+});
+
+interface Props extends VariantProps<typeof card> {
+  as?: HTMLTag;
+  class?: string;
+}
+
+const { as: Tag = 'div', padding, bordered, class: className } = Astro.props;
+---
+
+<Tag class={card({ padding, bordered, class: className })}>
+  <slot />
+</Tag>

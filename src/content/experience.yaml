@@ -1,0 +1,32 @@
+# Newest first is derived from `start`. Omit `end` for a current role.
+civicdatalab:
+  role: Software Engineer
+  company: CivicDataLab
+  url: https://civicdatalab.in/
+  place: New Delhi (hybrid)
+  type: Full-time
+  start: 2026-02-01
+  end: 2026-07-31
+  about: A research lab working with data, technology, design and social science to strengthen civic engagement in India.
+  points:
+    - Built ParakhAI, an open-source, participatory tool for checking AI models for fairness, safety and bias, supported by MeitY’s IndiaAI Mission under the Safe and Trusted AI pillar.
+    - Designed and shipped a Python client SDK giving programmatic access to the platform’s core features.
+    - 'Added a Redis caching layer: ~40% faster responses and ~60% fewer DB queries.'
+    - Refactored the Model Audit architecture, cutting table joins by ~50%.
+    - Introduced error handling and structured logging, which lowered MTTR.
+kumba:
+  role: Former Software Engineer
+  company: Kumba AI
+  place: Dubai (remote)
+  type: Full-time
+  start: 2023-09-01
+  end: 2025-10-31
+  about: An AI marketing assistant that generates marketing content and publishes it to social media.
+  points:
+    - Built AI chat APIs for image generation and remixing, with vector-search retrieval and prompt correction.
+    - Created a FastAPI service template with JWT auth, Redis decorator caching and Sentry logging, cutting API development time by ~30%.
+    - Built a central authentication service handling 50K+ daily logins.
+    - Built a video generation pipeline (text-to-speech, scene creation, Creatomate templates) producing 500+ videos a day.
+    - Moved jobs to a Google Cloud Tasks queue, doubling throughput and stopping failures at peak load.
+    - Set up GCP load balancing and autoscaling that handled 5× peak traffic, plus CI/CD with Docker and Cloud Run.
+    - 'Set up an S3 + CloudFront CDN: +40% asset availability and ~200 ms faster responses.'

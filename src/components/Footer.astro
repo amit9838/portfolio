@@ -1,0 +1,43 @@
+---
+import { Icon } from 'astro-icon/components';
+import Link from './Link.astro';
+
+interface Props {
+  name: string;
+}
+const { name } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line px-6 py-6 text-base font-light text-body sm:px-10">
+  <p class="m-0 flex items-center gap-1.5">
+    © {year} Built with
+    <Icon
+      is:inline
+      name="lucide:heart"
+      size={16}
+      class="text-heart [&_path]:fill-current"
+      title="love"
+    />{' '}
+    by {name}
+  </p>
+  <nav aria-label="Footer" class="flex flex-wrap items-center gap-x-7 gap-y-2">
+    <span>
+      Design by{' '}
+      <Link
+        href="https://dribbble.com/shots/24357096-Full-Stack-Developer-Personal-Website"
+        variant="plain"
+      >
+        Andrei Hudovich
+      </Link>
+    </span>
+    <Link
+      href="https://github.com/amit9838/portfolio"
+      variant="bare"
+      class="flex min-h-11 items-center gap-2 text-body"
+    >
+      <Icon name="lucide:git-branch" size={18} aria-hidden="true" />
+      Source
+    </Link>
+  </nav>
+</footer>
