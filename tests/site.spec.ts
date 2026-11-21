@@ -120,6 +120,23 @@ test('mobile drawer opens and closes', async ({ page, isMobile }) => {
   }
 });
 
+test('drawer slides closed before following a link', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'the drawer only exists on small screens');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('');
+  // Record whether the drawer was still open as the page unloads.
+  await page.evaluate(() =>
+    addEventListener('pagehide', () => {
+      const open = (document.getElementById('site-drawer') as HTMLDialogElement).open;
+      sessionStorage.setItem('drawerOpenOnLeave', String(open));
+    }),
+  );
+  await page.getByRole('button', { name: 'Open menu' }).click();
+  await page.locator('#site-drawer').getByRole('link', { name: 'Resume' }).click();
+  await expect(page).toHaveURL(/\/resume$/);
+  expect(await page.evaluate(() => sessionStorage.getItem('drawerOpenOnLeave'))).toBe('false');
+});
+
 test('desktop has no menu button', async ({ page, isMobile }) => {
   test.skip(isMobile, 'desktop only');
   await page.goto('');
