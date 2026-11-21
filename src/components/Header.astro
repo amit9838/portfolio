@@ -90,7 +90,7 @@ const onNavPage = nav.some((item) => item.href === current);
 <dialog
   id="site-drawer"
   aria-label="Menu"
-  class="fixed inset-y-0 right-0 left-auto m-0 h-dvh max-h-none w-[min(320px,85vw)] max-w-none translate-x-0 border-0 border-l border-line bg-page p-0 text-strong transition-transform duration-200 ease-out motion-reduce:transition-none backdrop:bg-page/70 backdrop:backdrop-blur-sm starting:open:translate-x-full md:hidden"
+  class="fixed inset-y-0 right-0 left-auto m-0 h-dvh max-h-none w-[min(320px,85vw)] max-w-none translate-x-full border-0 border-l border-line bg-page p-0 text-strong transition-[translate,display,overlay] transition-discrete duration-200 ease-out open:translate-x-0 starting:open:translate-x-full motion-reduce:transition-none backdrop:bg-page/70 backdrop:opacity-0 backdrop:backdrop-blur-sm backdrop:transition-[opacity,display,overlay] backdrop:transition-discrete backdrop:duration-200 open:backdrop:opacity-100 starting:open:backdrop:opacity-0 motion-reduce:backdrop:transition-none md:hidden"
 >
   <div class="flex h-full flex-col px-6 py-4">
     <div class="flex items-center justify-between">
