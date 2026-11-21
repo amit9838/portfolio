@@ -35,9 +35,7 @@ const linkedin = social('LinkedIn');
 >
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(person)} />
   <!-- Title as a small label above the name. -->
-  <p class="m-0 mb-3 text-[15px] font-semibold tracking-[1.5px] text-muted uppercase sm:text-base sm:tracking-[2px]">
-    {profile.title}
-  </p>
+  <p class="m-0 mb-3 text-base font-medium text-muted sm:text-lg">{profile.title}</p>
   <h1 class="m-0 font-serif text-[clamp(37px,5vw+18px,50px)] leading-[1.1] font-semibold tracking-[-0.5px]">
     Hey, I’m <br class="sm:hidden" />
     <span>{profile.name}</span>!
@@ -46,7 +44,9 @@ const linkedin = social('LinkedIn');
   <p class="m-0 mt-2.5 flex items-center gap-1.5 text-sm text-muted sm:text-[15px]">
     <Icon name="lucide:map-pin" size={15} class="shrink-0" aria-hidden="true" />
     {profile.city}
-    {profile.openToRemote && ' · Open to remote'}
+    {profile.openToRemote && (
+      <span class="ml-1.5 border-l border-line-strong pl-3">Open to remote</span>
+    )}
   </p>
 
   <!-- One row on every screen: Email pill, then GitHub and LinkedIn as icon-only circles. -->
@@ -73,7 +73,7 @@ const linkedin = social('LinkedIn');
   <SectionHeading title="By the numbers" size="sm" class="mt-12" />
   {statGroups.map((g, i) => (
     <section class={i === 0 ? 'mt-6' : 'mt-8'}>
-      <h3 class="m-0 text-xs font-semibold tracking-[1px] text-muted uppercase">{g.title}</h3>
+      <h3 class="m-0 text-sm font-medium text-muted">{g.title}</h3>
       <div class="mt-3">
         <StatGrid items={g.items} />
       </div>

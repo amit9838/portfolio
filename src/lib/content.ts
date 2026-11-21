@@ -11,7 +11,7 @@ export async function getProfile() {
   return entry.data;
 }
 
-/** Stats split into "At work" and "Open source · <project>" groups, in order. */
+/** Stats split into "At work" and "Open source: <project>" groups, in order. */
 export async function getStatGroups() {
   const stats = (await getCollection('stats')).map((e) => e.data).sort(byOrder);
   const resolved = await Promise.all(
@@ -29,7 +29,7 @@ export async function getStatGroups() {
     oss.length && oss.every((s) => s.project === oss[0]!.project) ? oss[0]!.project : '';
   return [
     { title: 'At work', items: resolved.filter((s) => s.group === 'work') },
-    { title: ossProject ? `Open source · ${ossProject}` : 'Open source', items: oss },
+    { title: ossProject ? `Open source: ${ossProject}` : 'Open source', items: oss },
   ].filter((g) => g.items.length > 0);
 }
 

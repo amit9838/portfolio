@@ -5,5 +5,5 @@ dsa: { order: 2, text: Solved 800+ DSA problems. }
 volunteer:
   {
     order: 3,
-    text: 'Volunteered at Slum Swaraj Foundation (2019–2023), teaching underprivileged students for free.',
+    text: 'Volunteered at Slum Swaraj Foundation (2019 to 2023), teaching underprivileged students for free.',
   }

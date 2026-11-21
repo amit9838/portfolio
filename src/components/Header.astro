@@ -40,7 +40,7 @@ const headerSocials = socials.filter((s) => s.inHeader);
           variant="bare"
           aria-current={current === item.href ? 'page' : undefined}
           class:list={[
-            'flex min-h-11 items-center text-base font-semibold tracking-[0.4px] uppercase',
+            'flex min-h-11 items-center text-base font-semibold',
             current === item.href ? 'text-accent-ink' : 'text-strong',
           ]}
         >
@@ -73,7 +73,7 @@ const headerSocials = socials.filter((s) => s.inHeader);
 >
   <div class="flex h-full flex-col px-6 py-4">
     <div class="flex items-center justify-between">
-      <span class="text-sm font-semibold tracking-[1px] text-muted uppercase">Menu</span>
+      <span class="text-sm font-semibold text-muted">Menu</span>
       <form method="dialog">
         <button
           type="submit"
@@ -92,7 +92,7 @@ const headerSocials = socials.filter((s) => s.inHeader);
           variant="bare"
           aria-current={current === item.href ? 'page' : undefined}
           class:list={[
-            'flex min-h-12 items-center text-lg font-semibold tracking-[0.4px] uppercase',
+            'flex min-h-12 items-center text-lg font-semibold',
             current === item.href ? 'text-accent-ink' : 'text-strong',
           ]}
         >

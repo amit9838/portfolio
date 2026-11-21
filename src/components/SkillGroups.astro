@@ -9,9 +9,7 @@ const { groups } = Astro.props;
 <dl class="m-0 flex flex-col gap-3.5">
   {groups.map((g) => (
     <div class="sm:grid sm:grid-cols-[120px_1fr] sm:items-start sm:gap-4">
-      <dt class="m-0 text-xs font-semibold tracking-[1px] text-muted uppercase sm:pt-1.5">
-        {g.title}
-      </dt>
+      <dt class="m-0 text-sm font-medium text-muted sm:pt-1">{g.title}</dt>
       <dd class="m-0 mt-1.5 sm:mt-0">
         <ul class="m-0 flex list-none flex-wrap gap-1.5 p-0">
           {g.items.map((name) => (

@@ -92,7 +92,6 @@ const reach = [
       <figure class="m-0 mt-6 border-l-0">
         <blockquote class="m-0 font-serif text-lg text-strong italic">“{p.quote.text}”</blockquote>
         <figcaption class="mt-2 text-sm text-muted">
-          —{' '}
           <Link href={p.quote.url} variant="plain" class="text-muted">
             {p.quote.source}
           </Link>
@@ -119,7 +118,7 @@ const reach = [
       <h3 class={s.title()}>{p.name}</h3>
       <p class={s.desc()}>{p.desc}</p>
       <p class="m-0 mt-1.5 text-sm text-muted">
-        {[...p.stack, p.stars ? `★${p.stars}` : ''].filter(Boolean).join(' · ')}
+        {[...p.stack, p.stars ? `★${p.stars}` : ''].filter(Boolean).join(', ')}
       </p>
     </div>
     <div class="flex gap-x-5">

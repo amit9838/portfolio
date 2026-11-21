@@ -52,8 +52,8 @@ const [profile, skills, jobs, education, achievements] = await Promise.all([
         <h3 class="m-0 font-serif text-xl font-semibold">{e.degree}</h3>
         <p class="m-0 mt-2 text-[17px] font-light text-body">{e.school}</p>
         <p class="m-0 mt-2 text-[15px] text-muted">
-          {e.start} – {e.end}
-          {e.gpa && ` · GPA ${e.gpa}`}
+          {e.start} to {e.end}
+          {e.gpa && `, GPA ${e.gpa}`}
         </p>
       </Card>
     ))}
