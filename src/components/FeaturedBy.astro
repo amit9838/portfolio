@@ -39,21 +39,27 @@ const icons: Record<Brand, string> = {
 
 <p class:list={['m-0 text-base font-light text-body', className]}>
   {label}{' '}
-  {items.map((item, i) => {
-    const s = brand({ brand: item.brand });
-    return (
-      <>
-        {separator(i)}
-        <span class="whitespace-nowrap">
-          {item.brand && (
-            <Icon name={icons[item.brand]} size={15} class={s.icon()} aria-hidden="true" />
-          )}
-          <Link href={item.url} class={s.link()}>
-            {item.name}
-          </Link>
-          {i === last && (andMore ? ', and more.' : '.')}
-        </span>
-      </>
-    );
-  })}
+  <!-- The links move as one group: when they don't fit after the label, they all start on the next line.
+       Punctuation stays inside it, so no line starts with a comma. -->
+  <span class="inline-block">
+    {items.map((item, i) => {
+      const s = brand({ brand: item.brand });
+      return (
+        <>
+          {separator(i)}
+          <span class="whitespace-nowrap">
+            {item.brand && (
+              <Icon name={icons[item.brand]} size={15} class={s.icon()} aria-hidden="true" />
+            )}
+            <Link href={item.url} class={s.link()}>
+              {item.name}
+            </Link>
+            {i === last && (andMore ? ',' : '.')}
+          </span>
+        </>
+      );
+    })}
+  </span>
+  {andMore && ' '}
+  {andMore && <span class="whitespace-nowrap">and more.</span>}
 </p>
