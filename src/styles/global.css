@@ -111,6 +111,45 @@
   }
 }
 
+/*
+ * Page switch: a native cross-document view transition, no JavaScript. Browsers without
+ * support just navigate. The header and footer stay put (root is not animated); only
+ * <main> fades out and the new page fades in while rising slightly.
+ */
+@keyframes page-out {
+  to {
+    opacity: 0;
+  }
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  @view-transition {
+    navigation: auto;
+  }
+  main {
+    view-transition-name: page;
+  }
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+  ::view-transition-group(page) {
+    animation-duration: 0s;
+  }
+  ::view-transition-old(page) {
+    animation: page-out 120ms ease-in both;
+  }
+  ::view-transition-new(page) {
+    animation: page-in 260ms ease-out 60ms both;
+  }
+}
+
 @layer base {
   html {
     color-scheme: dark;

@@ -94,6 +94,16 @@ test('logo types itself once per session', async ({ page }) => {
   await expect(page.locator('html')).not.toHaveAttribute('data-typing');
 });
 
+test('page content animates on page switch, unless motion is reduced', async ({ page }) => {
+  const transitionName = () =>
+    page.locator('main').evaluate((el) => getComputedStyle(el).viewTransitionName);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('');
+  expect(await transitionName()).toBe('page');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  expect(await transitionName()).toBe('none');
+});
+
 test('mobile drawer opens and closes', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'the drawer only exists on small screens');
   // A nav page, so the drawer has a selected tab (marked without a cursor).
