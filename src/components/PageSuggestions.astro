@@ -11,7 +11,7 @@ const items = suggestionsFor(routeOf(Astro.url.pathname));
     Keep exploring:{' '}
     {items.map((page, i) => (
       <>
-        {i > 0 && <span aria-hidden="true"> · </span>}
+        {i > 0 && <span aria-hidden="true">, </span>}
         <Link href={page.href} variant="plain" class="text-body">
           {page.label}
         </Link>

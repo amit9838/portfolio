@@ -47,7 +47,7 @@ scripts/        Lint, test and image-generation scripts
 tests/          Playwright end-to-end tests
 ```
 
-Colours are design tokens in `src/styles/global.css`; components use token classes (`bg-surface`, `text-muted`) and never raw colours. Typefaces are Figtree (text) and Source Serif 4 (headings), served from the site itself.
+Colours are design tokens in `src/styles/global.css`; components use token classes (`bg-surface`, `text-muted`) and never raw colours. Typefaces are Figtree (text), Source Serif 4 (headings) and JetBrains Mono (the header logo and nav tabs), served from the site itself.
 
 ## Checks
 
@@ -62,6 +62,6 @@ Colours are design tokens in `src/styles/global.css`; components use token class
 
 ## Deployment
 
-`.github/workflows/deploy.yml` runs the checks on every pull request and push. Pushes to `master` are then built with `withastro/action` and deployed to GitHub Pages.
+`.github/workflows/deploy.yml` runs the checks on every pull request and push. Pushes to `main` are then built with `withastro/action` and deployed to GitHub Pages.
 
 One-time setup: in the repository's **Settings → Pages**, set **Source** to **GitHub Actions**.

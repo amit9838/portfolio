@@ -2,6 +2,7 @@
 import { Icon } from 'astro-icon/components';
 import { nav } from '../lib/site';
 import { routeOf } from '../lib/url';
+import Cursor from './Cursor.astro';
 import Link from './Link.astro';
 import SocialLinks from './SocialLinks.astro';
 import ThemeToggle from './ThemeToggle.astro';
@@ -15,21 +16,37 @@ const { logoText, name, socials } = Astro.props;
 
 const current = routeOf(Astro.url.pathname);
 const headerSocials = socials.filter((s) => s.inHeader);
+// One cursor per screen: after the selected tab, or after the logo where no tab is selected.
+const onNavPage = nav.some((item) => item.href === current);
 ---
 
 <!--
   Desktop (md+): logo · nav · icons in one row.
   Phones/tablets: logo + a menu button that opens a drawer with the nav, socials and theme toggle.
 -->
+<script is:inline>
+  // Type the logo once per browser session. Runs before the header paints; without JS the logo just shows.
+  try {
+    if (!sessionStorage.getItem('typed')) {
+      document.documentElement.dataset.typing = '';
+      sessionStorage.setItem('typed', '1');
+    }
+  } catch {}
+</script>
+
 <header class="flex items-center justify-between gap-8 border-b border-line px-6 py-4 sm:px-10 md:border-b-0 md:py-6">
   <Link
     href="/"
     variant="bare"
     aria-label={`${name}, home`}
-    class="text-2xl font-bold tracking-[-0.5px] text-strong md:text-[28px]"
+    class="font-mono text-[22px] font-bold text-strong md:text-[26px]"
+    style={`--chars: ${logoText.length + 1}`}
   >
-    <span class="mr-0.5 text-accent italic">//</span>
-    {logoText}
+    <span data-prompt class="inline-block whitespace-nowrap">
+      <span class="text-accent">~</span>
+      {logoText}
+    </span>
+    {!onNavPage && <Cursor />}
   </Link>
 
   <div class="hidden items-center gap-8 md:flex">
@@ -40,11 +57,14 @@ const headerSocials = socials.filter((s) => s.inHeader);
           variant="bare"
           aria-current={current === item.href ? 'page' : undefined}
           class:list={[
-            'flex min-h-11 items-center text-base font-semibold tracking-[0.4px] uppercase',
+            'flex min-h-11 items-center font-mono text-[15px] font-semibold',
             current === item.href ? 'text-accent-ink' : 'text-strong',
           ]}
         >
-          {item.label}
+          <span class="relative">
+            {item.label}
+            {current === item.href && <Cursor placement="after" />}
+          </span>
         </Link>
       ))}
     </nav>
@@ -69,11 +89,11 @@ const headerSocials = socials.filter((s) => s.inHeader);
 <dialog
   id="site-drawer"
   aria-label="Menu"
-  class="fixed inset-y-0 right-0 left-auto m-0 h-dvh max-h-none w-[min(320px,85vw)] max-w-none translate-x-0 border-0 border-l border-line bg-page p-0 text-strong transition-transform duration-200 ease-out backdrop:bg-page/70 backdrop:backdrop-blur-sm starting:open:translate-x-full md:hidden"
+  class="fixed inset-y-0 right-0 left-auto m-0 h-dvh max-h-none w-[min(320px,85vw)] max-w-none translate-x-0 border-0 border-l border-line bg-page p-0 text-strong transition-transform duration-200 ease-out motion-reduce:transition-none backdrop:bg-page/70 backdrop:backdrop-blur-sm starting:open:translate-x-full md:hidden"
 >
   <div class="flex h-full flex-col px-6 py-4">
     <div class="flex items-center justify-between">
-      <span class="text-sm font-semibold tracking-[1px] text-muted uppercase">Menu</span>
+      <span class="text-sm font-semibold text-muted">Menu</span>
       <form method="dialog">
         <button
           type="submit"
@@ -92,11 +112,14 @@ const headerSocials = socials.filter((s) => s.inHeader);
           variant="bare"
           aria-current={current === item.href ? 'page' : undefined}
           class:list={[
-            'flex min-h-12 items-center text-lg font-semibold tracking-[0.4px] uppercase',
+            'flex min-h-12 items-center font-mono text-[17px] font-semibold',
             current === item.href ? 'text-accent-ink' : 'text-strong',
           ]}
         >
-          {item.label}
+          <span class="relative">
+            {item.label}
+            {current === item.href && <Cursor placement="after" />}
+          </span>
         </Link>
       ))}
     </nav>

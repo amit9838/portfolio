@@ -74,10 +74,10 @@ const reach = [
     </div>
     <p class={s.desc()}>{p.desc}</p>
     {reach.length > 0 && (
-      <ul class="m-0 mt-3 flex list-none flex-wrap gap-x-6 gap-y-1 p-0 text-[15px] font-medium text-accent-ink">
+      <ul class="m-0 mt-3 flex list-none flex-wrap gap-x-6 gap-y-1 p-0 text-[15px] font-medium text-body">
         {reach.map((r) => (
           <li class="flex items-center gap-2">
-            <Icon name={r.icon} size={16} class="shrink-0" aria-hidden="true" />
+            <Icon name={r.icon} size={16} class="shrink-0 text-muted" aria-hidden="true" />
             {r.text}
           </li>
         ))}
@@ -92,7 +92,6 @@ const reach = [
       <figure class="m-0 mt-6 border-l-0">
         <blockquote class="m-0 font-serif text-lg text-strong italic">“{p.quote.text}”</blockquote>
         <figcaption class="mt-2 text-sm text-muted">
-          —{' '}
           <Link href={p.quote.url} variant="plain" class="text-muted">
             {p.quote.source}
           </Link>
@@ -119,7 +118,23 @@ const reach = [
       <h3 class={s.title()}>{p.name}</h3>
       <p class={s.desc()}>{p.desc}</p>
       <p class="m-0 mt-1.5 text-sm text-muted">
-        {[...p.stack, p.stars ? `★${p.stars}` : ''].filter(Boolean).join(' · ')}
+        {p.stack.join(', ')}
+        {p.stars ? (
+          <>
+            ,{' '}
+            <span class="inline-flex items-center gap-1 font-semibold whitespace-nowrap text-strong">
+              <Icon
+                is:inline
+                name="lucide:star"
+                size={13}
+                class="shrink-0 text-accent [&_path]:fill-current"
+                aria-hidden="true"
+              />
+              {p.stars}
+              <span class="sr-only">GitHub stars</span>
+            </span>
+          </>
+        ) : null}
       </p>
     </div>
     <div class="flex gap-x-5">

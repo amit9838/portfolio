@@ -58,7 +58,7 @@ tests/site.spec.ts  Playwright end-to-end tests
 - **Colours exist only as tokens in `src/styles/global.css`** (`--color-page`, `--color-surface`, `--color-strong`, `--color-body`, `--color-muted`, `--color-accent`, `--color-accent-ink`, …). Tailwind's default palette is disabled. Use token classes (`bg-surface`, `text-muted`), never hex or arbitrary colours. `npm run lint:tokens` enforces this (`src/assets/` artwork is exempt).
 - Every text colour must meet WCAG AA in **both** themes. Light-theme values live in `:root[data-theme='light']`. Check with `npm run lint:contrast`.
 - Amber `--color-accent` is for decoration. Text in the accent colour uses `--color-accent-ink`.
-- **Only two typefaces:** Figtree (`font-sans`, body and UI) and Source Serif 4 (`font-serif`, headings). Don't add fonts or fallback stacks.
+- **Typefaces:** Figtree (`font-sans`, body and UI) and Source Serif 4 (`font-serif`, headings). JetBrains Mono (`font-mono`) is for the header only: the `~/home` logo and the nav tabs. Don't use it elsewhere. Don't add fonts or fallback stacks.
 - Paragraph line height is **1.5** site-wide via the theme. Don't add `leading-*` to paragraphs. Only display text (page titles, stat numbers: `leading-[1.1]`) and tags override it.
 - Mobile-first. Breakpoints: `sm` 640px (type and stats), `md` 768px (header switches from drawer to inline nav). Nothing may scroll horizontally from 320px up.
 
@@ -88,10 +88,10 @@ tests/site.spec.ts  Playwright end-to-end tests
 
 ## Git and deploy
 
-- Default branch: `master`. Work on a feature branch.
+- Default branch: `main`. Work on a feature branch.
 - Ask before committing, pushing or opening a PR.
 - Never add a `Co-Authored-By` (or any AI attribution) line to commits or PRs.
 - Commit in phases: one commit per logical change, not one big commit.
-- CI (`.github/workflows/deploy.yml`) runs lint, build, the privacy check, e2e and link checks on every PR. Pushes to `master` deploy to GitHub Pages.
+- CI (`.github/workflows/deploy.yml`) runs lint, build, the privacy check, e2e and link checks on every PR. Pushes to `main` deploy to GitHub Pages.
 - Not committed: `PLAN.md`, `docs/design-ref/` (third-party design screenshots), `dist/`, `.astro/`, test output.
 - Credit for the original design (Andrei Hudovich, Dribbble) stays in the footer and README.

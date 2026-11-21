@@ -1,38 +1,45 @@
+/* Hallmark · checked: 2026-11-21 · genre: editorial (inferred) · palette: neutral graphite
+ * floor: 1 FAIL kept by owner (63, timeline meta row) · fixed: 7b, 19 (date ranges read "to"), 26b, 27, 34, 38iii, 63 elsewhere, 67, 74, F16
+ * built: the project · redesign: polish · v2.0.0 */
+/* Hallmark · waive 26b · not a form control, no aria-disabled anywhere · every portfolio button is a link, so none of them can be disabled */
+/* Hallmark · dismissed 41 · accent and accent-ink are never set on each other; accent-ink is text on page and surface only */
 @import 'tailwindcss';
 @import '@fontsource-variable/figtree';
 @import '@fontsource-variable/source-serif-4';
 @import '@fontsource-variable/source-serif-4/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
 
 /*
  * Design tokens — the ONLY place colours are defined (enforced by `npm run lint:tokens`).
  * Tailwind's default palette is removed so components can only use these.
- * Dark values come from the Dribbble template; light values are derived (text ≥ 4.5:1 on page).
+ * Neutral graphite (dark) and off-white (light), one amber signal; all text values checked (text ≥ 4.5:1 on page).
  */
 @theme {
   --color-*: initial;
   /*
-   * Only two typefaces, nothing else (no system or monospace stacks):
-   * Figtree for UI/body, Source Serif 4 for headings. Generic keywords are the only fallback.
+   * Figtree for UI/body, Source Serif 4 for headings. JetBrains Mono is for the
+   * header only: the logo (the terminal prompt) and the nav tabs. Generic keywords are the only fallback.
    */
   --font-*: initial;
   --font-sans: 'Figtree Variable', sans-serif;
   --font-serif: 'Source Serif 4 Variable', serif;
+  --font-mono: 'JetBrains Mono Variable', monospace;
   --default-font-family: var(--font-sans);
   --default-mono-font-family: var(--font-sans);
 
-  --color-page: #081021; /* page + footer background */
-  --color-surface: #0e182e; /* cards */
-  --color-line: #1e293b; /* rules, card borders, timeline */
-  --color-line-strong: #334155; /* outline buttons */
-  --color-strong: #f1f5f9; /* headings, primary text */
-  --color-soft: #e2e8f0; /* company line, skill names */
-  --color-body: #cbd5e1; /* body copy, nav, footer */
-  --color-muted: #94a3b8; /* dates, metadata */
-  --color-faint: #64748b; /* decorative separators only */
+  --color-page: #111113; /* page + footer background */
+  --color-surface: #18181b; /* cards */
+  --color-line: #28282b; /* rules, card borders, timeline */
+  --color-line-strong: #3f3f43; /* outline buttons */
+  --color-strong: #ededea; /* headings, primary text */
+  --color-soft: #e2e2de; /* company line, skill names */
+  --color-body: #c8c8c3; /* body copy, nav, footer */
+  --color-muted: #94948e; /* dates, metadata */
+  --color-faint: #6c6c67; /* decorative separators only */
   --color-accent: #fca311; /* decoration: wave, dots, underlines, logo, primary button */
   --color-accent-ink: #fca311; /* accent used AS text */
-  --color-on-accent: #081021; /* text on accent background */
-  --color-halo: #3b2a0e; /* current-job dot halo, 404 sun ring */
+  --color-on-accent: #111113; /* text on accent background */
+  --color-halo: #3a2a0c; /* current-job dot halo, 404 sun ring */
   --color-heart: #ef4444;
 
   /* Third-party brand colours, used only for decoration (icons, underlines). */
@@ -49,28 +56,66 @@
   --text-xl--line-height: 1.5;
   --text-2xl--line-height: 1.5;
 
-  --container-column: 728px;
+  --container-column: 800px;
+
+  /* Terminal cursor after the logo: a hard on/off blink, opacity only. */
+  --animate-blink: blink 1.1s steps(1, end) infinite;
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
   --radius-card: 12px;
 }
 
 :root[data-theme='light'] {
-  --color-page: #f8fafc;
-  --color-surface: #ffffff;
-  --color-line: #e2e8f0;
-  --color-line-strong: #cbd5e1;
-  --color-strong: #0f172a;
-  --color-soft: #1e293b;
-  --color-body: #334155;
-  --color-muted: #475569;
-  --color-faint: #94a3b8;
-  --color-accent-ink: #b45309;
-  --color-halo: #fdecc8;
+  --color-page: #f4f4f1;
+  --color-surface: #fbfbf9;
+  --color-line: #e3e3de;
+  --color-line-strong: #cfcfc9;
+  --color-strong: #18181a;
+  --color-soft: #252523;
+  --color-body: #3a3a37;
+  --color-muted: #62625d;
+  --color-faint: #a3a39d;
+  --color-accent-ink: #a35208;
+  --color-halo: #fbe7c2;
+}
+
+/*
+ * Logo typing, once per session (BaseLayout's Header sets html[data-typing]).
+ * The logo is monospace, so each character is 1ch: the text is unclipped and the cursor
+ * stepped one character at a time. Only clip-path and transform animate.
+ */
+@keyframes type {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes cursor-type {
+  from {
+    transform: translateX(calc(var(--chars) * -1ch));
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-typing] [data-prompt] {
+    animation: type 0.6s steps(var(--chars), end) 0.35s both;
+  }
+  [data-typing] [data-prompt] + [data-cursor] {
+    animation:
+      cursor-type 0.6s steps(var(--chars), end) 0.35s both,
+      blink 1.1s steps(1, end) 0.95s infinite;
+  }
 }
 
 @layer base {
   html {
     color-scheme: dark;
     background-color: var(--color-page);
+    scrollbar-color: var(--color-line-strong) var(--color-page);
   }
   html[data-theme='light'] {
     color-scheme: light;

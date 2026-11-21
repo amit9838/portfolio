@@ -1,7 +1,7 @@
 # Public profile. Never add a phone number here (the schema rejects unknown keys).
 me:
   name: Amit Chaudhary
-  logoText: Amit
+  logoText: '/home'
   title: Software Engineer
   tagline: I build microservices, cloud-native APIs and AI-driven platforms in Python and Go, and frontends in React and TypeScript.
   city: Delhi, India

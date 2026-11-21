@@ -11,7 +11,7 @@ const profile = defineCollection({
   loader: file('src/content/profile.yaml'),
   schema: z.strictObject({
     name: z.string(),
-    /** Text after the amber // in the header logo. */
+    /** Text after the amber ~ in the header logo, e.g. `/home` for `~/home`. */
     logoText: z.string().min(1),
     title: z.string(),
     tagline: z.string(),

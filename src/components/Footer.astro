@@ -2,10 +2,6 @@
 import { Icon } from 'astro-icon/components';
 import Link from './Link.astro';
 
-interface Props {
-  name: string;
-}
-const { name } = Astro.props;
 const year = new Date().getFullYear();
 ---
 
@@ -18,8 +14,7 @@ const year = new Date().getFullYear();
       size={16}
       class="text-heart [&_path]:fill-current"
       title="love"
-    />{' '}
-    by {name}
+    />
   </p>
   <nav aria-label="Footer" class="flex flex-wrap items-center gap-x-7 gap-y-2">
     <span>

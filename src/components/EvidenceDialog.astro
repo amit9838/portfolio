@@ -20,18 +20,15 @@ const dialogId = `evidence-${id}`;
 ---
 
 <div
-  class:list={[
-    'flex flex-wrap items-center gap-x-3 gap-y-2 rounded-card border border-line bg-page px-4 py-3',
-    className,
-  ]}
+  class:list={['flex flex-wrap items-center gap-x-3 gap-y-2 border-y border-line py-3', className]}
 >
-  <Icon name="simple-icons:google" size={16} class="shrink-0 text-accent-ink" aria-hidden="true" />
+  <Icon name="simple-icons:google" size={16} class="shrink-0 text-muted" aria-hidden="true" />
   <p class="m-0 flex-1 basis-60 text-[15px] text-body">{text}</p>
   <button
     type="button"
     data-dialog-open={dialogId}
     aria-haspopup="dialog"
-    class="flex min-h-11 cursor-pointer items-center gap-1.5 border-0 bg-transparent p-0 text-[15px] font-medium text-strong underline decoration-accent decoration-[1.5px] underline-offset-[0.35em] transition-colors hover:text-accent-ink"
+    class="flex min-h-11 cursor-pointer items-center gap-1.5 border-0 bg-transparent p-0 text-[15px] font-medium text-strong underline decoration-line-strong decoration-[1.5px] underline-offset-[0.25em] transition-colors hover:text-accent-ink hover:decoration-accent"
   >
     <Icon name="lucide:image" size={16} aria-hidden="true" />
     {button}
