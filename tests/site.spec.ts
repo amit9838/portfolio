@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 
 const pages = [
   { path: '', h1: /Hey, I’m/ },
-  { path: 'resume', h1: 'My Resume / CV' },
+  { path: 'resume', h1: 'Resume' },
   { path: 'projects', h1: 'Projects' },
   { path: 'contact', h1: 'Get in touch' },
 ];
