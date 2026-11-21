@@ -37,8 +37,8 @@ const linkedin = social('LinkedIn');
   <!-- Title as a small label above the name. -->
   <p class="m-0 mb-3 text-base font-medium text-muted sm:text-lg">{profile.title}</p>
   <h1 class="m-0 font-serif text-[clamp(37px,5vw+18px,50px)] leading-[1.1] font-semibold tracking-[-0.5px]">
-    Hey, I’m <br class="sm:hidden" />
-    <span>{profile.name}</span>!
+    <span class="text-muted">Hey, I’m</span> <br class="sm:hidden" />
+    <span>{profile.name}!</span>
   </h1>
   <p class="m-0 mt-4 text-lg text-body sm:text-xl">{profile.tagline}</p>
   <p class="m-0 mt-2.5 flex items-center gap-1.5 text-sm text-muted sm:text-[15px]">
