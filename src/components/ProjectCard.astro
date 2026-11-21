@@ -118,7 +118,23 @@ const reach = [
       <h3 class={s.title()}>{p.name}</h3>
       <p class={s.desc()}>{p.desc}</p>
       <p class="m-0 mt-1.5 text-sm text-muted">
-        {[...p.stack, p.stars ? `★${p.stars}` : ''].filter(Boolean).join(', ')}
+        {p.stack.join(', ')}
+        {p.stars ? (
+          <>
+            ,{' '}
+            <span class="inline-flex items-center gap-1 font-semibold whitespace-nowrap text-strong">
+              <Icon
+                is:inline
+                name="lucide:star"
+                size={13}
+                class="shrink-0 text-accent [&_path]:fill-current"
+                aria-hidden="true"
+              />
+              {p.stars}
+              <span class="sr-only">GitHub stars</span>
+            </span>
+          </>
+        ) : null}
       </p>
     </div>
     <div class="flex gap-x-5">
