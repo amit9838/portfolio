@@ -4,7 +4,7 @@ import { tv, type VariantProps } from 'tailwind-variants';
 import Link from './Link.astro';
 
 const button = tv({
-  base: 'inline-flex min-h-[46px] items-center justify-center gap-2.5 text-base transition-colors',
+  base: 'inline-flex min-h-[46px] items-center justify-center gap-2.5 text-base transition-[color,background-color,border-color,transform] active:translate-y-px motion-reduce:active:translate-y-0',
   variants: {
     variant: {
       primary: 'bg-accent font-semibold text-on-accent hover:text-on-accent hover:brightness-110',

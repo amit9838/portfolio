@@ -34,7 +34,7 @@ const { name, logoText, socials } = await getProfile();
 ---
 
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" class="overflow-x-clip">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -50,7 +50,7 @@ const { name, logoText, socials } = await getProfile();
       })();
     </script>
   </head>
-  <body>
+  <body class="overflow-x-clip">
     <div class="flex min-h-screen flex-col">
       <Header logoText={logoText} name={name} socials={socials} />
       <main class={main({ spacing })}>

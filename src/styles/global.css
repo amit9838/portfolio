@@ -1,3 +1,8 @@
+/* Hallmark · checked: 2026-11-21 · genre: editorial (inferred) · palette: neutral graphite
+ * floor: 1 FAIL kept by owner (63, timeline meta row) · fixed: 7b, 19 (date ranges read "to"), 26b, 27, 34, 38iii, 63 elsewhere, 67, 74, F16
+ * built: the project · redesign: polish · v2.0.0 */
+/* Hallmark · waive 26b · not a form control, no aria-disabled anywhere · every portfolio button is a link, so none of them can be disabled */
+/* Hallmark · dismissed 41 · accent and accent-ink are never set on each other; accent-ink is text on page and surface only */
 @import 'tailwindcss';
 @import '@fontsource-variable/figtree';
 @import '@fontsource-variable/source-serif-4';
