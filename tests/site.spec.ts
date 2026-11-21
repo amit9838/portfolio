@@ -178,3 +178,13 @@ test('home has link-preview tags and structured data', async ({ page }) => {
   expect(ld['@type']).toBe('Person');
   expect(ld.name).toBe('Amit Chaudhary');
 });
+
+test('Flathub downloads show the full number', async ({ page }) => {
+  await page.goto('projects');
+  // The count is refreshed at build time, so match its shape: "128,573 downloads on Flathub".
+  await expect(page.getByText(/^\d{1,3}(,\d{3})+ downloads on Flathub$/)).toBeVisible();
+  // The home stat tile: the number sits above its "Flathub downloads" label.
+  await page.goto('');
+  const tile = page.getByRole('listitem').filter({ hasText: 'Flathub downloads' });
+  await expect(tile.getByText(/^\d{1,3}(,\d{3})+$/)).toBeVisible();
+});
