@@ -94,13 +94,25 @@ test('logo types itself once per session', async ({ page }) => {
   await expect(page.locator('html')).not.toHaveAttribute('data-typing');
 });
 
+test('page content animates on page switch, unless motion is reduced', async ({ page }) => {
+  const transitionName = () =>
+    page.locator('main').evaluate((el) => getComputedStyle(el).viewTransitionName);
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('');
+  expect(await transitionName()).toBe('page');
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+  expect(await transitionName()).toBe('none');
+});
+
 test('mobile drawer opens and closes', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'the drawer only exists on small screens');
-  await page.goto('');
+  // A nav page, so the drawer has a selected tab (marked without a cursor).
+  await page.goto('projects');
   const drawer = page.locator('#site-drawer');
   for (const close of ['Escape', 'button', 'backdrop'] as const) {
     await page.getByRole('button', { name: 'Open menu' }).click();
     await expect(drawer).toBeVisible();
+    await expect(drawer.locator('[data-cursor]')).toHaveCount(0);
     if (close === 'Escape') await page.keyboard.press('Escape');
     if (close === 'button') await page.getByRole('button', { name: 'Close menu' }).click();
     if (close === 'backdrop') await page.mouse.click(10, 300);
