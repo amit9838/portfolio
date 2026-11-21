@@ -58,7 +58,7 @@ tests/site.spec.ts  Playwright end-to-end tests
 - **Colours exist only as tokens in `src/styles/global.css`** (`--color-page`, `--color-surface`, `--color-strong`, `--color-body`, `--color-muted`, `--color-accent`, `--color-accent-ink`, …). Tailwind's default palette is disabled. Use token classes (`bg-surface`, `text-muted`), never hex or arbitrary colours. `npm run lint:tokens` enforces this (`src/assets/` artwork is exempt).
 - Every text colour must meet WCAG AA in **both** themes. Light-theme values live in `:root[data-theme='light']`. Check with `npm run lint:contrast`.
 - Amber `--color-accent` is for decoration. Text in the accent colour uses `--color-accent-ink`.
-- **Only two typefaces:** Figtree (`font-sans`, body and UI) and Source Serif 4 (`font-serif`, headings). Don't add fonts or fallback stacks.
+- **Typefaces:** Figtree (`font-sans`, body and UI) and Source Serif 4 (`font-serif`, headings). JetBrains Mono (`font-mono`) is for the header only: the `~/home` logo and the nav tabs. Don't use it elsewhere. Don't add fonts or fallback stacks.
 - Paragraph line height is **1.5** site-wide via the theme. Don't add `leading-*` to paragraphs. Only display text (page titles, stat numbers: `leading-[1.1]`) and tags override it.
 - Mobile-first. Breakpoints: `sm` 640px (type and stats), `md` 768px (header switches from drawer to inline nav). Nothing may scroll horizontally from 320px up.
 

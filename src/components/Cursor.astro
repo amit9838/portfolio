@@ -1,0 +1,22 @@
+---
+import { tv, type VariantProps } from 'tailwind-variants';
+
+/** Blinking terminal block cursor, sized to the surrounding text. Decorative. */
+const cursor = tv({
+  base: 'inline-block h-[0.8em] w-[0.45em] animate-blink bg-accent motion-reduce:animate-none',
+  variants: {
+    placement: {
+      /** Takes up space in the text flow, e.g. after the logo. */
+      inline: 'ml-0.5 translate-y-[0.08em]',
+      /** Hangs just past the label without adding width, so a nav row doesn't shift. Wrap the label in a `relative` span. */
+      after: 'absolute top-1/2 left-full ml-0.5 -translate-y-1/2',
+    },
+  },
+  defaultVariants: { placement: 'inline' },
+});
+
+type Props = VariantProps<typeof cursor>;
+const { placement } = Astro.props;
+---
+
+<span data-cursor aria-hidden="true" class={cursor({ placement })}></span>

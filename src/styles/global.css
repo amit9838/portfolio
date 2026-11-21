@@ -7,6 +7,7 @@
 @import '@fontsource-variable/figtree';
 @import '@fontsource-variable/source-serif-4';
 @import '@fontsource-variable/source-serif-4/wght-italic.css';
+@import '@fontsource-variable/jetbrains-mono';
 
 /*
  * Design tokens — the ONLY place colours are defined (enforced by `npm run lint:tokens`).
@@ -16,12 +17,13 @@
 @theme {
   --color-*: initial;
   /*
-   * Only two typefaces, nothing else (no system or monospace stacks):
-   * Figtree for UI/body, Source Serif 4 for headings. Generic keywords are the only fallback.
+   * Figtree for UI/body, Source Serif 4 for headings. JetBrains Mono is for the
+   * header only: the logo (the terminal prompt) and the nav tabs. Generic keywords are the only fallback.
    */
   --font-*: initial;
   --font-sans: 'Figtree Variable', sans-serif;
   --font-serif: 'Source Serif 4 Variable', serif;
+  --font-mono: 'JetBrains Mono Variable', monospace;
   --default-font-family: var(--font-sans);
   --default-mono-font-family: var(--font-sans);
 
@@ -55,6 +57,14 @@
   --text-2xl--line-height: 1.5;
 
   --container-column: 800px;
+
+  /* Terminal cursor after the logo: a hard on/off blink, opacity only. */
+  --animate-blink: blink 1.1s steps(1, end) infinite;
+  @keyframes blink {
+    50% {
+      opacity: 0;
+    }
+  }
   --radius-card: 12px;
 }
 
@@ -70,6 +80,35 @@
   --color-faint: #a3a39d;
   --color-accent-ink: #a35208;
   --color-halo: #fbe7c2;
+}
+
+/*
+ * Logo typing, once per session (BaseLayout's Header sets html[data-typing]).
+ * The logo is monospace, so each character is 1ch: the text is unclipped and the cursor
+ * stepped one character at a time. Only clip-path and transform animate.
+ */
+@keyframes type {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+@keyframes cursor-type {
+  from {
+    transform: translateX(calc(var(--chars) * -1ch));
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  [data-typing] [data-prompt] {
+    animation: type 0.6s steps(var(--chars), end) 0.35s both;
+  }
+  [data-typing] [data-prompt] + [data-cursor] {
+    animation:
+      cursor-type 0.6s steps(var(--chars), end) 0.35s both,
+      blink 1.1s steps(1, end) 0.95s infinite;
+  }
 }
 
 @layer base {

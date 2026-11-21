@@ -73,6 +73,27 @@ test('header navigation marks the current page', async ({ page, isMobile }) => {
   await expect(page).toHaveURL(/\/resume\/?$/);
 });
 
+test('terminal cursor sits on the selected tab, or on the logo', async ({ page, isMobile }) => {
+  test.skip(isMobile, 'the desktop nav shows the tabs inline');
+  const header = page.getByRole('banner');
+  await page.goto('projects');
+  await expect(header.locator('[data-cursor]')).toHaveCount(1);
+  await expect(header.getByRole('link', { name: 'Projects' }).locator('[data-cursor]')).toHaveCount(
+    1,
+  );
+  await page.goto('');
+  await expect(header.locator('[data-cursor]')).toHaveCount(1);
+  await expect(header.getByRole('link', { name: /home/ }).locator('[data-cursor]')).toHaveCount(1);
+});
+
+test('logo types itself once per session', async ({ page }) => {
+  await page.goto('');
+  await expect(page.locator('html')).toHaveAttribute('data-typing', '');
+  await expect(page.locator('[data-prompt]').first()).toHaveText('~/home');
+  await page.goto('resume');
+  await expect(page.locator('html')).not.toHaveAttribute('data-typing');
+});
+
 test('mobile drawer opens and closes', async ({ page, isMobile }) => {
   test.skip(!isMobile, 'the drawer only exists on small screens');
   await page.goto('');

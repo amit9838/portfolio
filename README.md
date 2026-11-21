@@ -47,7 +47,7 @@ scripts/        Lint, test and image-generation scripts
 tests/          Playwright end-to-end tests
 ```
 
-Colours are design tokens in `src/styles/global.css`; components use token classes (`bg-surface`, `text-muted`) and never raw colours. Typefaces are Figtree (text) and Source Serif 4 (headings), served from the site itself.
+Colours are design tokens in `src/styles/global.css`; components use token classes (`bg-surface`, `text-muted`) and never raw colours. Typefaces are Figtree (text), Source Serif 4 (headings) and JetBrains Mono (the header logo and nav tabs), served from the site itself.
 
 ## Checks
 
