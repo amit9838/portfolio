@@ -74,10 +74,10 @@ const reach = [
     </div>
     <p class={s.desc()}>{p.desc}</p>
     {reach.length > 0 && (
-      <ul class="m-0 mt-3 flex list-none flex-wrap gap-x-6 gap-y-1 p-0 text-[15px] font-medium text-accent-ink">
+      <ul class="m-0 mt-3 flex list-none flex-wrap gap-x-6 gap-y-1 p-0 text-[15px] font-medium text-body">
         {reach.map((r) => (
           <li class="flex items-center gap-2">
-            <Icon name={r.icon} size={16} class="shrink-0" aria-hidden="true" />
+            <Icon name={r.icon} size={16} class="shrink-0 text-muted" aria-hidden="true" />
             {r.text}
           </li>
         ))}

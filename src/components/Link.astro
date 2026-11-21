@@ -7,9 +7,9 @@ const link = tv({
   base: 'transition-colors hover:text-accent-ink',
   variants: {
     variant: {
-      /** Underlined in the accent colour — the template's default link. */
+      /** Neutral underline that turns amber on hover: the default link. */
       accent:
-        'font-medium text-strong underline decoration-accent decoration-[1.5px] underline-offset-[0.35em]',
+        'font-medium text-strong underline decoration-line-strong decoration-[1.5px] underline-offset-[0.25em] hover:decoration-accent',
       /** Quiet underline, e.g. footer credit. */
       plain: 'text-body underline underline-offset-[5px]',
       /** No decoration — for nav items, logo, icon links and Button. */
