@@ -12,9 +12,7 @@ export const dateRange = (start: Date, end?: Date) =>
 export const repoStats = (stars?: number, forks?: number) =>
   [stars ? `${stars} stars` : '', forks ? `${forks} forks` : ''].filter(Boolean).join(', ');
 
-/** 128573 → "128K+", 1612 → "1.6K+", 499 → "499". Rounds down so the "+" stays true. */
-export const compactCount = (n: number) => {
-  if (n < 1000) return String(n);
-  const k = n / 1000;
-  return `${k < 10 ? Math.floor(k * 10) / 10 : Math.floor(k)}K+`;
-};
+const whole = new Intl.NumberFormat('en-US');
+
+/** 128573 → "128,573". */
+export const fullCount = (n: number) => whole.format(n);

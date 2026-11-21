@@ -7,7 +7,6 @@
 @import '@fontsource-variable/figtree';
 @import '@fontsource-variable/source-serif-4';
 @import '@fontsource-variable/source-serif-4/wght-italic.css';
-@import '@fontsource-variable/jetbrains-mono';
 
 /*
  * Design tokens — the ONLY place colours are defined (enforced by `npm run lint:tokens`).
@@ -17,13 +16,14 @@
 @theme {
   --color-*: initial;
   /*
-   * Figtree for UI/body, Source Serif 4 for headings. JetBrains Mono is for the
-   * header only: the logo (the terminal prompt) and the nav tabs. Generic keywords are the only fallback.
+   * Figtree for UI/body, Source Serif 4 for headings. The system monospace font is for the
+   * header only: the logo (the terminal prompt) and the nav tabs. The mono stack lists each platform's
+   * modern system monospace (the bare keyword gives Courier); elsewhere generic keywords are the only fallback.
    */
   --font-*: initial;
   --font-sans: 'Figtree Variable', sans-serif;
   --font-serif: 'Source Serif 4 Variable', serif;
-  --font-mono: 'JetBrains Mono Variable', monospace;
+  --font-mono: ui-monospace, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;
   --default-font-family: var(--font-sans);
   --default-mono-font-family: var(--font-sans);
 

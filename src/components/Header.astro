@@ -138,9 +138,24 @@ const onNavPage = nav.some((item) => item.href === current);
   const opener = document.querySelector<HTMLButtonElement>('[data-drawer-open]');
   if (drawer && opener) {
     opener.addEventListener('click', () => drawer.showModal());
-    // Close on backdrop click (outside the panel).
+    const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
     drawer.addEventListener('click', (e) => {
-      if (e.target === drawer) drawer.close();
+      // Close on backdrop click (outside the panel).
+      if (e.target === drawer) return drawer.close();
+      // A same-tab link: let the drawer slide out first, then navigate.
+      const link = (e.target as Element).closest('a');
+      if (!link || link.target === '_blank' || reducedMotion.matches) return;
+      if (e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      e.preventDefault();
+      drawer.close();
+      let gone = false;
+      const go = () => {
+        if (gone) return;
+        gone = true;
+        location.assign(link.href);
+      };
+      drawer.addEventListener('transitionend', go, { once: true });
+      setTimeout(go, 300); // in case no transition runs
     });
     // Close if the viewport grows to desktop while open.
     matchMedia('(min-width: 768px)').addEventListener('change', (e) => {

@@ -3,7 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
 import { tv } from 'tailwind-variants';
-import { compactCount, repoStats } from '../lib/format';
+import { fullCount, repoStats } from '../lib/format';
 import Card from './Card.astro';
 import EvidenceDialog from './EvidenceDialog.astro';
 import FeaturedBy from './FeaturedBy.astro';
@@ -46,7 +46,7 @@ const stats = repoStats(p.stars, p.forks);
 const reach = [
   p.downloads && {
     icon: 'lucide:download',
-    text: `${compactCount(p.downloads)} downloads on Flathub`,
+    text: `${fullCount(p.downloads)} downloads on Flathub`,
   },
   p.distroRepos && { icon: 'lucide:package', text: `Packaged in ${p.distroRepos}+ distro repos` },
 ].filter((r): r is { icon: string; text: string } => Boolean(r));

@@ -20,15 +20,13 @@ const font = async (pkg, file) =>
   (await readFile(path.join('node_modules/@fontsource-variable', pkg, 'files', file))).toString(
     'base64',
   );
-const [figtree, serif, mono] = await Promise.all([
+const [figtree, serif] = await Promise.all([
   font('figtree', 'figtree-latin-wght-normal.woff2'),
   font('source-serif-4', 'source-serif-4-latin-wght-normal.woff2'),
-  font('jetbrains-mono', 'jetbrains-mono-latin-wght-normal.woff2'),
 ]);
 const fonts = `
   @font-face { font-family: Figtree; font-weight: 300 900; src: url(data:font/woff2;base64,${figtree}) format('woff2'); }
   @font-face { font-family: 'Source Serif 4'; font-weight: 200 900; src: url(data:font/woff2;base64,${serif}) format('woff2'); }
-  @font-face { font-family: 'JetBrains Mono'; font-weight: 100 800; src: url(data:font/woff2;base64,${mono}) format('woff2'); }
   * { box-sizing: border-box; margin: 0; }
   body { font-family: Figtree, sans-serif; }`;
 
@@ -36,7 +34,7 @@ const wave = `<svg width="150" height="20" viewBox="0 0 150 20" fill="none"><pat
 
 const ogHtml = `<!doctype html><html><head><style>${fonts}
   body { width: 1200px; height: 630px; background: #111113; color: #ededea; padding: 64px 80px; display: flex; flex-direction: column; }
-  .logo { font-family: 'JetBrains Mono', monospace; font-size: 32px; font-weight: 700; display: flex; align-items: center; }
+  .logo { font-family: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace; font-size: 32px; font-weight: 700; display: flex; align-items: center; }
   .logo span { color: #fca311; }
   .logo i { display: inline-block; width: 0.55em; height: 0.85em; margin-left: 4px; background: #fca311; }
   .eyebrow { margin-top: 56px; font-size: 20px; font-weight: 600; color: #94948e; }

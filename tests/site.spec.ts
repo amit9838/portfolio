@@ -2,7 +2,7 @@ import { expect, test, type Page } from '@playwright/test';
 
 const pages = [
   { path: '', h1: /Hey, I’m/ },
-  { path: 'resume', h1: 'My Resume / CV' },
+  { path: 'resume', h1: 'Resume' },
   { path: 'projects', h1: 'Projects' },
   { path: 'contact', h1: 'Get in touch' },
 ];
@@ -120,6 +120,23 @@ test('mobile drawer opens and closes', async ({ page, isMobile }) => {
   }
 });
 
+test('drawer slides closed before following a link', async ({ page, isMobile }) => {
+  test.skip(!isMobile, 'the drawer only exists on small screens');
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.goto('');
+  // Record whether the drawer was still open as the page unloads.
+  await page.evaluate(() =>
+    addEventListener('pagehide', () => {
+      const open = (document.getElementById('site-drawer') as HTMLDialogElement).open;
+      sessionStorage.setItem('drawerOpenOnLeave', String(open));
+    }),
+  );
+  await page.getByRole('button', { name: 'Open menu' }).click();
+  await page.locator('#site-drawer').getByRole('link', { name: 'Resume' }).click();
+  await expect(page).toHaveURL(/\/resume$/);
+  expect(await page.evaluate(() => sessionStorage.getItem('drawerOpenOnLeave'))).toBe('false');
+});
+
 test('desktop has no menu button', async ({ page, isMobile }) => {
   test.skip(isMobile, 'desktop only');
   await page.goto('');
@@ -177,4 +194,14 @@ test('home has link-preview tags and structured data', async ({ page }) => {
   const ld = JSON.parse((await page.locator('script[type="application/ld+json"]').textContent())!);
   expect(ld['@type']).toBe('Person');
   expect(ld.name).toBe('Amit Chaudhary');
+});
+
+test('Flathub downloads show the full number', async ({ page }) => {
+  await page.goto('projects');
+  // The count is refreshed at build time, so match its shape: "128,573 downloads on Flathub".
+  await expect(page.getByText(/^\d{1,3}(,\d{3})+ downloads on Flathub$/)).toBeVisible();
+  // The home stat tile: the number sits above its "Flathub downloads" label.
+  await page.goto('');
+  const tile = page.getByRole('listitem').filter({ hasText: 'Flathub downloads' });
+  await expect(tile.getByText(/^\d{1,3}(,\d{3})+$/)).toBeVisible();
 });
