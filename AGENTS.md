@@ -88,10 +88,10 @@ tests/site.spec.ts  Playwright end-to-end tests
 
 ## Git and deploy
 
-- Default branch: `master`. Work on a feature branch.
+- Default branch: `main`. Work on a feature branch.
 - Ask before committing, pushing or opening a PR.
 - Never add a `Co-Authored-By` (or any AI attribution) line to commits or PRs.
 - Commit in phases: one commit per logical change, not one big commit.
-- CI (`.github/workflows/deploy.yml`) runs lint, build, the privacy check, e2e and link checks on every PR. Pushes to `master` deploy to GitHub Pages.
+- CI (`.github/workflows/deploy.yml`) runs lint, build, the privacy check, e2e and link checks on every PR. Pushes to `main` deploy to GitHub Pages.
 - Not committed: `PLAN.md`, `docs/design-ref/` (third-party design screenshots), `dist/`, `.astro/`, test output.
 - Credit for the original design (Andrei Hudovich, Dribbble) stays in the footer and README.

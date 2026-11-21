@@ -62,6 +62,6 @@ Colours are design tokens in `src/styles/global.css`; components use token class
 
 ## Deployment
 
-`.github/workflows/deploy.yml` runs the checks on every pull request and push. Pushes to `master` are then built with `withastro/action` and deployed to GitHub Pages.
+`.github/workflows/deploy.yml` runs the checks on every pull request and push. Pushes to `main` are then built with `withastro/action` and deployed to GitHub Pages.
 
 One-time setup: in the repository's **Settings → Pages**, set **Source** to **GitHub Actions**.
