@@ -18,8 +18,3 @@ me:
         inHeader: true,
       }
     - { name: X, url: 'https://x.com/AMIT0539', icon: 'simple-icons:x' }
-    - {
-        name: Flathub,
-        url: 'https://flathub.org/apps/io.github.amit9838.mousam',
-        icon: 'simple-icons:flathub',
-      }
