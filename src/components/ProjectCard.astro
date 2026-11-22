@@ -11,6 +11,14 @@ import Link from './Link.astro';
 
 type Project = CollectionEntry<'projects'>['data'];
 
+/** Icons for flagship card links, by label. Any other label gets a generic external-link icon. */
+const linkIcons: Record<string, string> = {
+  GitHub: 'lucide:github',
+  Flathub: 'simple-icons:flathub',
+  'Snap Store': 'simple-icons:snapcraft',
+  Website: 'lucide:globe',
+};
+
 const card = tv({
   slots: {
     title: 'm-0 font-serif',
@@ -23,8 +31,9 @@ const card = tv({
       flagship: {
         title: 'text-[30px] font-semibold',
         desc: 'mt-3.5 text-lg',
-        links: 'mt-5 gap-x-6 gap-y-1',
-        link: 'text-base',
+        /** Phones: a 2-column grid, so 4 links never leave one alone on a row. From sm: one row. */
+        links: 'mt-5 grid grid-cols-2 gap-x-6 gap-y-1 sm:flex sm:flex-wrap',
+        link: 'gap-1.5 justify-self-start text-base',
       },
       compact: {
         title: 'text-lg font-semibold',
@@ -105,6 +114,12 @@ const reach = [
     <div class={s.links()}>
       {p.links.map((l) => (
         <Link href={l.url} class={s.link()}>
+          <Icon
+            name={linkIcons[l.label] ?? 'lucide:external-link'}
+            size={16}
+            class="shrink-0"
+            aria-hidden="true"
+          />
           {l.label}
         </Link>
       ))}
