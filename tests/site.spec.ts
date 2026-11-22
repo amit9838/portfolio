@@ -174,6 +174,14 @@ test('external links open in a new tab, internal ones do not', async ({ page }) 
   }
 });
 
+test('"Find me on" lists each social with its handle', async ({ page }) => {
+  await page.goto('contact');
+  const list = page.getByRole('heading', { name: 'Find me on' }).locator('xpath=following::ul[1]');
+  await expect(list.getByRole('link', { name: /GitHub @amit9838/ })).toBeVisible();
+  await expect(list.getByRole('link', { name: /LinkedIn Amit Chaudhary/ })).toBeVisible();
+  await expect(list.getByRole('link', { name: /X @AMIT0539/ })).toBeVisible();
+});
+
 test('"Keep exploring" links match each page', async ({ page }) => {
   const expected: Record<string, string[]> = {
     '': ['Resume', 'Projects'],
@@ -204,4 +212,8 @@ test('Flathub downloads show the full number', async ({ page }) => {
   await page.goto('');
   const tile = page.getByRole('listitem').filter({ hasText: 'Flathub downloads' });
   await expect(tile.getByText(/^\d{1,3}(,\d{3})+$/)).toBeVisible();
+  // Resume achievements fill `{project.metric}` placeholders, with downloads as "129K+".
+  await page.goto('resume');
+  await expect(page.getByText(/Mousam.* \d+K\+ Flathub downloads/)).toBeVisible();
+  await expect(page.locator('main')).not.toContainText('{');
 });

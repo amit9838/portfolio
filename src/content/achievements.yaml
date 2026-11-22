@@ -1,6 +1,7 @@
+# `{project.metric}` is filled in from projects.yaml (downloads, stars or distros).
 mousam:
   order: 1
-  text: Built Mousam, a Linux weather app with 128K+ Flathub downloads, packaged by Debian, Ubuntu, Arch, NixOS and openSUSE, and featured by DistroTube and OMG! Ubuntu.
+  text: Built Mousam, a Linux weather app with {mousam.downloads} Flathub downloads, packaged by Debian, Ubuntu, Arch, NixOS and openSUSE, and featured by DistroTube and OMG! Ubuntu.
 dsa: { order: 2, text: Solved 800+ DSA problems. }
 volunteer:
   {

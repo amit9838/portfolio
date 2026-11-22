@@ -3,22 +3,24 @@ me:
   name: Amit Chaudhary
   logoText: '/home'
   title: Software Engineer
-  tagline: I build microservices, cloud-native APIs and AI-driven platforms in Python and Go, and frontends in React and TypeScript.
+  tagline: Software engineer with 3+ years of experience building scalable backend systems. I work on microservices and cloud infrastructure designed to handle growing traffic, and build AI-based automation.
   city: Delhi, India
   openToRemote: true
+  openToRelocate: true
   timezone: IST, UTC+5:30
   email: amitchaudhary0539@gmail.com
   socials:
-    - { name: GitHub, url: 'https://github.com/amit9838', icon: 'lucide:github', inHeader: true }
-    - {
-        name: LinkedIn,
-        url: 'https://www.linkedin.com/in/amit-chaudhary-2b8b22199',
-        icon: 'lucide:linkedin',
-        inHeader: true,
-      }
-    - { name: X, url: 'https://x.com/AMIT0539', icon: 'simple-icons:x' }
-    - {
-        name: Flathub,
-        url: 'https://flathub.org/apps/io.github.amit9838.mousam',
-        icon: 'simple-icons:flathub',
-      }
+    - name: GitHub
+      handle: '@amit9838'
+      url: https://github.com/amit9838
+      icon: lucide:github
+      inHeader: true
+    - name: LinkedIn
+      handle: Amit Chaudhary
+      url: https://www.linkedin.com/in/amit-chaudhary-2b8b22199
+      icon: lucide:linkedin
+      inHeader: true
+    - name: X
+      handle: '@AMIT0539'
+      url: https://x.com/AMIT0539
+      icon: simple-icons:x

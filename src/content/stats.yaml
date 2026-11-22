@@ -24,12 +24,5 @@ caching:
     source: CivicDataLab,
   }
 downloads: { group: oss, order: 4, project: mousam, metric: downloads, label: Flathub downloads }
-distros:
-  {
-    group: oss,
-    order: 5,
-    project: mousam,
-    metric: distroRepos,
-    label: Linux distro repos package it,
-  }
+distros: { group: oss, order: 5, project: mousam, metric: distros, label: Linux distros package it }
 stars: { group: oss, order: 6, project: mousam, metric: stars, label: GitHub stars }

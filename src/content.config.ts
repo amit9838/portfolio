@@ -17,6 +17,7 @@ const profile = defineCollection({
     tagline: z.string(),
     city: z.string(),
     openToRemote: z.boolean(),
+    openToRelocate: z.boolean(),
     timezone: z.string(),
     email: z.email(),
     socials: z.array(
@@ -24,6 +25,8 @@ const profile = defineCollection({
         name: z.string(),
         url: z.url(),
         icon: z.string(),
+        /** Shown beside the name on Contact, e.g. "@amit9838". */
+        handle: z.string(),
         inHeader: z.boolean().default(false),
       }),
     ),
@@ -37,7 +40,7 @@ const stats = defineCollection({
       value: z.string().optional(),
       /** A project id: the value comes from that project's live `metric`. */
       project: z.string().optional(),
-      metric: z.enum(['stars', 'downloads', 'distroRepos']).default('stars'),
+      metric: z.enum(['stars', 'downloads', 'distros']).default('stars'),
       label: z.string(),
       /** `work` stats name their company in `source`; `oss` stats come from one project. */
       group: z.enum(['work', 'oss']),
@@ -108,8 +111,8 @@ const projects = defineCollection({
       /** Flathub app ID: `downloads` is refreshed from Flathub at build time. */
       flathub: z.string().optional(),
       downloads: z.number().int().nonnegative().optional(), // fallback
-      /** Number of distro repositories packaging it (from Repology). */
-      distroRepos: z.number().int().positive().optional(),
+      /** Number of distinct Linux distros packaging it (Repology: one per distro, not per release). */
+      distros: z.number().int().positive().optional(),
       /** A short verbatim quote from a review. */
       quote: z
         .strictObject({ text: z.string().max(160), source: z.string(), url: z.url() })

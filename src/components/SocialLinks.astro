@@ -12,10 +12,10 @@ const social = tv({
     layout: {
       /** Header: icon-only, 44px targets, header socials only. */
       icons: { list: 'gap-0.5', link: 'size-11 justify-center text-strong' },
-      /** "Find me on": icon + name, all socials. */
+      /** "Find me on": one row per social (icon, name, handle, arrow), all socials. */
       labelled: {
-        list: 'grid grid-cols-2 gap-x-6 gap-y-2 text-xl sm:flex sm:gap-x-8',
-        link: 'min-h-11 gap-3',
+        list: 'max-w-md flex-col items-stretch border-t border-line text-lg sm:text-xl',
+        link: 'min-h-14 gap-3 border-b border-line py-2 hover:text-strong',
       },
     },
   },
@@ -23,7 +23,7 @@ const social = tv({
 });
 
 interface Props extends VariantProps<typeof social> {
-  socials: { name: string; url: string; icon: string; inHeader: boolean }[];
+  socials: { name: string; url: string; icon: string; handle?: string; inHeader: boolean }[];
 }
 
 const { socials, layout = 'labelled' } = Astro.props;
@@ -40,8 +40,28 @@ const shown = layout === 'icons' ? socials.filter((x) => x.inHeader) : socials;
         class={s.link()}
         aria-label={layout === 'icons' ? `${x.name} (opens in a new tab)` : undefined}
       >
-        <Icon name={x.icon} size={layout === 'icons' ? 22 : 21} aria-hidden="true" />
-        {layout === 'labelled' && x.name}
+        <Icon
+          name={x.icon}
+          size={layout === 'icons' ? 22 : 21}
+          class="shrink-0"
+          aria-hidden="true"
+        />
+        {layout === 'labelled' && (
+          <>
+            <span class="text-strong">{x.name}</span>
+            {x.handle && (
+              <span class="ml-auto min-w-0 truncate text-base text-muted sm:text-lg">
+                {x.handle}
+              </span>
+            )}
+            <Icon
+              name="lucide:arrow-up-right"
+              size={18}
+              class={`shrink-0 text-muted ${x.handle ? '' : 'ml-auto'}`}
+              aria-hidden="true"
+            />
+          </>
+        )}
       </Link>
     </li>
   ))}
