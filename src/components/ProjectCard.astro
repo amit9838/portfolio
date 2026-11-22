@@ -48,7 +48,7 @@ const reach = [
     icon: 'lucide:download',
     text: `${fullCount(p.downloads)} downloads on Flathub`,
   },
-  p.distroRepos && { icon: 'lucide:package', text: `Packaged in ${p.distroRepos}+ distro repos` },
+  p.distros && { icon: 'lucide:package', text: `Packaged by ${p.distros}+ Linux distros` },
 ].filter((r): r is { icon: string; text: string } => Boolean(r));
 ---
 

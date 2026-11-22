@@ -11,7 +11,7 @@ mousam:
   forks: 72
   flathub: io.github.amit9838.mousam
   downloads: 129075
-  distroRepos: 18
+  distros: 10
   quote:
     text: Mousam is more than a match for meteorological software made by the likes of Apple, Microsoft and Google.
     source: OMG! Ubuntu

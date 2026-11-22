@@ -20,7 +20,7 @@ export async function getStatGroups() {
       const p = await getEntry('projects', project!);
       const n = p?.data[metric];
       if (!n) throw new Error(`stats.yaml: project "${project}" has no ${metric}`);
-      const format = { stars: `★${n}`, downloads: fullCount(n), distroRepos: `${n}+` };
+      const format = { stars: `★${n}`, downloads: fullCount(n), distros: `${n}+` };
       return { group, value: format[metric], label, source, project: p.data.name };
     }),
   );
