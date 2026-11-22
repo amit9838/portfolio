@@ -204,4 +204,8 @@ test('Flathub downloads show the full number', async ({ page }) => {
   await page.goto('');
   const tile = page.getByRole('listitem').filter({ hasText: 'Flathub downloads' });
   await expect(tile.getByText(/^\d{1,3}(,\d{3})+$/)).toBeVisible();
+  // Resume achievements fill `{project.metric}` placeholders, with downloads as "129K+".
+  await page.goto('resume');
+  await expect(page.getByText(/Mousam.* \d+K\+ Flathub downloads/)).toBeVisible();
+  await expect(page.locator('main')).not.toContainText('{');
 });

@@ -16,3 +16,6 @@ const whole = new Intl.NumberFormat('en-US');
 
 /** 128573 → "128,573". */
 export const fullCount = (n: number) => whole.format(n);
+
+/** 129075 → "129K+": rounded down, so the claim never overstates. Under 1,000 stays exact. */
+export const compactCount = (n: number) => (n < 1000 ? String(n) : `${Math.floor(n / 1000)}K+`);

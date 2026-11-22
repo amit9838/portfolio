@@ -1,5 +1,5 @@
 import { getCollection, getEntry } from 'astro:content';
-import { fullCount } from './format';
+import { compactCount, fullCount } from './format';
 
 /** Typed, pre-sorted access to every collection. Pages and BaseLayout use these, never raw getCollection. */
 
@@ -36,8 +36,23 @@ export async function getStatGroups() {
 export const getSkillGroups = async () =>
   (await getCollection('skills')).map((e) => e.data).sort(byOrder);
 
-export const getAchievements = async () =>
-  (await getCollection('achievements')).map((e) => e.data).sort(byOrder);
+/** In order, with `{project.metric}` placeholders filled from projects.yaml, so numbers stay live. */
+export async function getAchievements() {
+  const items = (await getCollection('achievements')).map((e) => e.data).sort(byOrder);
+  const metrics = { downloads: compactCount, stars: String, distros: (n: number) => `${n}+` };
+  return Promise.all(
+    items.map(async (a) => {
+      let text = a.text;
+      for (const [token, id, metric] of a.text.matchAll(/\{([\w-]+)\.(\w+)\}/g)) {
+        const n = (await getEntry('projects', id!))?.data[metric as keyof typeof metrics];
+        if (!(metric! in metrics) || typeof n !== 'number')
+          throw new Error(`achievements.yaml: ${token} has no value`);
+        text = text.replace(token, metrics[metric as keyof typeof metrics](n));
+      }
+      return { ...a, text };
+    }),
+  );
+}
 
 /** Newest first. */
 export const getExperience = async () =>
