@@ -10,11 +10,17 @@ me:
   timezone: IST, UTC+5:30
   email: amitchaudhary0539@gmail.com
   socials:
-    - { name: GitHub, url: 'https://github.com/amit9838', icon: 'lucide:github', inHeader: true }
-    - {
-        name: LinkedIn,
-        url: 'https://www.linkedin.com/in/amit-chaudhary-2b8b22199',
-        icon: 'lucide:linkedin',
-        inHeader: true,
-      }
-    - { name: X, url: 'https://x.com/AMIT0539', icon: 'simple-icons:x' }
+    - name: GitHub
+      handle: '@amit9838'
+      url: https://github.com/amit9838
+      icon: lucide:github
+      inHeader: true
+    - name: LinkedIn
+      handle: Amit Chaudhary
+      url: https://www.linkedin.com/in/amit-chaudhary-2b8b22199
+      icon: lucide:linkedin
+      inHeader: true
+    - name: X
+      handle: '@AMIT0539'
+      url: https://x.com/AMIT0539
+      icon: simple-icons:x

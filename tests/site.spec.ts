@@ -174,6 +174,14 @@ test('external links open in a new tab, internal ones do not', async ({ page }) 
   }
 });
 
+test('"Find me on" lists each social with its handle', async ({ page }) => {
+  await page.goto('contact');
+  const list = page.getByRole('heading', { name: 'Find me on' }).locator('xpath=following::ul[1]');
+  await expect(list.getByRole('link', { name: /GitHub @amit9838/ })).toBeVisible();
+  await expect(list.getByRole('link', { name: /LinkedIn Amit Chaudhary/ })).toBeVisible();
+  await expect(list.getByRole('link', { name: /X @AMIT0539/ })).toBeVisible();
+});
+
 test('"Keep exploring" links match each page', async ({ page }) => {
   const expected: Record<string, string[]> = {
     '': ['Resume', 'Projects'],

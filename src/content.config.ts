@@ -25,6 +25,8 @@ const profile = defineCollection({
         name: z.string(),
         url: z.url(),
         icon: z.string(),
+        /** Shown beside the name on Contact, e.g. "@amit9838". */
+        handle: z.string(),
         inHeader: z.boolean().default(false),
       }),
     ),
