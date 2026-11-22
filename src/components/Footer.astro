@@ -5,9 +5,9 @@ import Link from './Link.astro';
 const year = new Date().getFullYear();
 ---
 
-<footer class="flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-line px-5 py-6 text-base font-light text-body sm:px-10">
+<footer class="flex flex-col gap-y-1 border-t border-line px-5 py-4 text-[15px] font-light text-body sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-6 sm:px-10 sm:py-6 sm:text-base">
   <p class="m-0 flex items-center gap-1.5">
-    © {year} Built with
+    © {year} · Built with
     <Icon
       is:inline
       name="lucide:heart"
@@ -15,9 +15,10 @@ const year = new Date().getFullYear();
       class="text-heart [&_path]:fill-current"
       title="love"
     />
+    by Amit
   </p>
-  <nav aria-label="Footer" class="flex flex-wrap items-center gap-x-7 gap-y-2">
-    <span>
+  <nav aria-label="Footer" class="flex flex-wrap items-center gap-x-5 sm:gap-x-7">
+    <span class="py-2">
       Design by{' '}
       <Link
         href="https://dribbble.com/shots/24357096-Full-Stack-Developer-Personal-Website"
