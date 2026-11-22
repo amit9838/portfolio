@@ -11,7 +11,7 @@ const og = {
   name: 'Amit Chaudhary',
   title: 'Software Engineer',
   tagline:
-    'I build microservices, cloud-native APIs and AI-driven platforms in Python and Go, and frontends in React and TypeScript.',
+    'Software engineer with 3+ years of experience building scalable backend systems. I work on microservices and cloud infrastructure designed to handle growing traffic, and build AI-based automation.',
   facts: ['50K+ daily logins', '500+ videos a day', '128K+ Flathub downloads'],
   url: 'amit9838.github.io/portfolio',
 };
