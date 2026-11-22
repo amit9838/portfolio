@@ -17,6 +17,7 @@ const profile = defineCollection({
     tagline: z.string(),
     city: z.string(),
     openToRemote: z.boolean(),
+    openToRelocate: z.boolean(),
     timezone: z.string(),
     email: z.email(),
     socials: z.array(

@@ -8,6 +8,10 @@ import { getProfile } from '../lib/content';
 
 const profile = await getProfile();
 const linkedin = profile.socials.find((s) => s.name === 'LinkedIn');
+const openTo = [
+  profile.openToRemote && 'remote work',
+  profile.openToRelocate && 'relocation',
+].filter(Boolean);
 ---
 
 <BaseLayout
@@ -32,7 +36,7 @@ const linkedin = profile.socials.find((s) => s.name === 'LinkedIn');
     )}
     <p class="m-0 mt-4">
       I’m based in {profile.city} ({profile.timezone})
-      {profile.openToRemote && ' and open to remote work'}.
+      {openTo.length > 0 && ` and open to ${openTo.join(' and ')}`}.
     </p>
   </div>
 

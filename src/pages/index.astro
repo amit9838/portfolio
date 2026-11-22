@@ -26,6 +26,9 @@ const person = {
 const social = (name: string) => profile.socials.find((s) => s.name === name);
 const github = social('GitHub');
 const linkedin = social('LinkedIn');
+const openTo = [profile.openToRemote && 'remote', profile.openToRelocate && 'relocation'].filter(
+  Boolean,
+);
 ---
 
 <BaseLayout
@@ -41,11 +44,14 @@ const linkedin = social('LinkedIn');
     <span>{profile.name}!</span>
   </h1>
   <p class="m-0 mt-4 text-lg text-body sm:text-xl">{profile.tagline}</p>
-  <p class="m-0 mt-2.5 flex items-center gap-1.5 text-sm text-muted sm:text-[15px]">
+  <!-- Phones: "Open to …" on its own line under the city (indented past the pin). From sm: one row with a divider. -->
+  <p class="m-0 mt-2.5 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 text-sm text-muted sm:text-[15px]">
     <Icon name="lucide:map-pin" size={15} class="shrink-0" aria-hidden="true" />
-    {profile.city}
-    {profile.openToRemote && (
-      <span class="ml-1.5 border-l border-line-strong pl-3">Open to remote</span>
+    <span class="whitespace-nowrap">{profile.city}</span>
+    {openTo.length > 0 && (
+      <span class="w-full pl-[21px] sm:ml-1.5 sm:w-auto sm:border-l sm:border-line-strong sm:pl-3">
+        Open to {openTo.join(' and ')}
+      </span>
     )}
   </p>
 
