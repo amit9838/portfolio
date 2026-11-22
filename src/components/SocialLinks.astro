@@ -14,7 +14,7 @@ const social = tv({
       icons: { list: 'gap-0.5', link: 'size-11 justify-center text-strong' },
       /** "Find me on": icon + name, all socials. */
       labelled: {
-        list: 'grid grid-cols-2 gap-x-6 gap-y-1 text-base sm:flex sm:gap-x-8',
+        list: 'grid grid-cols-2 gap-x-6 gap-y-2 text-xl sm:flex sm:gap-x-8',
         link: 'min-h-11 gap-3',
       },
     },
@@ -40,7 +40,7 @@ const shown = layout === 'icons' ? socials.filter((x) => x.inHeader) : socials;
         class={s.link()}
         aria-label={layout === 'icons' ? `${x.name} (opens in a new tab)` : undefined}
       >
-        <Icon name={x.icon} size={layout === 'icons' ? 22 : 18} aria-hidden="true" />
+        <Icon name={x.icon} size={layout === 'icons' ? 22 : 21} aria-hidden="true" />
         {layout === 'labelled' && x.name}
       </Link>
     </li>
