@@ -38,7 +38,7 @@ mousam:
 brewlens:
   name: BrewLens
   tier: compact
-  order: 7
+  order: 3
   desc: A visual app store for Homebrew with search, trending apps, checksums, and Brewfile import and export.
   stack: [TypeScript]
   repo: amit9838/brewlens
@@ -49,7 +49,7 @@ brewlens:
 focal:
   name: Focal
   tier: compact
-  order: 4
+  order: 6
   desc: A browser photo editor built around plugins, with the engine kept separate from the tools.
   stack: [React, TypeScript, Zustand]
   repo: amit9838/focal
@@ -58,7 +58,7 @@ focal:
 mail-dispatcher:
   name: Mail Dispatcher
   tier: compact
-  order: 6
+  order: 7
   desc: Bulk email sender where a producer feeds a pool of worker goroutines.
   stack: [Go standard library]
   links:
@@ -73,3 +73,24 @@ complaints-manager:
   stars: 5
   links:
     - { label: GitHub, url: 'https://github.com/amit9838/complaints-manager' }
+splitwise-go:
+  name: Splitwise Backend
+  tier: compact
+  order: 4
+  desc: An expense-sharing backend with groups, four ways to split a bill, settlements, and debt simplification that minimises repayments. JWT auth with refresh tokens.
+  stack: [Go, net/http, SQLite]
+  repo: amit9838/splitwise-backend-go
+  stars: 0
+  links:
+    - { label: GitHub, url: 'https://github.com/amit9838/splitwise-backend-go' }
+ascent:
+  name: Ascent
+  tier: compact
+  order: 5
+  desc: A DSA practice tracker with 250 problems, daily goals, streaks and a friends leaderboard. Works offline, with optional sign-in to sync across devices.
+  stack: [React, TypeScript, Firebase]
+  repo: amit9838/ascent
+  stars: 1
+  links:
+    - { label: GitHub, url: 'https://github.com/amit9838/ascent' }
+    - { label: Website, url: 'https://amit9838.github.io/ascent/' }

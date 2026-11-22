@@ -4,8 +4,10 @@ import ProjectCard from '../components/ProjectCard.astro';
 import SectionHeading from '../components/SectionHeading.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getProfile, getProjects } from '../lib/content';
+import { compactCount } from '../lib/format';
 
 const [profile, { flagship, compact }] = await Promise.all([getProfile(), getProjects()]);
+const mousam = flagship.find((p) => p.flathub);
 ---
 
 <BaseLayout
@@ -14,7 +16,7 @@ const [profile, { flagship, compact }] = await Promise.all([getProfile(), getPro
 >
   <PageIntro
     title="Projects"
-    lead="Things I’ve built outside work: a Linux app with thousands of users, browser apps in React and TypeScript, and smaller Go and Django tools."
+    lead={`Things I’ve built outside work: a Linux weather app downloaded ${mousam?.downloads ? compactCount(mousam.downloads) : 'thousands of'} times, web apps in React and TypeScript, and backend services in Go and Python.`}
   />
 
   <div class="-mx-2 mt-14 flex flex-col gap-6 sm:mx-0">
